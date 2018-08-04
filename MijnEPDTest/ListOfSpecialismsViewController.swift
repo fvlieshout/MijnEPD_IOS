@@ -72,4 +72,9 @@ extension ListOfSpecialismsViewController: UITableViewDelegate, UITableViewDataS
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let specialismTemp = specialisms[indexPath.row]
+        let specialismString = specialismTemp.title
+        self.performSegue(withIdentifier: "naarMappen", sender: self)
+    }
 }

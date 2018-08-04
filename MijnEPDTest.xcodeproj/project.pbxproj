@@ -19,6 +19,8 @@
 		F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */; };
 		F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */; };
 		F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7E21161C9B0052BB27 /* Specialism.swift */; };
+		F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8021163F280052BB27 /* FolderCell.swift */; };
+		F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F822116442E0052BB27 /* FolderClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSpecialismsViewController.swift; sourceTree = "<group>"; };
 		F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialismCell.swift; sourceTree = "<group>"; };
 		F04F2F7E21161C9B0052BB27 /* Specialism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialism.swift; sourceTree = "<group>"; };
+		F04F2F8021163F280052BB27 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
+		F04F2F822116442E0052BB27 /* FolderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
+				F04F2F8021163F280052BB27 /* FolderCell.swift */,
+				F04F2F822116442E0052BB27 /* FolderClass.swift */,
 				F04F2F7E21161C9B0052BB27 /* Specialism.swift */,
 				F04F2F782113656C0052BB27 /* NewTableViewController.swift */,
 				F04F2F0F210B0D730052BB27 /* Assets.xcassets */,
@@ -274,10 +280,12 @@
 				F04F2F792113656C0052BB27 /* NewTableViewController.swift in Sources */,
 				F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */,
 				F04F2F0B210B0D720052BB27 /* ViewController.swift in Sources */,
+				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
+				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

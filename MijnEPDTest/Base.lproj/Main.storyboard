@@ -85,7 +85,6 @@
                                                 <constraint firstItem="56A-xc-rpr" firstAttribute="centerY" secondItem="mLh-ab-MVU" secondAttribute="centerY" id="9sh-Wc-HVX"/>
                                                 <constraint firstItem="Z2j-LY-tDE" firstAttribute="centerY" secondItem="mLh-ab-MVU" secondAttribute="centerY" id="NGi-o9-ZDW"/>
                                                 <constraint firstItem="56A-xc-rpr" firstAttribute="leading" secondItem="Z2j-LY-tDE" secondAttribute="trailing" constant="12" id="YXO-9q-TZQ"/>
-                                                <constraint firstItem="Z2j-LY-tDE" firstAttribute="leading" secondItem="mLh-ab-MVU" secondAttribute="leading" constant="15" id="axn-Fk-jxX"/>
                                                 <constraint firstItem="Z2j-LY-tDE" firstAttribute="leading" secondItem="mLh-ab-MVU" secondAttribute="leading" constant="5" id="szn-PJ-0ZH"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="56A-xc-rpr" secondAttribute="trailing" constant="12" id="tup-FS-O9e"/>
                                             </constraints>
@@ -93,6 +92,7 @@
                                         <connections>
                                             <outlet property="specialismImageView" destination="Z2j-LY-tDE" id="hud-iK-2rB"/>
                                             <outlet property="specialismTitle" destination="56A-xc-rpr" id="rmh-SW-E0V"/>
+                                            <segue destination="hbZ-td-iRW" kind="show" identifier="naarMappen" id="njA-zZ-1MV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -119,6 +119,73 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygg-L4-xYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1703.2" y="177.66116941529236"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="inm-qw-G6N">
+            <objects>
+                <viewController id="hbZ-td-iRW" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dcl-Ym-6HB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58P-H9-e3i">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QzI-fd-Kcb" customClass="FolderCell" customModule="MijnEPDTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QzI-fd-Kcb" id="KIw-Gj-eHD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="egm-sW-tSl">
+                                                    <rect key="frame" x="5" y="2.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="egm-sW-tSl" secondAttribute="height" multiplier="1:1" id="P7Z-1A-Pfd"/>
+                                                        <constraint firstAttribute="width" secondItem="egm-sW-tSl" secondAttribute="height" multiplier="80:80" id="ULP-4T-K2w"/>
+                                                        <constraint firstAttribute="height" constant="40" id="thl-le-6Hz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuZ-0m-11F">
+                                                    <rect key="frame" x="57" y="9" width="318" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="65L-1o-TF3"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="TuZ-0m-11F" secondAttribute="trailing" id="16u-Cm-xv6"/>
+                                                <constraint firstItem="egm-sW-tSl" firstAttribute="centerY" secondItem="KIw-Gj-eHD" secondAttribute="centerY" id="B37-Hb-W6r"/>
+                                                <constraint firstItem="TuZ-0m-11F" firstAttribute="leading" secondItem="egm-sW-tSl" secondAttribute="trailing" constant="12" id="Tc4-PX-ESY"/>
+                                                <constraint firstItem="egm-sW-tSl" firstAttribute="leading" secondItem="KIw-Gj-eHD" secondAttribute="leading" constant="5" id="VtR-jk-PSG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="folderImage" destination="egm-sW-tSl" id="jr6-0R-nWW"/>
+                                            <outlet property="folderTitle" destination="TuZ-0m-11F" id="aMf-mm-yqK"/>
+                                            <outlet property="imageView" destination="egm-sW-tSl" id="rNH-5p-T1r"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="58P-H9-e3i" secondAttribute="trailing" id="5b3-ZW-klp"/>
+                            <constraint firstItem="58P-H9-e3i" firstAttribute="bottom" secondItem="vad-A8-I1g" secondAttribute="bottom" id="Caj-yY-4GC"/>
+                            <constraint firstItem="58P-H9-e3i" firstAttribute="leading" secondItem="Dcl-Ym-6HB" secondAttribute="leading" id="HKl-UQ-CgZ"/>
+                            <constraint firstItem="58P-H9-e3i" firstAttribute="top" secondItem="vad-A8-I1g" secondAttribute="top" id="zc1-Ee-IUb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vad-A8-I1g"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="98t-nZ-XWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2448.8000000000002" y="177.66116941529236"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pt-Ow-e7Y">
