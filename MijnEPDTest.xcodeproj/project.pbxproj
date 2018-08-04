@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F08210B0D710052BB27 /* AppDelegate.swift */; };
-		F04F2F0B210B0D720052BB27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F0A210B0D720052BB27 /* ViewController.swift */; };
 		F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0C210B0D720052BB27 /* Main.storyboard */; };
 		F04F2F10210B0D730052BB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0F210B0D730052BB27 /* Assets.xcassets */; };
 		F04F2F13210B0D730052BB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F11210B0D730052BB27 /* LaunchScreen.storyboard */; };
@@ -21,6 +20,7 @@
 		F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7E21161C9B0052BB27 /* Specialism.swift */; };
 		F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8021163F280052BB27 /* FolderCell.swift */; };
 		F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F822116442E0052BB27 /* FolderClass.swift */; };
+		F04F2F852116461C0052BB27 /* ListOfFoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,6 @@
 /* Begin PBXFileReference section */
 		F04F2F05210B0D710052BB27 /* MijnEPDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MijnEPDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F08210B0D710052BB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F04F2F0A210B0D720052BB27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F04F2F0D210B0D720052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F04F2F0F210B0D730052BB27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F04F2F12210B0D730052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		F04F2F7E21161C9B0052BB27 /* Specialism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialism.swift; sourceTree = "<group>"; };
 		F04F2F8021163F280052BB27 /* FolderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCell.swift; sourceTree = "<group>"; };
 		F04F2F822116442E0052BB27 /* FolderClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderClass.swift; sourceTree = "<group>"; };
+		F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFoldersViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
-				F04F2F0A210B0D720052BB27 /* ViewController.swift */,
 				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
+				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
 				F04F2F8021163F280052BB27 /* FolderCell.swift */,
 				F04F2F822116442E0052BB27 /* FolderClass.swift */,
@@ -279,13 +279,13 @@
 			files = (
 				F04F2F792113656C0052BB27 /* NewTableViewController.swift in Sources */,
 				F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */,
-				F04F2F0B210B0D720052BB27 /* ViewController.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
 				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,
+				F04F2F852116461C0052BB27 /* ListOfFoldersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

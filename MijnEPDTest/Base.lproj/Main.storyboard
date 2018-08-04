@@ -92,7 +92,7 @@
                                         <connections>
                                             <outlet property="specialismImageView" destination="Z2j-LY-tDE" id="hud-iK-2rB"/>
                                             <outlet property="specialismTitle" destination="56A-xc-rpr" id="rmh-SW-E0V"/>
-                                            <segue destination="hbZ-td-iRW" kind="show" identifier="naarMappen" id="njA-zZ-1MV"/>
+                                            <segue destination="hbZ-td-iRW" kind="show" id="IKw-3z-UOX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -120,10 +120,10 @@
             </objects>
             <point key="canvasLocation" x="1703.2" y="177.66116941529236"/>
         </scene>
-        <!--View Controller-->
+        <!--List Of Folders View Controller-->
         <scene sceneID="inm-qw-G6N">
             <objects>
-                <viewController id="hbZ-td-iRW" sceneMemberID="viewController">
+                <viewController id="hbZ-td-iRW" customClass="ListOfFoldersViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dcl-Ym-6HB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,7 +132,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QzI-fd-Kcb" customClass="FolderCell" customModule="MijnEPDTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="folderCell" id="QzI-fd-Kcb" customClass="FolderCell" customModule="MijnEPDTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QzI-fd-Kcb" id="KIw-Gj-eHD">
@@ -182,6 +182,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vad-A8-I1g"/>
                     </view>
+                    <connections>
+                        <outlet property="folderTableView" destination="58P-H9-e3i" id="JIA-bJ-Fcq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98t-nZ-XWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
