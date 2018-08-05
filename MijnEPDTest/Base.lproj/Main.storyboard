@@ -92,7 +92,7 @@
                                         <connections>
                                             <outlet property="specialismImageView" destination="Z2j-LY-tDE" id="hud-iK-2rB"/>
                                             <outlet property="specialismTitle" destination="56A-xc-rpr" id="rmh-SW-E0V"/>
-                                            <segue destination="hbZ-td-iRW" kind="show" id="IKw-3z-UOX"/>
+                                            <segue destination="hbZ-td-iRW" kind="show" identifier="naarMappen" id="IKw-3z-UOX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

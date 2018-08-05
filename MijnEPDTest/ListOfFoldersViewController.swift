@@ -9,7 +9,7 @@
 import UIKit
 
 class ListOfFoldersViewController: UIViewController {
-    var folders: [FolderClass] = []
+    var folders: [FolderClass]
     
     @IBOutlet weak var folderTableView: UITableView!
     
