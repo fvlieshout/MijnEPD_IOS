@@ -14,12 +14,32 @@ class ListOfFoldersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var maakNieuweMapView: UIView!
     @IBOutlet weak var mapNaamTextfield: UITextField!
+    @IBAction func mapAanmakenAnnuleren(_ sender: Any) {
+        mapNaamTextfield.text = ""
+        maakNieuweMapView.isHidden = true
+    }
+    @IBAction func mapAanmakenOpslaan(_ sender: Any) {
+        let mapNaam = mapNaamTextfield.text
+        do {
+            try dbController.insertMap(mapNaam: mapNaam!, specialisme: gekozenSpecialisme)
+            folders = createFolderArray()
+            tableView.reloadData()
+        } catch (MyError.bestaandeMapError()) {
+            print("Map bestaat al")
+        } catch {
+            print("Unexpected error: \(error).")
+        }
+        mapNaamTextfield.text = ""
+        maakNieuweMapView.isHidden = true
+    }
     
     var folders: [FolderClass] = []
     let dbController = DatabaseConnector()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        maakNieuweMapView.layer.borderColor = UIColor.black.cgColor
+        maakNieuweMapView.layer.borderWidth = 1
         maakNieuweMapView.isHidden = true
         navigationBar.title = gekozenSpecialisme
         folders = createFolderArray()
@@ -58,32 +78,32 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
         maakNieuweMapView.isHidden = false
     }
     
-    @IBAction func mapToevoegenAnnuleren(_ sender: Any) {
-        mapNaamTextfield.text = ""
-        maakNieuweMapView.isHidden = true
-    }
-    
-    @IBAction func mapToevoegenOpslaan(_ sender: Any) {
-        let deMapNaam = mapNaamTextfield.text!
-        do {
-            try dbController.insertMap(mapNaam: deMapNaam, specialisme: gekozenSpecialisme)
-            let message = "Map '" + deMapNaam + "' is toegevoegd"
-            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            self.present(alert, animated: true)
-            
-            // duration in seconds
-            let duration: Double = 5
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-                alert.dismiss(animated: true)
-            }
-        } catch MyError.bestaandeMapError {
-            print("Deze mapnaam bestaat al")
-        } catch {
-            print("Unexpected error: \(error).")
-        }
-        mapNaamTextfield.text = ""
-        maakNieuweMapView.isHidden = true
-    }
+//    @IBAction func mapToevoegenAnnuleren(_ sender: Any) {
+//        mapNaamTextfield.text = ""
+//        maakNieuweMapView.isHidden = true
+//    }
+//
+//    @IBAction func mapToevoegenOpslaan(_ sender: Any) {
+//        let deMapNaam = mapNaamTextfield.text!
+//        do {
+//            try dbController.insertMap(mapNaam: deMapNaam, specialisme: gekozenSpecialisme)
+//            let message = "Map '" + deMapNaam + "' is toegevoegd"
+//            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+//            self.present(alert, animated: true)
+//
+//            // duration in seconds
+//            let duration: Double = 5
+//
+//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
+//                alert.dismiss(animated: true)
+//            }
+//        } catch MyError.bestaandeMapError {
+//            print("Deze mapnaam bestaat al")
+//        } catch {
+//            print("Unexpected error: \(error).")
+//        }
+//        mapNaamTextfield.text = ""
+//        maakNieuweMapView.isHidden = true
+//    }
     
 }

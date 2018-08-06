@@ -141,14 +141,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="egm-sW-tSl">
-                                                    <rect key="frame" x="5" y="2.5" width="40" height="40"/>
+                                                    <rect key="frame" x="10" y="2.5" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="egm-sW-tSl" secondAttribute="height" multiplier="80:80" id="ULP-4T-K2w"/>
                                                         <constraint firstAttribute="height" constant="40" id="thl-le-6Hz"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuZ-0m-11F">
-                                                    <rect key="frame" x="57" y="9" width="318" height="25"/>
+                                                    <rect key="frame" x="62" y="9" width="313" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="65L-1o-TF3"/>
                                                     </constraints>
@@ -161,7 +161,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="TuZ-0m-11F" secondAttribute="trailing" id="16u-Cm-xv6"/>
                                                 <constraint firstItem="TuZ-0m-11F" firstAttribute="centerY" secondItem="KIw-Gj-eHD" secondAttribute="centerY" id="AFU-cq-Tfk"/>
                                                 <constraint firstItem="TuZ-0m-11F" firstAttribute="leading" secondItem="egm-sW-tSl" secondAttribute="trailing" constant="12" id="Tc4-PX-ESY"/>
-                                                <constraint firstItem="egm-sW-tSl" firstAttribute="leading" secondItem="KIw-Gj-eHD" secondAttribute="leading" constant="5" id="VtR-jk-PSG"/>
+                                                <constraint firstItem="egm-sW-tSl" firstAttribute="leading" secondItem="KIw-Gj-eHD" secondAttribute="leading" constant="10" id="VtR-jk-PSG"/>
                                                 <constraint firstItem="egm-sW-tSl" firstAttribute="centerY" secondItem="KIw-Gj-eHD" secondAttribute="centerY" id="qmu-Gj-IfN"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -180,52 +180,48 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iew-pp-Dac">
                                 <rect key="frame" x="20" y="246" width="335" height="174"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nieuwe map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ur-f7-bd7">
-                                        <rect key="frame" x="30" y="15" width="290" height="33.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nieuwe map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtG-B5-RXC">
+                                        <rect key="frame" x="10" y="15" width="325" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="806-UZ-mYw" userLabel="MapNaamTextfield">
-                                        <rect key="frame" x="5" y="63.5" width="325" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-jk-Sgt">
+                                        <rect key="frame" x="8" y="56" width="319" height="30"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TA9-h5-1VB">
-                                        <rect key="frame" x="247" y="133" width="78" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="OPSLAAN">
-                                            <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ9-Ly-LHw">
+                                        <rect key="frame" x="245" y="132" width="82" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="OPSLAAN"/>
                                         <connections>
-                                            <action selector="mapToevoegenOpslaan:" destination="hbZ-td-iRW" eventType="touchUpInside" id="LGh-Gm-eQv"/>
+                                            <action selector="mapAanmakenOpslaan:" destination="hbZ-td-iRW" eventType="touchUpInside" id="JF0-et-Biq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3JF-8P-v1v">
-                                        <rect key="frame" x="144" y="133" width="88" height="33"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="ANNULEER">
-                                            <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2B-A7-cQV">
+                                        <rect key="frame" x="124" y="132" width="106" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="ANNULEREN"/>
                                         <connections>
-                                            <action selector="mapToevoegenAnnuleren:" destination="hbZ-td-iRW" eventType="touchUpInside" id="Pgy-4q-vce"/>
+                                            <action selector="mapAanmakenAnnuleren:" destination="hbZ-td-iRW" eventType="touchUpInside" id="r2k-I2-NFm"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="TA9-h5-1VB" secondAttribute="trailing" constant="10" id="0jG-ip-vHq"/>
                                     <constraint firstAttribute="height" constant="174" id="7QS-FX-kT5"/>
-                                    <constraint firstItem="6Ur-f7-bd7" firstAttribute="leading" secondItem="iew-pp-Dac" secondAttribute="leading" constant="30" id="9T6-Wz-3je"/>
-                                    <constraint firstAttribute="bottom" secondItem="TA9-h5-1VB" secondAttribute="bottom" constant="8" id="Djr-ZR-gmN"/>
-                                    <constraint firstAttribute="trailing" secondItem="806-UZ-mYw" secondAttribute="trailing" constant="5" id="Hul-U0-1dc"/>
-                                    <constraint firstItem="TA9-h5-1VB" firstAttribute="leading" secondItem="3JF-8P-v1v" secondAttribute="trailing" constant="15" id="MRl-0C-5eM"/>
-                                    <constraint firstItem="6Ur-f7-bd7" firstAttribute="top" secondItem="iew-pp-Dac" secondAttribute="top" constant="15" id="Sw7-Zm-0wb"/>
-                                    <constraint firstAttribute="trailing" secondItem="6Ur-f7-bd7" secondAttribute="trailing" constant="15" id="Vbn-Uy-E5h"/>
-                                    <constraint firstItem="806-UZ-mYw" firstAttribute="leading" secondItem="iew-pp-Dac" secondAttribute="leading" constant="5" id="Yhx-kJ-7i2"/>
-                                    <constraint firstItem="806-UZ-mYw" firstAttribute="top" secondItem="6Ur-f7-bd7" secondAttribute="bottom" constant="15" id="cat-eM-YOR"/>
-                                    <constraint firstAttribute="bottom" secondItem="3JF-8P-v1v" secondAttribute="bottom" constant="8" id="mJz-8a-QUG"/>
+                                    <constraint firstAttribute="bottom" secondItem="LZ9-Ly-LHw" secondAttribute="bottom" constant="8" id="8yA-eJ-tSo"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Nj-jk-Sgt" secondAttribute="trailing" constant="8" id="MvN-kK-guq"/>
+                                    <constraint firstItem="9Nj-jk-Sgt" firstAttribute="top" secondItem="jtG-B5-RXC" secondAttribute="bottom" constant="8" id="OPh-TS-s4o"/>
+                                    <constraint firstAttribute="bottom" secondItem="x2B-A7-cQV" secondAttribute="bottom" constant="8" id="XIB-ZK-EBm"/>
+                                    <constraint firstItem="jtG-B5-RXC" firstAttribute="leading" secondItem="iew-pp-Dac" secondAttribute="leading" constant="10" id="dJM-Qd-HMN"/>
+                                    <constraint firstItem="jtG-B5-RXC" firstAttribute="top" secondItem="iew-pp-Dac" secondAttribute="top" constant="15" id="gai-rH-Od8"/>
+                                    <constraint firstAttribute="trailing" secondItem="LZ9-Ly-LHw" secondAttribute="trailing" constant="8" id="hYq-QW-bGB"/>
+                                    <constraint firstItem="LZ9-Ly-LHw" firstAttribute="leading" secondItem="x2B-A7-cQV" secondAttribute="trailing" constant="15" id="qvF-sa-Ov5"/>
+                                    <constraint firstAttribute="trailing" secondItem="jtG-B5-RXC" secondAttribute="trailing" id="rGh-y5-1QX"/>
+                                    <constraint firstItem="9Nj-jk-Sgt" firstAttribute="leading" secondItem="iew-pp-Dac" secondAttribute="leading" constant="8" id="xMf-fm-AHW"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -250,10 +246,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="maakNieuweMapView" destination="iew-pp-Dac" id="7O9-5J-bau"/>
-                        <outlet property="mapNaamTextfield" destination="806-UZ-mYw" id="iYd-SD-CRc"/>
+                        <outlet property="mapNaamTextfield" destination="9Nj-jk-Sgt" id="PaG-za-Yvc"/>
                         <outlet property="navigationBar" destination="ThH-My-21r" id="PhT-kE-eEo"/>
                         <outlet property="tableView" destination="58P-H9-e3i" id="f19-YQ-rxW"/>
-                        <outlet property="view" destination="TA9-h5-1VB" id="9HN-5m-1n3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98t-nZ-XWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
