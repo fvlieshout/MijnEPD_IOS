@@ -8,14 +8,16 @@
 
 import UIKit
 
+var gekozenSpecialisme = ""
+
 class ListOfSpecialismsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var specialisms: [Specialism] = []
+    let dbController = DatabaseConnector()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dbController = DatabaseConnector()
         specialisms = dbController.getSpecialismenArrayMetPlaatjes()
 
         // Do any additional setup after loading the view.
@@ -35,7 +37,7 @@ extension ListOfSpecialismsViewController: UITableViewDelegate, UITableViewDataS
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let specialismTemp = specialisms[indexPath.row]
-        let specialismString = specialismTemp.title
+        gekozenSpecialisme = specialismTemp.title
         self.performSegue(withIdentifier: "naarMappen", sender: self)
     }
 }
