@@ -23,6 +23,8 @@
 		F04F2F852116461C0052BB27 /* ListOfFoldersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */; };
 		F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */; };
 		F04F2F892118914F0052BB27 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F882118914F0052BB27 /* MyError.swift */; };
+		F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8A211990420052BB27 /* ToastMessage.swift */; };
+		F04F2F8D2119AB9E0052BB27 /* ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfFoldersViewController.swift; sourceTree = "<group>"; };
 		F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnector.swift; sourceTree = "<group>"; };
 		F04F2F882118914F0052BB27 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
+		F04F2F8A211990420052BB27 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
+		F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,8 @@
 				F04F2F14210B0D730052BB27 /* Info.plist */,
 				F04F2F38210B14190052BB27 /* RoundButton.swift */,
 				F04F2F882118914F0052BB27 /* MyError.swift */,
+				F04F2F8A211990420052BB27 /* ToastMessage.swift */,
+				F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04F2F792113656C0052BB27 /* NewTableViewController.swift in Sources */,
+				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
@@ -293,6 +300,7 @@
 				F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
 				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,
+				F04F2F8D2119AB9E0052BB27 /* ContextMenu.swift in Sources */,
 				F04F2F852116461C0052BB27 /* ListOfFoldersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

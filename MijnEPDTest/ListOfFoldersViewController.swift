@@ -14,27 +14,11 @@ class ListOfFoldersViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var maakNieuweMapView: UIView!
     @IBOutlet weak var mapNaamTextfield: UITextField!
-    @IBAction func mapAanmakenAnnuleren(_ sender: Any) {
-        mapNaamTextfield.text = ""
-        maakNieuweMapView.isHidden = true
-    }
-    @IBAction func mapAanmakenOpslaan(_ sender: Any) {
-        let mapNaam = mapNaamTextfield.text
-        do {
-            try dbController.insertMap(mapNaam: mapNaam!, specialisme: gekozenSpecialisme)
-            folders = createFolderArray()
-            tableView.reloadData()
-        } catch (MyError.bestaandeMapError()) {
-            print("Map bestaat al")
-        } catch {
-            print("Unexpected error: \(error).")
-        }
-        mapNaamTextfield.text = ""
-        maakNieuweMapView.isHidden = true
-    }
+    
     
     var folders: [FolderClass] = []
     let dbController = DatabaseConnector()
+    let toast = ToastMessage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +27,51 @@ class ListOfFoldersViewController: UIViewController {
         maakNieuweMapView.isHidden = true
         navigationBar.title = gekozenSpecialisme
         folders = createFolderArray()
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ListOfFoldersViewController.handleLongPress))
+        tableView.addGestureRecognizer(longPress)
+    }
+    
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer){
+        if sender.state == UIGestureRecognizerState.began {
+            let touchPoint = sender.location(in: tableView)
+            if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                let mapje = folders[indexPath.row].name
+                print("Geselecteerde map: " + mapje)
+                guard sender.state == .began,
+                    let senderView = sender.view,
+                    let superView = sender.view?.superview
+                    else { return }
+                
+                // Make responsiveView the window's first responder
+                senderView.becomeFirstResponder()
+                
+                // Set up the shared UIMenuController
+                let saveMenuItem = UIMenuItem(title: "Wijzig naam", action: #selector(wijzigMapnaam))
+                let deleteMenuItem = UIMenuItem(title: "Verwijder", action: #selector(verwijderMap))
+                UIMenuController.shared.menuItems = [saveMenuItem, deleteMenuItem]
+                
+                // Tell the menu controller the first responder's frame and its super view
+                UIMenuController.shared.setTargetRect(senderView.frame, in: superView)
+                
+                // Animate the menu onto view
+                UIMenuController.shared.setMenuVisible(true, animated: true)
+                
+            }
+        }
+    }
+    
+    @objc func wijzigMapnaam() {
+        print("wijzig naam tapped")
+        // ...
+        // This would be a good place to optionally resign
+        // responsiveView's first responder status if you need to
+        //responsiveView.resignFirstResponder()
+    }
+    
+    @objc func verwijderMap() {
+        print("delete tapped")
+        // ...
+        //responsiveView.resignFirstResponder()
     }
 }
 
@@ -74,36 +103,36 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
     //        self.performSegue(withIdentifier: "naarMappen", sender: self)
     //    }
     
+    
     @IBAction func maakNieuweMap(_ sender: Any) {
         maakNieuweMapView.isHidden = false
     }
     
-//    @IBAction func mapToevoegenAnnuleren(_ sender: Any) {
-//        mapNaamTextfield.text = ""
-//        maakNieuweMapView.isHidden = true
-//    }
-//
-//    @IBAction func mapToevoegenOpslaan(_ sender: Any) {
-//        let deMapNaam = mapNaamTextfield.text!
-//        do {
-//            try dbController.insertMap(mapNaam: deMapNaam, specialisme: gekozenSpecialisme)
-//            let message = "Map '" + deMapNaam + "' is toegevoegd"
-//            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-//            self.present(alert, animated: true)
-//
-//            // duration in seconds
-//            let duration: Double = 5
-//
-//            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + duration) {
-//                alert.dismiss(animated: true)
-//            }
-//        } catch MyError.bestaandeMapError {
-//            print("Deze mapnaam bestaat al")
-//        } catch {
-//            print("Unexpected error: \(error).")
-//        }
-//        mapNaamTextfield.text = ""
-//        maakNieuweMapView.isHidden = true
-//    }
+    @IBAction func mapAanmakenAnnuleren(_ sender: Any) {
+        mapNaamTextfield.text = ""
+        maakNieuweMapView.isHidden = true
+    }
+    @IBAction func mapAanmakenOpslaan(_ sender: Any) {
+        let mapNaam = mapNaamTextfield.text
+        do {
+            try dbController.insertMap(mapNaam: mapNaam!, specialisme: gekozenSpecialisme)
+            folders = createFolderArray()
+            tableView.reloadData()
+            mapNaamTextfield.text = ""
+            maakNieuweMapView.isHidden = true
+        } catch (MyError.bestaandeMapError()) {
+            print("Map bestaat al")
+            let message = "Er bestaat in dit specialisme al een map met die naam. Kies een andere naam."
+            toast.displayToast(message: message, duration: 3, viewController: self)
+        } catch {
+            print("Unexpected error: \(error).")
+            let message = "Unexpected error"
+            toast.displayToast(message: message, duration: 3, viewController: self)
+            mapNaamTextfield.text = ""
+            maakNieuweMapView.isHidden = true
+        }
+    }
+    
+   
     
 }
