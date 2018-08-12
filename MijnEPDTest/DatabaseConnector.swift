@@ -145,6 +145,26 @@ class DatabaseConnector {
         else {
             throw MyError.bestaandeMapError()
         }
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+    }
+    
+    func deleteMap(mapNaam: String, specialisme: String) {
+        
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return
+        }
+        
+        let mapID = getMapID(mapnaam: mapNaam, specialisme: specialisme)
+            if sqlite3_exec(db, "DELETE FROM MAP WHERE MAP_ID = \(mapID)", nil, nil, nil) != SQLITE_OK {
+                print("Error deleting the folder")
+                return
+        }
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
     }
     
     /**

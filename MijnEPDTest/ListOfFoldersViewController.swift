@@ -15,17 +15,23 @@ class ListOfFoldersViewController: UIViewController {
     @IBOutlet weak var maakNieuweMapView: UIView!
     @IBOutlet weak var mapNaamTextfield: UITextField!
     
+    @IBOutlet weak var myContextMenu: UIView!
+    @IBOutlet weak var restOfScreenView: UIButton!
     
     var folders: [FolderClass] = []
     let dbController = DatabaseConnector()
     let toast = ToastMessage()
+    var gekozenMap = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         maakNieuweMapView.layer.borderColor = UIColor.black.cgColor
         maakNieuweMapView.layer.borderWidth = 1
         maakNieuweMapView.isHidden = true
+        myContextMenu.isHidden = true
+        addShadowToView(view: myContextMenu)
         navigationBar.title = gekozenSpecialisme
+        
         folders = createFolderArray()
         let longPress = UILongPressGestureRecognizer(target: self, action: #selector(ListOfFoldersViewController.handleLongPress))
         tableView.addGestureRecognizer(longPress)
@@ -35,56 +41,17 @@ class ListOfFoldersViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.began {
             let touchPoint = sender.location(in: tableView)
             if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-                let mapje = folders[indexPath.row].name
-                print("Geselecteerde map: " + mapje)
-                guard sender.state == .began,
-                    let senderView = sender.view,
-                    let superView = sender.view?.superview
-                    else { return }
+                gekozenMap = folders[indexPath.row].name
+                print("Geselecteerde map: " + gekozenMap)
                 
-                // Make responsiveView the window's first responder
-                senderView.becomeFirstResponder()
+                let ycoordinaat = touchPoint.y + 70
+                myContextMenu.frame.origin.y = ycoordinaat
+                restOfScreenView.isHidden = false
+                myContextMenu.isHidden = false
                 
-                // Set up the shared UIMenuController
-                let saveMenuItem = UIMenuItem(title: "Wijzig naam", action: #selector(wijzigMapnaam))
-                let deleteMenuItem = UIMenuItem(title: "Verwijder", action: #selector(verwijderMap))
-                UIMenuController.shared.menuItems = [saveMenuItem, deleteMenuItem]
-                
-                // Tell the menu controller the first responder's frame and its super view
-                UIMenuController.shared.setTargetRect(senderView.frame, in: superView)
-                
-                // Animate the menu onto view
-                UIMenuController.shared.setMenuVisible(true, animated: true)
                 
             }
         }
-    }
-    
-    @objc func wijzigMapnaam() {
-        print("wijzig naam tapped")
-        // ...
-        // This would be a good place to optionally resign
-        // responsiveView's first responder status if you need to
-        //responsiveView.resignFirstResponder()
-    }
-    
-    @objc func verwijderMap() {
-        print("delete tapped")
-        // ...
-        //responsiveView.resignFirstResponder()
-    }
-}
-
-extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return folders.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let folderTemp = folders[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell") as! FolderCell
-        cell.setFolders(folder: folderTemp)
-        
-        return cell
     }
     
     func createFolderArray() -> [FolderClass] {
@@ -106,11 +73,15 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
     
     @IBAction func maakNieuweMap(_ sender: Any) {
         maakNieuweMapView.isHidden = false
+        restOfScreenView.backgroundColor = UIColor(red:0.0, green:0.0, blue:0.0, alpha:0.7)
+        restOfScreenView.isHidden = false
     }
     
     @IBAction func mapAanmakenAnnuleren(_ sender: Any) {
         mapNaamTextfield.text = ""
         maakNieuweMapView.isHidden = true
+        restOfScreenView.isHidden = true
+        restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
     }
     @IBAction func mapAanmakenOpslaan(_ sender: Any) {
         let mapNaam = mapNaamTextfield.text
@@ -120,6 +91,8 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
             tableView.reloadData()
             mapNaamTextfield.text = ""
             maakNieuweMapView.isHidden = true
+            restOfScreenView.isHidden = true
+            restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
         } catch (MyError.bestaandeMapError()) {
             print("Map bestaat al")
             let message = "Er bestaat in dit specialisme al een map met die naam. Kies een andere naam."
@@ -130,9 +103,44 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
             toast.displayToast(message: message, duration: 3, viewController: self)
             mapNaamTextfield.text = ""
             maakNieuweMapView.isHidden = true
+            restOfScreenView.isHidden = true
+            restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
         }
     }
     
-   
+    @IBAction func verwijderMap(_ sender: Any) {
+        dbController.deleteMap(mapNaam: gekozenMap, specialisme: gekozenSpecialisme)
+        myContextMenu.isHidden = true
+        folders = createFolderArray()
+        tableView.reloadData()
+    }
+    @IBAction func wijzigMapnaam(_ sender: Any) {
+    }
     
+    @IBAction func restOfScreenTapped(_ sender: Any) {
+        myContextMenu.isHidden = true
+        maakNieuweMapView.isHidden = true
+        restOfScreenView.isHidden = true
+        restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
+    }
+    
+    private func addShadowToView (view: UIView) {
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 6
+    }
+}
+
+extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return folders.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let folderTemp = folders[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "folderCell") as! FolderCell
+        cell.setFolders(folder: folderTemp)
+        
+        return cell
+    }
 }
