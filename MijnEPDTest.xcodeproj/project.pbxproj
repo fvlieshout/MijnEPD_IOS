@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D2EBAC882122201B004299BC /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EBAC872122201B004299BC /* Test.swift */; };
 		F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F08210B0D710052BB27 /* AppDelegate.swift */; };
 		F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0C210B0D720052BB27 /* Main.storyboard */; };
 		F04F2F10210B0D730052BB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0F210B0D730052BB27 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D2EBAC872122201B004299BC /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		F04F2F05210B0D710052BB27 /* MijnEPDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MijnEPDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F08210B0D710052BB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F04F2F0D210B0D720052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
+				D2EBAC872122201B004299BC /* Test.swift */,
 				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
 				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
@@ -292,6 +295,7 @@
 				F04F2F792113656C0052BB27 /* NewTableViewController.swift in Sources */,
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */,
+				D2EBAC882122201B004299BC /* Test.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
