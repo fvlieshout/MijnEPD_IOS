@@ -165,18 +165,46 @@ class DatabaseConnector {
      Verwijdert een map uit de database
      - Parameter mapNaam: de naam van de map die verwijderd moet worden
      - Parameter specialisme: het specialisme waar de map zich in bevindt
-    */
+     */
     func deleteMap(mapNaam: String, specialisme: String) {
         if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
             print("Error opening the database")
             return
         }
-        
         let mapID = getMapID(mapnaam: mapNaam, specialisme: specialisme)
         if sqlite3_exec(db, "DELETE FROM MAP WHERE MAP_ID = \(mapID)", nil, nil, nil) != SQLITE_OK {
             print("Error deleting the folder")
             return
         }
+        
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+    }
+    
+    /**
+     Wijzigt de naam van de map in de database
+     - Parameter oudeMapNaam: de oude naam van de map
+     - Parameter specialisme: het specialisme waar de map zich in bevindt
+     - Parameter nieuweMapNaam: de nieuwe naam van de map
+     */
+    func updateMapNaam(oudeMapNaam: String, specialisme: String, nieuweMapNaam: String) throws {
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return
+        }
+        let mapID = getMapID(mapnaam: oudeMapNaam, specialisme: specialisme)
+        let nieuwMapID = getMapID(mapnaam: nieuweMapNaam, specialisme: specialisme)
+        if (nieuwMapID == -1) { //wanneer nieuwMapID gelijk is aan -1, bestaat de nieuwe map nog niet binnen dat specialisme
+            if sqlite3_exec(db, "UPDATE MAP SET MAP_NAAM = '" + nieuweMapNaam + "' WHERE MAP_ID = \(mapID)", nil, nil, nil) != SQLITE_OK {
+                print("Error updating the folder")
+                return
+            }
+        }
+        else {
+            throw MyError.bestaandeMapError()
+        }
+        
         if sqlite3_close(db) != SQLITE_OK {
             print("Error closing the database")
         }

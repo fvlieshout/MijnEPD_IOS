@@ -10,4 +10,6 @@
 import Foundation
 enum MyError: Error {
     case bestaandeMapError()
+    case wijzigMapNieuweDocumentenError()
+    case verwijderMapNieuweDocumentenError()
 }

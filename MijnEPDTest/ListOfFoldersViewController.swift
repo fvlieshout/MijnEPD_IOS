@@ -18,6 +18,9 @@ class ListOfFoldersViewController: UIViewController {
     @IBOutlet weak var mapNaamTextfield: UITextField!
     @IBOutlet weak var myContextMenu: UIView!
     @IBOutlet weak var restOfScreenView: UIButton!
+    @IBOutlet weak var wijzigMapnaamView: UIView!
+    @IBOutlet weak var wijzigNaamTexfield: UITextField!
+    
     
     var folders: [FolderClass] = []
     let dbController = DatabaseConnector()
@@ -30,6 +33,7 @@ class ListOfFoldersViewController: UIViewController {
         maakNieuweMapView.layer.borderWidth = 1
         maakNieuweMapView.isHidden = true //zet het pop-up scherm voor het aanmaken van een nieuwe map op onzichtbaar
         myContextMenu.isHidden = true //zet het pop-up menu voor het verwijderen/naam wijzigen van een map op onzichtbaar
+        wijzigMapnaamView.isHidden = true //zet het pop-up scherm voor het wijzigen van de mapnaam op onzichtbaar
         addShadowToView(view: myContextMenu) //voegt schaduw toe aan het pop-up scherm om het mooier te maken
         navigationBar.title = gekozenSpecialisme
         
@@ -51,6 +55,7 @@ class ListOfFoldersViewController: UIViewController {
                 
                 let ycoordinaat = touchPoint.y + 70 //plaatst het pop-up menu op de plek waar geklikt is
                 myContextMenu.frame.origin.y = ycoordinaat
+                restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
                 restOfScreenView.isHidden = false
                 myContextMenu.isHidden = false //maakt het pop-up menu zichtbaar
             }
@@ -83,6 +88,7 @@ class ListOfFoldersViewController: UIViewController {
      - Parameter sender: de afzender van de klik
     */
     @IBAction func maakNieuweMap(_ sender: Any) {
+        mapNaamTextfield.text = ""
         maakNieuweMapView.isHidden = false
         restOfScreenView.backgroundColor = UIColor(red:0.0, green:0.0, blue:0.0, alpha:0.7) //maakt de achtergrond grijs zodat het pop-up menu meer opvalt
         restOfScreenView.isHidden = false
@@ -93,10 +99,8 @@ class ListOfFoldersViewController: UIViewController {
      - Parameter sender: de afzender van de klik
      */
     @IBAction func mapAanmakenAnnuleren(_ sender: Any) {
-        mapNaamTextfield.text = ""
         maakNieuweMapView.isHidden = true
         restOfScreenView.isHidden = true
-        restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
     }
     /**
      Wordt uitgevoerd wanneer er in het 'map aanmaken' pop-up menu geklikt wordt op 'Opslaan'
@@ -108,10 +112,8 @@ class ListOfFoldersViewController: UIViewController {
             try dbController.insertMap(mapNaam: mapNaam!, specialisme: gekozenSpecialisme) //voegt de nieuwe map toe aan de database
             folders = createFolderArray() //haalt de vernieuwde informatie op uit de database
             tableView.reloadData() //refresht de TableView met de nieuwe informatie
-            mapNaamTextfield.text = ""
             maakNieuweMapView.isHidden = true
             restOfScreenView.isHidden = true
-            restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
         } catch (MyError.bestaandeMapError()) { //controleert of de mapnaam al bestaat binnen het specialisme
             print("Map bestaat al")
             let message = "Er bestaat in dit specialisme al een map met die naam. Kies een andere naam."
@@ -120,22 +122,49 @@ class ListOfFoldersViewController: UIViewController {
             print("Unexpected error: \(error).")
             let message = "Unexpected error"
             toast.displayToast(message: message, duration: 3, viewController: self)
-            mapNaamTextfield.text = ""
             maakNieuweMapView.isHidden = true
             restOfScreenView.isHidden = true
-            restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
         }
     }
     
     /**
-     Wordt uitgevoerd wanneer er in het context-menu geklikt wordt op 'Verwijderen'. Verwijdert de map uit de database en refresht de TableView
+     Wordt uitgevoerd wanneer er in het context-menu geklikt wordt op 'Verwijderen'. De gebruiker wordt gevraagd om extra bevestiging
      - Parameter sender: de afzender van de klik
      */
-    @IBAction func verwijderMap(_ sender: Any) {
-        dbController.deleteMap(mapNaam: gekozenMap, specialisme: gekozenSpecialisme)
-        myContextMenu.isHidden = true
-        folders = createFolderArray()
-        tableView.reloadData()
+    @IBAction func verwijderMapGeklikt(_ sender: Any) {
+        self.myContextMenu.isHidden = true
+        if (gekozenMap == "Nieuwe documenten") { //controleert of de gebruiker de map Nieuwe Documenten probeert te verwijderen
+            let message = "Map 'Nieuwe documenten' kan niet verwijderd worden"
+            toast.displayToast(message: message, duration: 3, viewController: self)
+        }
+        else {
+        let alertController = UIAlertController(title: "Map verwijderen", message: "Weet u zeker dat u de map wilt verwijderen? Alle documenten in de map worden ook verwijderd. Dit kan niet ongedaan worden gemaakt", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let annuleerAction = UIAlertAction(title: "Annuleren", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            self.myContextMenu.isHidden = true
+        }
+        
+        let verwijderAction = UIAlertAction(title: "Verwijder", style: UIAlertActionStyle.default) {
+            (result : UIAlertAction) -> Void in
+            self.verwijderMap()
+        }
+        
+        alertController.addAction(annuleerAction)
+        alertController.addAction(verwijderAction)
+        self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
+    
+    /**
+     Wordt uitgevoerd als de gebruiker na waarschuwing nog steeds de map wilt verwijderen
+    */
+    func verwijderMap() {
+            dbController.deleteMap(mapNaam: gekozenMap, specialisme: gekozenSpecialisme)
+            myContextMenu.isHidden = true
+            folders = createFolderArray()
+            tableView.reloadData()
     }
     
     /**
@@ -143,6 +172,43 @@ class ListOfFoldersViewController: UIViewController {
      - Parameter sender: de afzender van de klik
      */
     @IBAction func wijzigMapnaam(_ sender: Any) {
+        if (gekozenMap == "Nieuwe documenten") { //controleert of de gebruiker de map Nieuwe Documenten probeert te wijzigen
+            let message = "De map 'Nieuwe Documenten' kan niet gewijzigd worden"
+            toast.displayToast(message: message, duration: 3, viewController: self)
+        }
+        else {
+        wijzigNaamTexfield.text = gekozenMap
+        wijzigMapnaamView.isHidden = false
+        restOfScreenView.backgroundColor = UIColor(red:0.0, green:0.0, blue:0.0, alpha:0.7) //maakt de achtergrond grijs zodat het pop-up menu meer opvalt
+        restOfScreenView.isHidden = false
+        }
+        myContextMenu.isHidden = true
+    }
+    
+    @IBAction func wijzigMapnaamOpslaan(_ sender: Any) {
+        let nieuweNaam = wijzigNaamTexfield.text
+        do {
+            try dbController.updateMapNaam(oudeMapNaam: gekozenMap, specialisme: gekozenSpecialisme, nieuweMapNaam: nieuweNaam!) //voegt de nieuwe map toe aan de database
+            folders = createFolderArray() //haalt de vernieuwde informatie op uit de database
+            tableView.reloadData() //refresht de TableView met de nieuwe informatie
+            wijzigMapnaamView.isHidden = true
+            restOfScreenView.isHidden = true
+        } catch (MyError.bestaandeMapError()) {
+            print("Map bestaat al")
+            let message = "Er bestaat in dit specialisme al een map met die naam. Kies een andere naam."
+            toast.displayToast(message: message, duration: 3, viewController: self)
+        } catch {
+            print("Unexpected error: \(error).")
+            let message = "Unexpected error"
+            toast.displayToast(message: message, duration: 3, viewController: self)
+            maakNieuweMapView.isHidden = true
+            restOfScreenView.isHidden = true
+        }
+    }
+    
+    @IBAction func wijzigMapnaamAnnuleren(_ sender: Any) {
+        wijzigMapnaamView.isHidden = true
+        restOfScreenView.isHidden = true
     }
     
     /**
@@ -152,6 +218,7 @@ class ListOfFoldersViewController: UIViewController {
     @IBAction func restOfScreenTapped(_ sender: Any) {
         myContextMenu.isHidden = true
         maakNieuweMapView.isHidden = true
+        wijzigMapnaamView.isHidden = true
         restOfScreenView.isHidden = true
         restOfScreenView.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.0)
     }

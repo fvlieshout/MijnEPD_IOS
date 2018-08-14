@@ -197,6 +197,56 @@
                                     <constraint firstAttribute="trailing" secondItem="jtG-B5-RXC" secondAttribute="trailing" id="yos-WL-rqj"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cC-MG-ktv">
+                                <rect key="frame" x="20" y="246" width="335" height="174"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wijzig naam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5y-1a-Xyh">
+                                        <rect key="frame" x="10" y="15" width="325" height="33"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5h-zO-C32">
+                                        <rect key="frame" x="8" y="56" width="319" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ece-6A-C4H">
+                                        <rect key="frame" x="245" y="132" width="82" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="OPSLAAN">
+                                            <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="wijzigMapnaamOpslaan:" destination="hbZ-td-iRW" eventType="touchUpInside" id="S4P-S1-SsP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2q-I0-huj">
+                                        <rect key="frame" x="124" y="132" width="106" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="ANNULEREN">
+                                            <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="wijzigMapnaamAnnuleren:" destination="hbZ-td-iRW" eventType="touchUpInside" id="IXa-TY-gzp"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="c5y-1a-Xyh" secondAttribute="trailing" id="66C-Jv-88D"/>
+                                    <constraint firstItem="T5h-zO-C32" firstAttribute="trailing" secondItem="Ece-6A-C4H" secondAttribute="trailing" id="8cf-4t-kUM"/>
+                                    <constraint firstItem="q2q-I0-huj" firstAttribute="bottom" secondItem="1cC-MG-ktv" secondAttribute="bottomMargin" id="Arw-A1-l6p"/>
+                                    <constraint firstItem="q2q-I0-huj" firstAttribute="baseline" secondItem="Ece-6A-C4H" secondAttribute="baseline" id="Ech-IR-70Q"/>
+                                    <constraint firstItem="q2q-I0-huj" firstAttribute="top" secondItem="T5h-zO-C32" secondAttribute="bottom" constant="46" id="Jgj-0D-Xqe"/>
+                                    <constraint firstItem="c5y-1a-Xyh" firstAttribute="leading" secondItem="1cC-MG-ktv" secondAttribute="leading" constant="10" id="MJG-QJ-Dmt"/>
+                                    <constraint firstItem="T5h-zO-C32" firstAttribute="top" secondItem="c5y-1a-Xyh" secondAttribute="bottom" constant="8" symbolic="YES" id="kZ1-BD-nuI"/>
+                                    <constraint firstItem="T5h-zO-C32" firstAttribute="leading" secondItem="1cC-MG-ktv" secondAttribute="leadingMargin" id="m3b-sI-P2t"/>
+                                    <constraint firstItem="T5h-zO-C32" firstAttribute="trailing" secondItem="1cC-MG-ktv" secondAttribute="trailingMargin" id="tFr-Pz-91c"/>
+                                    <constraint firstItem="Ece-6A-C4H" firstAttribute="leading" secondItem="q2q-I0-huj" secondAttribute="trailing" constant="15" id="tcJ-0u-ehN"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohp-f1-k76">
                                 <rect key="frame" x="225" y="311" width="150" height="78"/>
                                 <subviews>
@@ -220,7 +270,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="verwijderMap:" destination="hbZ-td-iRW" eventType="touchUpInside" id="Qpl-Ma-bSc"/>
+                                            <action selector="verwijderMapGeklikt:" destination="hbZ-td-iRW" eventType="touchUpInside" id="ozP-HJ-oMQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -238,6 +288,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="1cC-MG-ktv" firstAttribute="top" secondItem="vad-A8-I1g" secondAttribute="top" constant="182" id="2fQ-gu-dOU"/>
                             <constraint firstItem="58P-H9-e3i" firstAttribute="centerX" secondItem="iew-pp-Dac" secondAttribute="centerX" id="2yS-Ja-YgK"/>
                             <constraint firstItem="4bU-cE-AL8" firstAttribute="top" secondItem="Dcl-Ym-6HB" secondAttribute="top" id="3yt-ar-6rr"/>
                             <constraint firstItem="58P-H9-e3i" firstAttribute="top" secondItem="vad-A8-I1g" secondAttribute="top" id="5cu-8y-Ocd"/>
@@ -248,11 +299,15 @@
                             <constraint firstItem="4bU-cE-AL8" firstAttribute="bottom" secondItem="58P-H9-e3i" secondAttribute="bottom" id="RNM-Fe-3wm"/>
                             <constraint firstItem="4bU-cE-AL8" firstAttribute="centerY" secondItem="iew-pp-Dac" secondAttribute="centerY" id="SjU-45-4Ew"/>
                             <constraint firstItem="iew-pp-Dac" firstAttribute="top" secondItem="vad-A8-I1g" secondAttribute="top" constant="182" id="Ukw-Rn-frG"/>
+                            <constraint firstItem="1cC-MG-ktv" firstAttribute="leading" secondItem="vad-A8-I1g" secondAttribute="leading" constant="20" id="bXn-Yc-xQx"/>
+                            <constraint firstItem="1cC-MG-ktv" firstAttribute="centerY" secondItem="Dcl-Ym-6HB" secondAttribute="centerY" id="gbx-TY-joy"/>
                             <constraint firstItem="vad-A8-I1g" firstAttribute="bottom" secondItem="Ohp-f1-k76" secondAttribute="bottom" constant="278" id="hIO-Nr-xEg"/>
                             <constraint firstItem="4bU-cE-AL8" firstAttribute="trailing" secondItem="58P-H9-e3i" secondAttribute="trailing" id="j2a-qH-gvy"/>
                             <constraint firstAttribute="trailing" secondItem="4bU-cE-AL8" secondAttribute="trailing" id="jEK-uF-aWR"/>
                             <constraint firstItem="iew-pp-Dac" firstAttribute="leading" secondItem="vad-A8-I1g" secondAttribute="leading" constant="20" id="jRO-Jj-lR9"/>
                             <constraint firstItem="Ohp-f1-k76" firstAttribute="leading" secondItem="vad-A8-I1g" secondAttribute="leading" constant="225" id="oVW-u1-gVW"/>
+                            <constraint firstItem="vad-A8-I1g" firstAttribute="trailing" secondItem="1cC-MG-ktv" secondAttribute="trailing" constant="20" id="tpL-MX-OeG"/>
+                            <constraint firstItem="1cC-MG-ktv" firstAttribute="centerX" secondItem="Dcl-Ym-6HB" secondAttribute="centerX" id="xut-2n-Zp1"/>
                             <constraint firstItem="Ohp-f1-k76" firstAttribute="top" secondItem="vad-A8-I1g" secondAttribute="top" constant="247" id="zmS-qG-DQF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vad-A8-I1g"/>
@@ -272,6 +327,8 @@
                         <outlet property="navigationBar" destination="ThH-My-21r" id="PhT-kE-eEo"/>
                         <outlet property="restOfScreenView" destination="4bU-cE-AL8" id="8jL-o9-gsv"/>
                         <outlet property="tableView" destination="58P-H9-e3i" id="f19-YQ-rxW"/>
+                        <outlet property="wijzigMapnaamView" destination="1cC-MG-ktv" id="FdD-lK-Kb3"/>
+                        <outlet property="wijzigNaamTexfield" destination="T5h-zO-C32" id="bR7-VJ-XiF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98t-nZ-XWp" userLabel="First Responder" sceneMemberID="firstResponder"/>
