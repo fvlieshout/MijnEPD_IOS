@@ -5,6 +5,8 @@
 //  Created by Denise van Diermen on 05-08-18.
 //  Copyright © 2018 Floor van Lieshout. All rights reserved.
 //
+//  Class die alle communicatie met de database regelt
+//
 
 import Foundation
 import SQLite3
@@ -19,7 +21,7 @@ class DatabaseConnector {
     init() {
         let filemgr = FileManager.default
         let dirPaths = filemgr.urls(for: .documentDirectory,
-                                    in: .userDomainMask)
+                                    in: .userDomainMask) //plaatst de database in de documentDirectory van de FileManager
         
         databasePath = dirPaths[0].appendingPathComponent(databaseName).path
         
@@ -43,6 +45,7 @@ class DatabaseConnector {
     
     /**
      Creeert de tabellen: SPECIALISME, MAP en MEDISCHE_DOCUMENT
+     Let op: als je hier iets in wilt veranderen, moet je vervolgens eerst de data van de Simulator verwijderen via Hardware > Erase all data and settings, anders wordt de database niet goed opnieuw aangemaakt
      */
     func createTables() {
         let specialismeTableString = "CREATE TABLE IF NOT EXISTS SPECIALISME (S_ID TEXT PRIMARY KEY)"
@@ -93,6 +96,9 @@ class DatabaseConnector {
         }
     }
     
+    /**
+     Initialiseert voor elk specialisme de map 'Nieuwe documenten'
+     */
     func initialiseerMappen() {
         for specialisme in specialismenArray {
             if sqlite3_exec(db, "INSERT INTO MAP (MAP_NAAM, SPECIALISME) VALUES ('Nieuwe documenten', '" + specialisme + "')", nil, nil, nil) != SQLITE_OK {
@@ -105,7 +111,7 @@ class DatabaseConnector {
     /**
      Maakt een array met alle specialismen uit de specialismenArray en voegt daar de bijbehorende plaatjes aan toe.
      - Returns: Een array met alle specialismen als Specialism-objecten
-    */
+     */
     func getSpecialismenArrayMetPlaatjes() -> [Specialism] {
         var specPlusOnderzoek = specialismenArray
         specPlusOnderzoek.insert("Medicatie", at: 0)
@@ -128,19 +134,24 @@ class DatabaseConnector {
         return specialismenMetPlaatjesArray
     }
     
+    /**
+     Voegt een map toe aan de database met het juiste specialisme
+     Wanneer de map al bestaat in dat specialisme, wordt een 'bestaandeMapError' gecreeerd
+     - Parameter mapNaam: de naam van de nieuwe map
+     - Parameter specialisme: het specialisme waarbinnen de map is toegevoegd
+     */
     func insertMap(mapNaam: String, specialisme: String) throws {
-        
         if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
             print("Error opening the database")
             return
         }
         
         let mapID = getMapID(mapnaam: mapNaam, specialisme: specialisme)
-        if (mapID == -1) {
+        if (mapID == -1) { //wanneer het mapID gelijk is aan -1, bestaat de map nog niet binnen dat specialisme
             if sqlite3_exec(db, "INSERT INTO MAP (MAP_NAAM,SPECIALISME) VALUES ('" + mapNaam + "', '" + specialisme + "')", nil, nil, nil) != SQLITE_OK {
                 print("Error initialising specialismen in tabel")
                 return
-        }
+            }
         }
         else {
             throw MyError.bestaandeMapError()
@@ -150,17 +161,21 @@ class DatabaseConnector {
         }
     }
     
+    /**
+     Verwijdert een map uit de database
+     - Parameter mapNaam: de naam van de map die verwijderd moet worden
+     - Parameter specialisme: het specialisme waar de map zich in bevindt
+    */
     func deleteMap(mapNaam: String, specialisme: String) {
-        
         if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
             print("Error opening the database")
             return
         }
         
         let mapID = getMapID(mapnaam: mapNaam, specialisme: specialisme)
-            if sqlite3_exec(db, "DELETE FROM MAP WHERE MAP_ID = \(mapID)", nil, nil, nil) != SQLITE_OK {
-                print("Error deleting the folder")
-                return
+        if sqlite3_exec(db, "DELETE FROM MAP WHERE MAP_ID = \(mapID)", nil, nil, nil) != SQLITE_OK {
+            print("Error deleting the folder")
+            return
         }
         if sqlite3_close(db) != SQLITE_OK {
             print("Error closing the database")
@@ -171,7 +186,7 @@ class DatabaseConnector {
      Haalt de mappen van het gekozen specialisme op uit de database en returnt deze in een String array
      - Parameter hetGekozenSpecialisme: het specialisme waar de gebruiker op heeft geklikt
      - Returns: Een String array met de namen van de mappen in het gekozen specialisme
-    */
+     */
     func getMappenArray(hetGekozenSpecialisme: String) -> [String] {
         if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
             print("Error opening the database")
@@ -251,13 +266,13 @@ class DatabaseConnector {
     }
     
     /**
-    * Verwijdert het document uit de database.
-    *
-    * @param id het id van het te verwijderen document
-    */
+     * Verwijdert het document uit de database.
+     *
+     * @param id het id van het te verwijderen document
+     */
     func deleteDocument(hetID: Int) {
         
-    //this.getWritableDatabase().delete("MEDISCH_DOCUMENT", "MD_ID='" + id + "'", null);
+        //this.getWritableDatabase().delete("MEDISCH_DOCUMENT", "MD_ID='" + id + "'", null);
     }
     
     /**
@@ -268,8 +283,8 @@ class DatabaseConnector {
      * @return het ID van de map in de database
      */
     func getMapID(mapnaam: String, specialisme: String) -> Int {
-    var mapID = -1
-    
+        var mapID = -1
+        
         var statement: OpaquePointer?
         let sqlString = "SELECT MAP_ID FROM MAP WHERE (MAP_NAAM = '" + mapnaam + "' AND SPECIALISME = '" + specialisme + "')"
         
@@ -288,7 +303,7 @@ class DatabaseConnector {
         }
         statement = nil
         
-    return mapID;
+        return mapID;
     }
     
 }

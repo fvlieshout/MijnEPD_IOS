@@ -13,8 +13,6 @@
 		F04F2F13210B0D730052BB27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F11210B0D730052BB27 /* LaunchScreen.storyboard */; };
 		F04F2F1E210B0D730052BB27 /* MijnEPDTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F1D210B0D730052BB27 /* MijnEPDTestTests.swift */; };
 		F04F2F29210B0D730052BB27 /* MijnEPDTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F28210B0D730052BB27 /* MijnEPDTestUITests.swift */; };
-		F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F38210B14190052BB27 /* RoundButton.swift */; };
-		F04F2F792113656C0052BB27 /* NewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F782113656C0052BB27 /* NewTableViewController.swift */; };
 		F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */; };
 		F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */; };
 		F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F7E21161C9B0052BB27 /* Specialism.swift */; };
@@ -24,7 +22,6 @@
 		F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */; };
 		F04F2F892118914F0052BB27 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F882118914F0052BB27 /* MyError.swift */; };
 		F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8A211990420052BB27 /* ToastMessage.swift */; };
-		F04F2F8D2119AB9E0052BB27 /* ContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +54,6 @@
 		F04F2F24210B0D730052BB27 /* MijnEPDTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MijnEPDTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F28210B0D730052BB27 /* MijnEPDTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MijnEPDTestUITests.swift; sourceTree = "<group>"; };
 		F04F2F2A210B0D730052BB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F04F2F38210B14190052BB27 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		F04F2F782113656C0052BB27 /* NewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTableViewController.swift; sourceTree = "<group>"; };
 		F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSpecialismsViewController.swift; sourceTree = "<group>"; };
 		F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialismCell.swift; sourceTree = "<group>"; };
 		F04F2F7E21161C9B0052BB27 /* Specialism.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Specialism.swift; sourceTree = "<group>"; };
@@ -68,7 +63,6 @@
 		F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnector.swift; sourceTree = "<group>"; };
 		F04F2F882118914F0052BB27 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		F04F2F8A211990420052BB27 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
-		F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,14 +122,11 @@
 				F04F2F8021163F280052BB27 /* FolderCell.swift */,
 				F04F2F822116442E0052BB27 /* FolderClass.swift */,
 				F04F2F7E21161C9B0052BB27 /* Specialism.swift */,
-				F04F2F782113656C0052BB27 /* NewTableViewController.swift */,
 				F04F2F0F210B0D730052BB27 /* Assets.xcassets */,
 				F04F2F11210B0D730052BB27 /* LaunchScreen.storyboard */,
 				F04F2F14210B0D730052BB27 /* Info.plist */,
-				F04F2F38210B14190052BB27 /* RoundButton.swift */,
 				F04F2F882118914F0052BB27 /* MyError.swift */,
 				F04F2F8A211990420052BB27 /* ToastMessage.swift */,
-				F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
@@ -289,9 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F04F2F792113656C0052BB27 /* NewTableViewController.swift in Sources */,
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
-				F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
@@ -300,7 +289,6 @@
 				F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
 				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,
-				F04F2F8D2119AB9E0052BB27 /* ContextMenu.swift in Sources */,
 				F04F2F852116461C0052BB27 /* ListOfFoldersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
