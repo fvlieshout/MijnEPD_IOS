@@ -18,7 +18,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var descField: UITextView!
     
-    //@IBOutlet weak var labUitslag: DLRadioButton!
+    @IBOutlet weak var labUitslag: DLRadioButton!
     
     
     override func viewDidLoad() {
@@ -32,6 +32,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         descField.text = "Beschrijving"
         descField.textColor = UIColor.lightGray
+        
         
         
         

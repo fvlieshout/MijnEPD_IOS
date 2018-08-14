@@ -24,7 +24,7 @@
 		D22BEE95212334F300FADABC /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22BEE84212334F300FADABC /* IQUITextFieldView+Additions.swift */; };
 		D22BEE96212334F300FADABC /* IQUIView+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22BEE85212334F300FADABC /* IQUIView+Hierarchy.swift */; };
 		D22BEE97212334F300FADABC /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22BEE86212334F300FADABC /* IQNSArray+Sort.swift */; };
-		D22BEE9A2123352600FADABC /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D22BEE992123352600FADABC /* DLRadioButton.m */; };
+		D22BEECD2123504A00FADABC /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D22BEECC2123504A00FADABC /* DLRadioButton.m */; };
 		D239B2F62122ED8200943968 /* NewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D239B2F52122ED8200943968 /* NewDocumentViewController.swift */; };
 		F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F08210B0D710052BB27 /* AppDelegate.swift */; };
 		F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0C210B0D720052BB27 /* Main.storyboard */; };
@@ -82,9 +82,9 @@
 		D22BEE84212334F300FADABC /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
 		D22BEE85212334F300FADABC /* IQUIView+Hierarchy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIView+Hierarchy.swift"; sourceTree = "<group>"; };
 		D22BEE86212334F300FADABC /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
-		D22BEE982123352600FADABC /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
-		D22BEE992123352600FADABC /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
-		D22BEE9B2123353A00FADABC /* MijnEPDTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MijnEPDTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		D22BEECA2123504800FADABC /* MijnEPDTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MijnEPDTest-Bridging-Header.h"; sourceTree = "<group>"; };
+		D22BEECB2123504900FADABC /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		D22BEECC2123504A00FADABC /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../../Downloads/DLRadioButton-master 2/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		D239B2F52122ED8200943968 /* NewDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDocumentViewController.swift; sourceTree = "<group>"; };
 		F04F2F05210B0D710052BB27 /* MijnEPDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MijnEPDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F08210B0D710052BB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +140,6 @@
 		D22BEE6F212334F300FADABC /* IQKeyboardManagerSwift */ = {
 			isa = PBXGroup;
 			children = (
-				D22BEE9B2123353A00FADABC /* MijnEPDTest-Bridging-Header.h */,
 				D22BEE70212334F300FADABC /* IQTextView */,
 				D22BEE72212334F300FADABC /* IQToolbar */,
 				D22BEE79212334F300FADABC /* Constants */,
@@ -228,12 +227,12 @@
 			children = (
 				D22BEE6F212334F300FADABC /* IQKeyboardManagerSwift */,
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
-				D22BEE982123352600FADABC /* DLRadioButton.h */,
-				D22BEE992123352600FADABC /* DLRadioButton.m */,
 				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
 				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				D239B2F52122ED8200943968 /* NewDocumentViewController.swift */,
+				D22BEECB2123504900FADABC /* DLRadioButton.h */,
+				D22BEECC2123504A00FADABC /* DLRadioButton.m */,
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
 				F04F2F822116442E0052BB27 /* FolderClass.swift */,
@@ -247,6 +246,7 @@
 				F04F2F882118914F0052BB27 /* MyError.swift */,
 				F04F2F8A211990420052BB27 /* ToastMessage.swift */,
 				F04F2F8C2119AB9E0052BB27 /* ContextMenu.swift */,
+				D22BEECA2123504800FADABC /* MijnEPDTest-Bridging-Header.h */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
@@ -407,7 +407,7 @@
 				D22BEE91212334F300FADABC /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				D22BEE8B212334F300FADABC /* IQToolbar.swift in Sources */,
-				D22BEE9A2123352600FADABC /* DLRadioButton.m in Sources */,
+				D22BEECD2123504A00FADABC /* DLRadioButton.m in Sources */,
 				D22BEE8E212334F300FADABC /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				F04F2F39210B14190052BB27 /* RoundButton.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
@@ -615,7 +615,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = floorvanlieshout.MijnEPDTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/IQKeyboardManagerSwift/MijnEPDTest-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -636,7 +636,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = floorvanlieshout.MijnEPDTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/IQKeyboardManagerSwift/MijnEPDTest-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
