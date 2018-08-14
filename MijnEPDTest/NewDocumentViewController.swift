@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NewDocumentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class NewDocumentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
     @IBOutlet weak var imageViewer: UIImageView!
     @IBOutlet weak var dateField: UITextField!
@@ -18,13 +18,48 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var descField: UITextView!
     
+    //@IBOutlet weak var labUitslag: DLRadioButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dateField.delegate = self
         locationField.delegate = self
         ArtsField.delegate = self
+        descField.delegate = self
+        
+        
+        descField.text = "Beschrijving"
+        descField.textColor = UIColor.lightGray
+        
+        
+        
+}
+    //Mark:- UITextViewDelegates
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if descField.text == "Beschrijving" {
+            descField.text = ""
+            descField.textColor = UIColor.black
+        }
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            descField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if descField.text == "" {
+        descField.text = "Beschrijving"
+        descField.textColor = UIColor.lightGray
+        }
+    }
+    
+    
     
     @IBAction func openCamera(_ sender: Any) {
         

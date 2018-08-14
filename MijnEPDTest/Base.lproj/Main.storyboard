@@ -65,30 +65,20 @@
                                     <action selector="DisplayAlert:" destination="SAK-ay-vAH" eventType="touchUpInside" id="1Fd-Se-fUy"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="epH-Gr-eKj">
-                                <rect key="frame" x="16" y="334" width="342" height="132"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="132" id="wwb-Rn-ASD"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MXF-HG-ezh">
-                                <rect key="frame" x="16" y="483" width="343" height="30"/>
+                                <rect key="frame" x="15" y="427" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Locatie zorginstelling" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKU-Oq-1Fa">
-                                <rect key="frame" x="16" y="521" width="343" height="30"/>
+                                <rect key="frame" x="15" y="465" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Behandelend arts" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="89U-So-u5D">
-                                <rect key="frame" x="16" y="559" width="343" height="30"/>
+                                <rect key="frame" x="15" y="503" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -99,35 +89,52 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-EI-hLC" customClass="DLRadioButton">
-                                <rect key="frame" x="39" y="599" width="55" height="42"/>
-                                <state key="normal" title="Button" image="lab-icon"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="epH-Gr-eKj">
+                                <rect key="frame" x="15" y="342" width="344" height="77"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="wwb-Rn-ASD"/>
+                                </constraints>
+                                <color key="textColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.81568627450980391" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Labuitslag:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uJ1-Kc-qXw">
+                                <rect key="frame" x="15" y="539" width="100" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0Q-RK-vcc" customClass="DLRadioButton">
+                                <rect key="frame" x="131" y="541" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Ja">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="MXF-HG-ezh" secondAttribute="leading" id="5Xh-rC-JO1"/>
-                            <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="80c-ds-nz5" secondAttribute="leading" constant="16" id="6x5-e3-thI"/>
+                            <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="80c-ds-nz5" secondAttribute="leading" constant="15" id="6x5-e3-thI"/>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="centerX" secondItem="dKU-Oq-1Fa" secondAttribute="centerX" id="8K3-gj-0Oz"/>
-                            <constraint firstItem="d0M-EI-hLC" firstAttribute="leading" secondItem="dxH-Wr-7bw" secondAttribute="leading" constant="39" id="9XI-Oz-vte"/>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="centerX" secondItem="MXF-HG-ezh" secondAttribute="centerX" id="9qT-pf-vwm"/>
-                            <constraint firstItem="epH-Gr-eKj" firstAttribute="top" secondItem="dxH-Wr-7bw" secondAttribute="top" constant="270" id="DQH-Eg-5ms"/>
-                            <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="5cO-yi-jAI" secondAttribute="leading" constant="16" id="ERe-H7-Duh"/>
+                            <constraint firstItem="epH-Gr-eKj" firstAttribute="top" secondItem="dxH-Wr-7bw" secondAttribute="top" constant="278" id="DQH-Eg-5ms"/>
+                            <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="5cO-yi-jAI" secondAttribute="leading" constant="15" id="ERe-H7-Duh"/>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="centerX" secondItem="6ez-ON-dO3" secondAttribute="centerX" id="H3A-oy-3rg"/>
+                            <constraint firstItem="epH-Gr-eKj" firstAttribute="top" secondItem="80c-ds-nz5" secondAttribute="bottom" constant="8" id="IoW-2k-p2P"/>
                             <constraint firstItem="6ez-ON-dO3" firstAttribute="top" secondItem="80c-ds-nz5" secondAttribute="bottom" constant="17" id="Ir8-dv-KfH"/>
                             <constraint firstItem="80c-ds-nz5" firstAttribute="top" secondItem="dxH-Wr-7bw" secondAttribute="top" id="LRh-QQ-bau"/>
                             <constraint firstItem="l0d-dU-S4S" firstAttribute="centerX" secondItem="5cO-yi-jAI" secondAttribute="centerX" constant="143" id="OsM-CK-Rl7"/>
                             <constraint firstAttribute="bottom" secondItem="l0d-dU-S4S" secondAttribute="bottom" constant="20" symbolic="YES" id="P0v-p2-tRW"/>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="89U-So-u5D" secondAttribute="leading" id="R6f-GN-67r"/>
                             <constraint firstItem="6ez-ON-dO3" firstAttribute="centerX" secondItem="dxH-Wr-7bw" secondAttribute="centerX" id="WIK-Xm-pfP"/>
-                            <constraint firstItem="dxH-Wr-7bw" firstAttribute="bottom" secondItem="d0M-EI-hLC" secondAttribute="bottom" constant="26" id="WqM-os-6qF"/>
-                            <constraint firstItem="d0M-EI-hLC" firstAttribute="centerX" secondItem="5cO-yi-jAI" secondAttribute="centerX" constant="-121" id="Xja-ln-BAg"/>
-                            <constraint firstItem="dxH-Wr-7bw" firstAttribute="bottom" secondItem="89U-So-u5D" secondAttribute="bottom" constant="78" id="cAa-fj-cNR"/>
+                            <constraint firstItem="dxH-Wr-7bw" firstAttribute="bottom" secondItem="89U-So-u5D" secondAttribute="bottom" constant="134" id="cAa-fj-cNR"/>
                             <constraint firstItem="6ez-ON-dO3" firstAttribute="centerY" secondItem="dxH-Wr-7bw" secondAttribute="centerY" id="iVX-Nc-2De"/>
-                            <constraint firstItem="d0M-EI-hLC" firstAttribute="top" secondItem="89U-So-u5D" secondAttribute="bottom" constant="10" id="ihG-7Z-GUa"/>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="centerX" secondItem="89U-So-u5D" secondAttribute="centerX" id="kLh-CX-LmD"/>
-                            <constraint firstItem="MXF-HG-ezh" firstAttribute="top" secondItem="epH-Gr-eKj" secondAttribute="bottom" constant="17" id="mzE-aD-sUu"/>
-                            <constraint firstItem="epH-Gr-eKj" firstAttribute="trailing" secondItem="80c-ds-nz5" secondAttribute="trailing" constant="-16" id="s9k-cd-xRb"/>
+                            <constraint firstItem="MXF-HG-ezh" firstAttribute="top" secondItem="epH-Gr-eKj" secondAttribute="bottom" constant="8" id="mzE-aD-sUu"/>
+                            <constraint firstItem="epH-Gr-eKj" firstAttribute="trailing" secondItem="80c-ds-nz5" secondAttribute="trailing" constant="-15" id="s9k-cd-xRb"/>
                             <constraint firstItem="dKU-Oq-1Fa" firstAttribute="top" secondItem="MXF-HG-ezh" secondAttribute="bottom" constant="8" id="yhB-uQ-ZOK"/>
                             <constraint firstItem="89U-So-u5D" firstAttribute="top" secondItem="dKU-Oq-1Fa" secondAttribute="bottom" constant="8" symbolic="YES" id="zgB-1w-DPl"/>
                             <constraint firstItem="epH-Gr-eKj" firstAttribute="leading" secondItem="dKU-Oq-1Fa" secondAttribute="leading" id="zkR-hM-8cA"/>
@@ -146,6 +153,7 @@
                         <outlet property="dateField" destination="MXF-HG-ezh" id="kWQ-gF-TR2"/>
                         <outlet property="descField" destination="epH-Gr-eKj" id="eW6-hq-d22"/>
                         <outlet property="imageViewer" destination="80c-ds-nz5" id="OhM-jX-qFd"/>
+                        <outlet property="labUitslag" destination="w0Q-RK-vcc" id="gn6-hy-kgu"/>
                         <outlet property="locationField" destination="dKU-Oq-1Fa" id="xUg-iH-oGD"/>
                     </connections>
                 </viewController>
@@ -448,8 +456,5 @@
             <point key="canvasLocation" x="764" y="177.66116941529236"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="lab-icon" width="192" height="192"/>
-    </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
