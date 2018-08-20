@@ -239,7 +239,7 @@ class DatabaseConnector {
             if sqlite3_step(insertStatement) == SQLITE_DONE {
                 print("Successfully inserted row.")
             } else {
-                print("Could not insert row.")
+                print("Could not insert row.") 
             }
         } else {
             print("INSERT statement could not be prepared.")

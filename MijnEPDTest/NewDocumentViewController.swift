@@ -11,6 +11,8 @@ import UIKit
 
 class NewDocumentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     
+    //outlets voor de tekstvelden en radiobutton
+    
     @IBOutlet weak var imageViewer: UIImageView!
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var locationField: UITextField!
@@ -33,11 +35,21 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         descField.text = "Beschrijving"
         descField.textColor = UIColor.lightGray
         
-        
+        labUitslag.isMultipleSelectionEnabled = false
         
         
 }
+    
+    @IBAction func radioAction(_ sender: DLRadioButton) {
+        if sender.tag == 1 {
+            print("Het is een labuitslag")
+        } else {
+            print("Het is geen labuitslag")
+        }
+    }
+    
     //Mark:- UITextViewDelegates
+    //Zorgt voor een placeholder text binnen het beschrijving vak, textview ondersteund dit namelijk native niet.
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if descField.text == "Beschrijving" {
@@ -60,7 +72,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    
+    //Bij het drukken op de cameraknop wordt er een IOS actiosheet geopend die de opties geeft voor het kiezen van een foto uit de foto bibliotheek of de camera opend
     
     @IBAction func openCamera(_ sender: Any) {
         
@@ -113,6 +125,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
 
     
 }
+
+//Zorgt ervoor dat de return knop in het keyboard naar behoren werkt
 
 extension NewDocumentViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
