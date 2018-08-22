@@ -304,6 +304,79 @@ class DatabaseConnector {
     }
     
     /**
+     Haalt de documenten van de gekozen map op uit de database en returnt deze in een String array
+     - Parameter mapID: de map waar de gebruiker op heeft geklikt
+     - Returns: Een String array met de namen van de documenten in de gekozen map
+     */
+    func getDocumentenArray(mapID: Int) -> [String] {
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return []
+        }
+        var documentenArrayTemp: [String] = []
+        var statement: OpaquePointer?
+        let sqlString = "SELECT TITEL FROM MEDISCH_DOCUMENT WHERE MAP = \(mapID) ORDER BY MD_ID DESC"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            let queryResultCol1 = sqlite3_column_text(statement, 0)
+            let documentNaam = String(cString: queryResultCol1!)
+            documentenArrayTemp.append(documentNaam)
+        }
+        
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }
+        statement = nil
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+        return documentenArrayTemp
+    }
+    
+    /**
+     Haalt de data van de documenten van de gekozen map op uit de database en returnt deze in een String array
+     - Parameter mapID: de map waar de gebruiker op heeft geklikt
+     - Returns: Een String array met de data van de documenten in de gekozen map
+     */
+    func getDataVanDocumentenArray(mapID: Int) -> [String] {
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return []
+        }
+        var documentenArrayTemp: [String] = []
+        var statement: OpaquePointer?
+        let sqlString = "SELECT DATUM FROM MEDISCH_DOCUMENT WHERE MAP = \(mapID) ORDER BY MD_ID DESC"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            let queryResultCol1 = sqlite3_column_text(statement, 0)
+            let documentNaam = String(cString: queryResultCol1!)
+            documentenArrayTemp.append(documentNaam)
+        }
+        
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }
+        statement = nil
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+        return documentenArrayTemp
+    }
+    
+    
+    /**
      * Vraagt het mapID op.
      *
      * @param mapnaam     de naam de map

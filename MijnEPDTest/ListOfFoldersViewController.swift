@@ -10,6 +10,8 @@
 
 import UIKit
 
+var gekozenMap = ""
+
 class ListOfFoldersViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationItem!
@@ -25,7 +27,6 @@ class ListOfFoldersViewController: UIViewController {
     var folders: [FolderClass] = []
     let dbController = DatabaseConnector()
     let toast = ToastMessage()
-    var gekozenMap = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -246,5 +247,11 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
         cell.setFolders(folder: folderTemp)
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //beschrijft wat er moet gebeuren als er op één rij wordt geklikt
+        let folderTemp = folders[indexPath.row]
+        gekozenMap = folderTemp.name //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is
+        self.performSegue(withIdentifier: "naarDocumenten", sender: self)
     }
 }

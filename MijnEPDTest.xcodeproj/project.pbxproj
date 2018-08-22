@@ -22,6 +22,8 @@
 		F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */; };
 		F04F2F892118914F0052BB27 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F882118914F0052BB27 /* MyError.swift */; };
 		F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8A211990420052BB27 /* ToastMessage.swift */; };
+		F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */; };
+		F04F2F91212DBEBB0052BB27 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnector.swift; sourceTree = "<group>"; };
 		F04F2F882118914F0052BB27 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		F04F2F8A211990420052BB27 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
+		F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfDocumentsViewController.swift; sourceTree = "<group>"; };
+		F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,10 +122,12 @@
 				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
+				F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
 				F04F2F8021163F280052BB27 /* FolderCell.swift */,
-				F04F2F822116442E0052BB27 /* FolderClass.swift */,
+				F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */,
 				F04F2F7E21161C9B0052BB27 /* Specialism.swift */,
+				F04F2F822116442E0052BB27 /* FolderClass.swift */,
 				F04F2F0F210B0D730052BB27 /* Assets.xcassets */,
 				F04F2F11210B0D730052BB27 /* LaunchScreen.storyboard */,
 				F04F2F14210B0D730052BB27 /* Info.plist */,
@@ -280,12 +286,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F04F2F91212DBEBB0052BB27 /* DocumentCell.swift in Sources */,
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
 				F04F2F892118914F0052BB27 /* MyError.swift in Sources */,
+				F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */,
 				F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
 				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,
