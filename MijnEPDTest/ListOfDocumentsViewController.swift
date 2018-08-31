@@ -21,16 +21,18 @@ class ListOfDocumentsViewController: UIViewController {
     let dbController = DatabaseConnector()
 
     override func viewDidLoad() {
-        dbController.insertDocument(titel: "Testdocument", beschrijving: "Testbeschrijving", onderzoek: 0, hetSpecialisme: "Dermatologie", artsnaam: "", uriFoto: "", datum: "12-07-2018", filepath: "")
+        //testdocumentjes om te kijken of dit scherm werkt
+        dbController.insertDocument(titel: "Testdocumentjess", beschrijving: "Testbeschrijving1", onderzoek: 0, hetSpecialisme: "Cardiologie", artsnaam: "", uriFoto: "", datum: "12-07-2018", filepath: "")
+        dbController.insertDocument(titel: "Testdocumentjess", beschrijving: "Testbeschrijving2", onderzoek: 0, hetSpecialisme: "Cardiologie", artsnaam: "", uriFoto: "", datum: "12-07-2018", filepath: "")
+        
         super.viewDidLoad()
         navigationBar.title = gekozenMap
         createDocumentEnDataArray()
         wijzigNaamView.isHidden = true
         contextMenuView.isHidden = true
-
-        // Do any additional setup after loading the view.
     }
     
+    //Maakt een array aan met alle documenten (documents) en een array met alle datums van de documenten (data)
     func createDocumentEnDataArray() {
         let mapID = dbController.getMapID(mapnaam: gekozenMap, specialisme: gekozenSpecialisme)
         documents = dbController.getDocumentenArray(mapID: mapID)

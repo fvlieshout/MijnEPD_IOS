@@ -388,14 +388,14 @@
                                                         <constraint firstAttribute="height" constant="40" id="g4D-L4-8nd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfc-4S-xHV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gfc-4S-xHV">
                                                     <rect key="frame" x="61" y="9" width="42" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.42873831080000002" green="0.41427161229999998" blue="0.44585897019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ck-jc-7T8">
-                                                    <rect key="frame" x="313" y="11" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ck-jc-7T8">
+                                                    <rect key="frame" x="315.5" y="13" width="39.5" height="17.5"/>
                                                     <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                                                     <color key="textColor" red="0.42873831080000002" green="0.41427161229999998" blue="0.44585897019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -403,9 +403,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Gfc-4S-xHV" firstAttribute="bottom" secondItem="TN6-9C-wbZ" secondAttribute="bottomMargin" id="F8k-YX-LU4"/>
-                                                <constraint firstItem="2ck-jc-7T8" firstAttribute="centerX" secondItem="TN6-9C-wbZ" secondAttribute="centerX" id="HSl-O5-JEQ"/>
+                                                <constraint firstItem="2ck-jc-7T8" firstAttribute="centerY" secondItem="TN6-9C-wbZ" secondAttribute="centerY" id="RaE-zj-o5A"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="2ck-jc-7T8" secondAttribute="trailing" constant="5" id="WgB-BQ-lvg"/>
-                                                <constraint firstItem="2ck-jc-7T8" firstAttribute="leading" secondItem="Gfc-4S-xHV" secondAttribute="trailing" constant="8" id="mQK-bx-JXk"/>
                                                 <constraint firstItem="rD1-So-zUo" firstAttribute="centerY" secondItem="TN6-9C-wbZ" secondAttribute="centerY" id="oxJ-kR-mCa"/>
                                                 <constraint firstItem="Gfc-4S-xHV" firstAttribute="leading" secondItem="rD1-So-zUo" secondAttribute="trailing" constant="12" id="tTg-DM-dlV"/>
                                                 <constraint firstItem="Gfc-4S-xHV" firstAttribute="centerY" secondItem="TN6-9C-wbZ" secondAttribute="centerY" id="xal-p9-1ze"/>
