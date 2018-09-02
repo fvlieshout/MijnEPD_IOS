@@ -15,6 +15,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     var db: OpaquePointer?
     //outlets voor de tekstvelden en radiobutton
     
+    
+    @IBOutlet weak var titelField: UITextField!
     @IBOutlet weak var imageViewer: UIImageView!
     @IBOutlet weak var descField: UITextView!
     @IBOutlet weak var dateField: UITextField!
@@ -41,7 +43,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         locationField.delegate = self
         ArtsField.delegate = self
         descField.delegate = self
-        
+        titelField.delegate = self
         
         descField.text = "Beschrijving"
         descField.textColor = UIColor.lightGray
@@ -70,19 +72,23 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     }
 
         
-        
-    
-    @IBAction func opslaanDocument(_ sender: UIButton) {
+    @IBAction func opslaanDocument(_ sender: Any) {
         //getting values from textfields
         let beschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let datum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let locatie = locationField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let artsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let titel = titelField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let specialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
         
         
         
         //validating that values are not empty
+        if(titel?.isEmpty)!{
+            titelField.layer.borderColor = UIColor.red.cgColor
+            return
+        }
+        
         if(beschrijving?.isEmpty)!{
             descField.layer.borderColor = UIColor.red.cgColor
             return
@@ -104,14 +110,16 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         //Saving the document
-        dbController.insertDocument(titel: "TestCase1", beschrijving: beschrijving!, onderzoek: onderzoek!, hetSpecialisme: specialisme, artsnaam: artsNaam!, uriFoto: <#T##String#>, datum: datum!, filepath: <#T##String#>)
+        dbController.insertDocument(titel: titel!, beschrijving: beschrijving!, onderzoek: onderzoek!, hetSpecialisme: specialisme, artsnaam: artsNaam!, uriFoto: <#T##String#>, datum: datum!, filepath: <#T##String#>)
         
         
         
         //displaying a success message
         print("mijnEPDdocument is succesvol opgeslagen")
-        
     }
+    
+    
+    
     
     
     //Mark:- UITextViewDelegates

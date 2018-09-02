@@ -159,6 +159,7 @@
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="opslaanDocument:" destination="SAK-ay-vAH" eventType="touchUpInside" id="vQD-30-oWl"/>
                                     <action selector="opslaanInfo:" destination="SAK-ay-vAH" eventType="touchUpInside" id="RYM-eD-ldt"/>
                                 </connections>
                             </button>
@@ -208,6 +209,14 @@
                         <viewLayoutGuide key="safeArea" id="dxH-Wr-7bw"/>
                     </view>
                     <navigationItem key="navigationItem" id="9P4-wU-fsb">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titel" textAlignment="center" minimumFontSize="17" id="b3m-rt-2QA">
+                            <rect key="frame" x="121" y="7" width="133" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="olg-Zv-B7U">
                             <connections>
                                 <action selector="openCamera:" destination="SAK-ay-vAH" id="u2M-k4-sX0"/>
@@ -223,6 +232,7 @@
                         <outlet property="label" destination="eV3-ny-rQ8" id="qmY-DQ-MMO"/>
                         <outlet property="locationField" destination="dKU-Oq-1Fa" id="xUg-iH-oGD"/>
                         <outlet property="pickerView" destination="MaW-io-gRe" id="gYt-kP-tah"/>
+                        <outlet property="titelField" destination="b3m-rt-2QA" id="nD6-Xx-5AA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EBX-TR-kZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
