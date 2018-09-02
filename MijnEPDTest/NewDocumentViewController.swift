@@ -26,8 +26,13 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    let specialismen = ["Anesthesiologie", "Cardiologie", "Dermatologie", "Gynaecologie", "Huisartsgeneeskunde", "Interne geneeskunde", "Keel-neus-oorheelkunde",
-                        "Kindergeneeskunde", "Klinische genetica", "Longgeneeskunde", "Maag-darm-leverziekten", "Neurologie", "Oogheelkunde", "Psychiatrie"]
+    var documents: [String] = []
+    var data: [String] = []
+    var onderzoek:Int?
+
+    let specialismen = ["Anesthesiologie", "Cardiologie", "Dermatologie", "Gynaecologie", "Huisartsgeneeskunde", "Interne geneeskunde", "Keel-neus-oorheelkunde", "Kindergeneeskunde", "Klinische genetica", "Longgeneeskunde", "Maag-darm-leverziekten", "Neurologie", "Oogheelkunde", "Psychiatrie"]
+    
+    let dbController = DatabaseConnector()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +47,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         descField.textColor = UIColor.lightGray
         
         labUitslag.isMultipleSelectionEnabled = false
-        DatabaseConnector.init()
         
 }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -57,12 +61,26 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         return specialismen.count
     }
     
-    @IBAction func opslaanInfo(_ sender: UIButton) {
+    @IBAction func radioAction(_ sender: DLRadioButton) {
+        if sender.tag == 1 {
+            onderzoek = 1
+        } else {
+            onderzoek = 0
+        }
+    }
+
+        
+        
+    
+    @IBAction func opslaanDocument(_ sender: UIButton) {
         //getting values from textfields
         let beschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let datum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let locatie = locationField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let artsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let specialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
+        
+        
         
         //validating that values are not empty
         if(beschrijving?.isEmpty)!{
@@ -85,59 +103,9 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         
+        //Saving the document
+        dbController.insertDocument(titel: "TestCase1", beschrijving: beschrijving!, onderzoek: onderzoek!, hetSpecialisme: specialisme, artsnaam: artsNaam!, uriFoto: <#T##String#>, datum: datum!, filepath: <#T##String#>)
         
-        
-    
-        //creating a statement
-        var stmt: OpaquePointer?
-        
-        //the insert query
-        let queryString = "INSERT INTO mijnEPD (beschrijving, datum, locatie, artsNaam) VALUES (?,?,?,?)"
-        
-        //preparing the query
-        if sqlite3_prepare(db, queryString, -1, &stmt, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("error preparing insert: \(errmsg)")
-            return
-        }
-        
-        //binding the parameters
-        if sqlite3_bind_text(stmt, 1, beschrijving, -1, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("failure binding beschrijving: \(errmsg)")
-            return
-        }
-        
-        if sqlite3_bind_int(stmt, 2, (datum! as NSString).intValue) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("failure binding datum: \(errmsg)")
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, locatie, -1, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("failure binding locatie: \(errmsg)")
-            return
-        }
-        
-        if sqlite3_bind_text(stmt, 1, artsNaam, -1, nil) != SQLITE_OK{
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("failure binding Artsnaam: \(errmsg)")
-            return
-        }
-        
-        //executing the query to insert values
-        if sqlite3_step(stmt) != SQLITE_DONE {
-            let errmsg = String(cString: sqlite3_errmsg(db)!)
-            print("failure inserting mijnEPDdocumnent: \(errmsg)")
-            return
-        }
-        
-        //emptying the textfields
-        descField.text=""
-        dateField.text=""
-        locationField.text=""
-        ArtsField.text=""
         
         
         //displaying a success message
@@ -145,13 +113,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    @IBAction func radioAction(_ sender: DLRadioButton) {
-        if sender.tag == 1 {
-            print("Het is een labuitslag")
-        } else {
-            print("Het is geen labuitslag")
-        }
-    }
     
     //Mark:- UITextViewDelegates
     //Zorgt voor een placeholder text binnen het beschrijving vak, textview ondersteund dit namelijk native niet.
@@ -238,4 +199,6 @@ extension NewDocumentViewController : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }
