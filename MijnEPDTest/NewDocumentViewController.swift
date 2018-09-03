@@ -24,14 +24,14 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var ArtsField: UITextField!
     @IBOutlet weak var OpslaanKnop: UIButton!
-    
-    //@IBOutlet weak var labUitslag: DLRadioButton!
+    @IBOutlet weak var labUitslag: DLRadioButton!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     
     let dbController = DatabaseConnector()
     var specialismen: [String] = []
+    var onderzoek:Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()

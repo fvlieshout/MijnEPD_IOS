@@ -830,6 +830,7 @@
                         <outlet property="dateField" destination="J77-ow-jUP" id="UuI-fu-c0G"/>
                         <outlet property="descField" destination="j0L-zB-xsF" id="BLU-EV-f1z"/>
                         <outlet property="imageViewer" destination="oNv-UA-w0y" id="gz4-aG-apQ"/>
+                        <outlet property="labUitslag" destination="e2L-8a-0P0" id="laO-Dd-99C"/>
                         <outlet property="label" destination="LI9-jg-c3x" id="fiT-2l-chV"/>
                         <outlet property="locationField" destination="Iu8-HD-Vi8" id="FTD-XU-geo"/>
                         <outlet property="pickerView" destination="WGL-kp-19m" id="sh4-NJ-4l8"/>
