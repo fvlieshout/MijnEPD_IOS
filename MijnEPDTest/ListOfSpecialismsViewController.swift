@@ -15,6 +15,9 @@ var gekozenSpecialisme = ""
 
 class ListOfSpecialismsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func nieuwDocumentToevoegen(_ sender: Any) {
+        self.performSegue(withIdentifier: "nieuwDocumentSegue", sender: self)
+    }
     
     var specialisms: [Specialism] = []
     let dbController = DatabaseConnector()
