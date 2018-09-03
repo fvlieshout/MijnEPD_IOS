@@ -108,6 +108,15 @@ class DatabaseConnector {
         }
     }
     
+    
+    /**
+     Return de array met de namen van alle specialismen
+     - Returns: String array met de namen van alle specialismen
+    */
+    func getSpecialismenArray() -> [String] {
+        return specialismenArray
+    }
+    
     /**
      Maakt een array met alle specialismen uit de specialismenArray en voegt daar de bijbehorende plaatjes aan toe.
      - Returns: Een array met alle specialismen als Specialism-objecten
@@ -465,4 +474,40 @@ class DatabaseConnector {
         return docuID;
     }
     
+    func getDocumentgegevens(hetDocumentID: Int) -> [String] {
+        var documentGegevens = [""]
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return documentGegevens
+        }
+        var statement: OpaquePointer?
+        let sqlString = "SELECT * FROM MEDISCH_DOCUMENT WHERE MD_ID = \(hetDocumentID)"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 0))) //titel
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 1))) //beschrijving
+            documentGegevens.append(String(Int(sqlite3_column_int(statement, 2)))) //onderzoek
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 3))) //specialisme
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 4))) //artsnaam
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 5))) //fotouri
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 6))) //datum
+            documentGegevens.append(String(cString:sqlite3_column_text(statement, 7))) //filepath
+            documentGegevens.append(String(Int(sqlite3_column_int(statement, 8)))) //mapID
+        }
+        
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }
+        statement = nil
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+            return documentGegevens;
+        }
 }
