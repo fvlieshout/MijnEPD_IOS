@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/NewDocumentViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/TestPaginaViewController.swift">
    </FileRef>
    <FileRef
