@@ -10,11 +10,12 @@ import Foundation
 import SQLite3
 import UIKit
 
+var opgeslagenDocument = -1
+
 class NewDocumentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     var db: OpaquePointer?
     //outlets voor de tekstvelden en radiobutton
-    
     
     @IBOutlet weak var titelField: UITextField!
     @IBOutlet weak var imageViewer: UIImageView!
@@ -22,23 +23,19 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var ArtsField: UITextField!
+    @IBOutlet weak var OpslaanKnop: UIButton!
     
-    @IBOutlet weak var labUitslag: DLRadioButton!
+    //@IBOutlet weak var labUitslag: DLRadioButton!
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    var documents: [String] = []
-    var data: [String] = []
-    var onderzoek:Int?
-
-    let specialismen = ["Anesthesiologie", "Cardiologie", "Dermatologie", "Gynaecologie", "Huisartsgeneeskunde", "Interne geneeskunde", "Keel-neus-oorheelkunde", "Kindergeneeskunde", "Klinische genetica", "Longgeneeskunde", "Maag-darm-leverziekten", "Neurologie", "Oogheelkunde", "Psychiatrie"]
-    
     let dbController = DatabaseConnector()
+    var specialismen: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        specialismen = dbController.getSpecialismenArray()
         dateField.delegate = self
         locationField.delegate = self
         ArtsField.delegate = self
@@ -50,7 +47,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         labUitslag.isMultipleSelectionEnabled = false
         
-}
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -70,57 +67,62 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             onderzoek = 0
         }
     }
-
-        
-    @IBAction func opslaanDocument(_ sender: Any) {
+    
+    @IBAction func opslaanInfo(_ sender: Any) {
         //getting values from textfields
-        let beschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let datum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let locatie = locationField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let artsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let titel = titelField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let specialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
-        
-        
+        let docTitel = titelField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let docBeschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let docOnderzoek = 0
+        let docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
+        let docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let docLocatie = locationField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let docArtsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let docUriFoto = "Urifoto"
+        let docFilePath = "filepath"
         
         //validating that values are not empty
-        if(titel?.isEmpty)!{
-            titelField.layer.borderColor = UIColor.red.cgColor
-            return
-        }
-        
-        if(beschrijving?.isEmpty)!{
+        if(docBeschrijving?.isEmpty)!{
             descField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(datum?.isEmpty)!{
+        if(docDatum?.isEmpty)!{
             dateField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(locatie?.isEmpty)!{
+        if(docLocatie?.isEmpty)!{
             locationField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(artsNaam?.isEmpty)!{
+        if(docArtsNaam?.isEmpty)!{
             ArtsField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        //Saving the document
-        dbController.insertDocument(titel: titel!, beschrijving: beschrijving!, onderzoek: onderzoek!, hetSpecialisme: specialisme, artsnaam: artsNaam!, uriFoto: <#T##String#>, datum: datum!, filepath: <#T##String#>)
+        dbController.insertDocument(titel: docTitel!, beschrijving: docBeschrijving!, onderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, artsnaam: docArtsNaam!, uriFoto: docUriFoto, datum: docDatum!, filepath: docFilePath)
         
+        //emptying the textfields
+        descField.text=""
+        dateField.text=""
+        locationField.text=""
+        ArtsField.text=""
         
         
         //displaying a success message
         print("mijnEPDdocument is succesvol opgeslagen")
+        opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme, mapnaam: "Nieuwe documenten")
+        self.performSegue(withIdentifier: "testSegue", sender: self)
     }
     
-    
-    
-    
+//    @IBAction func radioAction(_ sender: DLRadioButton) {
+//        if sender.tag == 1 {
+//            print("Het is een labuitslag")
+//        } else {
+//            print("Het is geen labuitslag")
+//        }
+//    }
     
     //Mark:- UITextViewDelegates
     //Zorgt voor een placeholder text binnen het beschrijving vak, textview ondersteund dit namelijk native niet.
@@ -141,8 +143,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if descField.text == "" {
-        descField.text = "Beschrijving"
-        descField.textColor = UIColor.lightGray
+            descField.text = "Beschrijving"
+            descField.textColor = UIColor.lightGray
         }
     }
     
@@ -161,14 +163,14 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
                 imagePickerController.sourceType = .camera
                 self.present(imagePickerController, animated: true, completion: nil)
             } else {
-                    let alertController = UIAlertController(title: "mijnEPD", message:
-                        "Camera is niet beschikbaar", preferredStyle: UIAlertControllerStyle.alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                    
-                    self.present(alertController, animated: true, completion: nil)
-                }
+                let alertController = UIAlertController(title: "mijnEPD", message:
+                    "Camera is niet beschikbaar", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
             
-           
+            
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Foto Bibliotheek", style: .default, handler: { (action: UIAlertAction) in
@@ -196,7 +198,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     
 }
 
@@ -207,6 +209,4 @@ extension NewDocumentViewController : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
-    
 }
