@@ -32,16 +32,17 @@ class TestPaginaViewController: UIViewController {
         
         specialisme = documentGegevens[4]
         
-//        documentGegevens.append(documentID)
-//        documentGegevens.append(titel)
-//        documentGegevens.append(beschrijving)
-//        documentGegevens.append("\(onderzoek)")
-//        documentGegevens.append(specialisme)
-//        documentGegevens.append(artsnaam)
-//        documentGegevens.append("\(mapID)")
-//        documentGegevens.append(fotouri)
-//        documentGegevens.append(datum)
-//        documentGegevens.append(filepath)
+//        Volgorde van de velden
+//        documentID = 0
+//        titel = 1
+//        beschrijving = 2
+//        onderzoek = 3
+//        specialisme = 4
+//        artsnaam = 5
+//        mapID = 6
+//        fotouri = 7
+//        datum = 8
+//        filepath = 9
     }
 
     override func didReceiveMemoryWarning() {
