@@ -111,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58P-H9-e3i">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="folderCell" id="QzI-fd-Kcb" customClass="FolderCell" customModule="MijnEPDTest" customModuleProvider="target">
@@ -162,22 +162,22 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iew-pp-Dac">
-                                <rect key="frame" x="20" y="246" width="335" height="174"/>
+                                <rect key="frame" x="20" y="202" width="335" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nieuwe map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtG-B5-RXC">
-                                        <rect key="frame" x="10" y="15" width="325" height="33"/>
+                                        <rect key="frame" x="10" y="103" width="325" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Nj-jk-Sgt">
-                                        <rect key="frame" x="8" y="56" width="319" height="30"/>
+                                        <rect key="frame" x="8" y="144" width="319" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZ9-Ly-LHw">
-                                        <rect key="frame" x="245" y="132" width="82" height="34"/>
+                                        <rect key="frame" x="245" y="220" width="82" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="OPSLAAN">
                                             <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -187,7 +187,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2B-A7-cQV">
-                                        <rect key="frame" x="124" y="132" width="106" height="34"/>
+                                        <rect key="frame" x="124" y="220" width="106" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="ANNULEREN">
                                             <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,22 +212,22 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1cC-MG-ktv">
-                                <rect key="frame" x="20" y="246" width="335" height="174"/>
+                                <rect key="frame" x="20" y="202" width="335" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wijzig naam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5y-1a-Xyh">
-                                        <rect key="frame" x="10" y="15" width="325" height="33"/>
+                                        <rect key="frame" x="10" y="103" width="325" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T5h-zO-C32">
-                                        <rect key="frame" x="8" y="56" width="319" height="30"/>
+                                        <rect key="frame" x="8" y="144" width="319" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ece-6A-C4H">
-                                        <rect key="frame" x="245" y="132" width="82" height="34"/>
+                                        <rect key="frame" x="245" y="220" width="82" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="OPSLAAN">
                                             <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -237,7 +237,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2q-I0-huj">
-                                        <rect key="frame" x="124" y="132" width="106" height="34"/>
+                                        <rect key="frame" x="124" y="220" width="106" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="ANNULEREN">
                                             <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,7 +262,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohp-f1-k76">
-                                <rect key="frame" x="225" y="311" width="150" height="78"/>
+                                <rect key="frame" x="225" y="267" width="150" height="122"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xJO-AD-wla">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
@@ -278,7 +278,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fzc-os-C1R">
-                                        <rect key="frame" x="0.0" y="38" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="150" height="74"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Verwijder">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -385,7 +385,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0MH-7g-5wd">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="documentCell" id="Tvj-T7-0Ou" customClass="DocumentCell" customModule="MijnEPDTest" customModuleProvider="target">
@@ -441,29 +441,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-Sg-qCz">
-                                <rect key="frame" x="20" y="246" width="335" height="174"/>
+                                <rect key="frame" x="20" y="202" width="335" height="262"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wijzig naam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDT-DI-hvC">
-                                        <rect key="frame" x="10" y="15" width="325" height="33"/>
+                                        <rect key="frame" x="10" y="103" width="325" height="33"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="27"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whd-m1-t8W">
-                                        <rect key="frame" x="8" y="56" width="319" height="30"/>
+                                        <rect key="frame" x="8" y="144" width="319" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8z-Ov-BER">
-                                        <rect key="frame" x="245" y="132" width="82" height="34"/>
+                                        <rect key="frame" x="245" y="220" width="82" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="OPSLAAN">
                                             <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXS-nq-L9L">
-                                        <rect key="frame" x="124" y="132" width="106" height="34"/>
+                                        <rect key="frame" x="124" y="220" width="106" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="ANNULEREN">
                                             <color key="titleColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -485,7 +485,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-DH-5ug">
-                                <rect key="frame" x="225" y="311" width="150" height="78"/>
+                                <rect key="frame" x="225" y="267" width="150" height="122"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huX-Zp-ytb">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
@@ -498,7 +498,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw2-QU-GDn">
-                                        <rect key="frame" x="0.0" y="38" width="150" height="30"/>
+                                        <rect key="frame" x="0.0" y="38" width="150" height="74"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Verwijder">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -558,7 +558,7 @@
             </objects>
             <point key="canvasLocation" x="3151" y="178"/>
         </scene>
-        <!--Test Pagina View Controller-->
+        <!--Documentgegevens-->
         <scene sceneID="gNz-9N-iiZ">
             <objects>
                 <viewController id="7Bq-jW-C9G" customClass="TestPaginaViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -567,43 +567,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Titel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDh-0X-XyK">
-                                <rect key="frame" x="8" y="92" width="367" height="20.5"/>
+                                <rect key="frame" x="8" y="48" width="367" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beschrijving" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YjG-Sc-A8l">
-                                <rect key="frame" x="8" y="122.5" width="357" height="20.5"/>
+                                <rect key="frame" x="8" y="78.5" width="357" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Datum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcB-xN-Bu8">
-                                <rect key="frame" x="8" y="151" width="367" height="21"/>
+                                <rect key="frame" x="8" y="107" width="367" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibb-nR-DlC">
-                                <rect key="frame" x="8" y="180" width="367" height="21"/>
+                                <rect key="frame" x="8" y="136" width="367" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labuitslag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxo-9X-lbx">
-                                <rect key="frame" x="8" y="209" width="367" height="21"/>
+                                <rect key="frame" x="8" y="165" width="367" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specialisme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2mN-RW-uWk">
-                                <rect key="frame" x="8" y="238" width="359" height="21"/>
+                                <rect key="frame" x="8" y="194" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2O7-kH-uVI">
-                                <rect key="frame" x="8" y="267" width="367" height="21"/>
+                                <rect key="frame" x="8" y="223" width="367" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -635,6 +635,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RK2-hF-ewp"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Documentgegevens" id="fuO-bA-vZ9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="Hvj-dz-BdU">
+                            <connections>
+                                <action selector="naarSpecialismen:" destination="7Bq-jW-C9G" id="4zi-qa-cba"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="TitelVeld" destination="NDh-0X-XyK" id="b5a-vi-4G5"/>
                         <outlet property="artsVeld" destination="Ibb-nR-DlC" id="nRp-SI-4Vc"/>
@@ -643,6 +650,7 @@
                         <outlet property="labVeld" destination="dxo-9X-lbx" id="qNM-Ag-Bhx"/>
                         <outlet property="mapIDVeld" destination="2O7-kH-uVI" id="ID1-iH-lT8"/>
                         <outlet property="specialismeVeld" destination="2mN-RW-uWk" id="7WH-YG-Rs4"/>
+                        <segue destination="5HR-mi-IpI" kind="show" identifier="naarSpecialismen" id="3FN-fF-0dy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFS-xC-cYU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -658,10 +666,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oNv-UA-w0y">
-                                <rect key="frame" x="0.0" y="64" width="374" height="270"/>
+                                <rect key="frame" x="0.0" y="20" width="374" height="270"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fx4-g4-BLa">
-                                <rect key="frame" x="146" y="351" width="82" height="29"/>
+                                <rect key="frame" x="146" y="307" width="82" height="73"/>
                                 <state key="normal" title="DisplayAlert">
                                     <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -670,25 +678,25 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J77-ow-jUP">
-                                <rect key="frame" x="15" y="427" width="344" height="30"/>
+                                <rect key="frame" x="15" y="383" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Locatie zorginstelling" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iu8-HD-Vi8">
-                                <rect key="frame" x="15" y="465" width="344" height="30"/>
+                                <rect key="frame" x="15" y="421" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Behandelend arts" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5YT-RO-fuW">
-                                <rect key="frame" x="15" y="503" width="344" height="30"/>
+                                <rect key="frame" x="15" y="459" width="344" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="j0L-zB-xsF">
-                                <rect key="frame" x="15" y="342" width="344" height="77"/>
+                                <rect key="frame" x="15" y="298" width="344" height="77"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="Sju-BP-Rb2"/>
@@ -698,13 +706,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Labuitslag:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cSd-DL-AaD">
-                                <rect key="frame" x="15" y="541" width="82" height="33"/>
+                                <rect key="frame" x="15" y="497" width="82" height="37"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2L-8a-0P0" customClass="DLRadioButton">
-                                <rect key="frame" x="111" y="544" width="69" height="30"/>
+                                <rect key="frame" x="111" y="500" width="69" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="69" id="NTG-Ux-LzO"/>
                                 </constraints>
@@ -724,7 +732,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alm-BQ-SU9" customClass="DLRadioButton">
-                                <rect key="frame" x="209" y="540" width="107" height="34"/>
+                                <rect key="frame" x="209" y="496" width="107" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="emY-ud-8dv"/>
                                 </constraints>
@@ -744,20 +752,20 @@
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="WGL-kp-19m">
-                                <rect key="frame" x="124" y="582" width="159" height="49"/>
+                                <rect key="frame" x="124" y="542" width="159" height="89"/>
                                 <connections>
                                     <outlet property="dataSource" destination="yPL-iw-4J0" id="OI6-2a-n5g"/>
                                     <outlet property="delegate" destination="yPL-iw-4J0" id="an0-ms-dDk"/>
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specialisme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LI9-jg-c3x">
-                                <rect key="frame" x="19" y="596" width="81.5" height="21"/>
+                                <rect key="frame" x="19" y="556" width="81.5" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dLl-vu-7XJ">
-                                <rect key="frame" x="309" y="627" width="57" height="30"/>
+                                <rect key="frame" x="309" y="587" width="57" height="70"/>
                                 <state key="normal" title="Opslaan">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -843,5 +851,8 @@
             <point key="canvasLocation" x="2449" y="-507"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="3FN-fF-0dy"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

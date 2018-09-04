@@ -18,16 +18,30 @@ class TestPaginaViewController: UIViewController {
     @IBOutlet weak var mapIDVeld: UILabel!
     
     let dbController = DatabaseConnector()
+    var specialisme = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: opgeslagenDocument)
-        TitelVeld.text = documentGegevens[0]
-        beschrijvingVeld.text = documentGegevens[1]
-        datumVeld.text = documentGegevens[6]
-        artsVeld.text = documentGegevens[4]
-        labVeld.text = documentGegevens[2]
-        specialismeVeld.text = documentGegevens[3]
-        mapIDVeld.text = documentGegevens[8]
+        TitelVeld.text = "Titel: " + documentGegevens[1]
+        beschrijvingVeld.text = "Beschrijving: " + documentGegevens[2]
+        datumVeld.text = "Datum: " + documentGegevens[8]
+        artsVeld.text = "Arts: " + documentGegevens[5]
+        labVeld.text = "Onderzoek: " + documentGegevens[3]
+        specialismeVeld.text = "Specialisme: " + documentGegevens[4]
+        mapIDVeld.text = "MapID: " + documentGegevens[6]
+        
+        specialisme = documentGegevens[4]
+        
+//        documentGegevens.append(documentID)
+//        documentGegevens.append(titel)
+//        documentGegevens.append(beschrijving)
+//        documentGegevens.append("\(onderzoek)")
+//        documentGegevens.append(specialisme)
+//        documentGegevens.append(artsnaam)
+//        documentGegevens.append("\(mapID)")
+//        documentGegevens.append(fotouri)
+//        documentGegevens.append(datum)
+//        documentGegevens.append(filepath)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,4 +60,9 @@ class TestPaginaViewController: UIViewController {
     }
     */
 
+    @IBAction func naarSpecialismen(_ sender: Any) {
+        self.performSegue(withIdentifier: "naarSpecialismen", sender: self)
+        let toaster = ToastMessage()
+        toaster.displayToast(message: "Het document is opgeslagen in de map 'Nieuwe documenten' onder het specialisme " + specialisme, duration: 3, viewController: self)
+    }
 }

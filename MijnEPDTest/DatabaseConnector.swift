@@ -17,6 +17,7 @@ class DatabaseConnector {
     var db: OpaquePointer?
     var databasePath: String
     var specialismenArray: [String]
+    let nieuweMap = "Nieuwe documenten"
     
     init() {
         let filemgr = FileManager.default
@@ -254,6 +255,37 @@ class DatabaseConnector {
         return mappenArrayTemp
     }
     
+    func insertDocument2(deTitel: String, deBeschrijving: String, hetOnderzoek: Int, hetSpecialisme: String, deArtsnaam: String, deUriFoto: String, deDatum: String, deFilepath: String) {
+        let mapID = getMapID(mapnaam: nieuweMap, specialisme: hetSpecialisme)
+        
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return
+        }
+        
+        if sqlite3_exec(db, "INSERT INTO MEDISCH_DOCUMENT (TITEL, BESCHRIJVING, ONDERZOEK, SPECIALISME, ARTSNAAM, MAP, URIFOTO, DATUM, FILEPATH) VALUES ('\(deTitel)', '\(deBeschrijving)', '\(hetOnderzoek)', '\(hetSpecialisme)', '\(deArtsnaam)', '\(mapID)', '\(deUriFoto)', '\(deDatum)', '\(deFilepath)')", nil, nil, nil) != SQLITE_OK {
+            print("Error initialising specialismen in tabel")
+            return
+        }
+        
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+        
+//        MEDISCH_DOCUMENT(" +
+//            "MD_ID INTEGER PRIMARY KEY, " +
+//            "TITEL TEXT, " +
+//            "BESCHRIJVING TEXT, " +
+//            "ONDERZOEK INTEGER, " +
+//            "SPECIALISME TEXT, " +
+//            "ARTSNAAM TEXT," +
+//            "MAP INTEGER, " +
+//            "URIFOTO TEXT, " +
+//            "DATUM TEXT, " +
+//            "FILEPATH TEXT, " +
+        
+    }
+    
     /**
      * Voegt een document toe aan de database wanneer een document wordt aangemaakt.
      *
@@ -475,7 +507,7 @@ class DatabaseConnector {
     }
     
     func getDocumentgegevens(hetDocumentID: Int) -> [String] {
-        var documentGegevens = [""]
+        var documentGegevens: [String] = []
         if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
             print("Error opening the database")
             return documentGegevens
@@ -489,15 +521,27 @@ class DatabaseConnector {
         }
         
         while sqlite3_step(statement) == SQLITE_ROW {
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 0))) //titel
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 1))) //beschrijving
-            documentGegevens.append(String(Int(sqlite3_column_int(statement, 2)))) //onderzoek
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 3))) //specialisme
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 4))) //artsnaam
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 5))) //fotouri
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 6))) //datum
-            documentGegevens.append(String(cString:sqlite3_column_text(statement, 7))) //filepath
-            documentGegevens.append(String(Int(sqlite3_column_int(statement, 8)))) //mapID
+            let documentID = String(cString:sqlite3_column_text(statement, 0))
+            let titel = String(cString:sqlite3_column_text(statement, 1))
+            let beschrijving = String(cString:sqlite3_column_text(statement, 2))
+            let onderzoek = Int(sqlite3_column_int(statement, 3))
+            let specialisme = String(cString:sqlite3_column_text(statement, 4))
+            let artsnaam = String(cString:sqlite3_column_text(statement, 5))
+            let mapID = Int(sqlite3_column_int(statement, 6))
+            let fotouri = String(cString:sqlite3_column_text(statement, 7))
+            let datum = String(cString:sqlite3_column_text(statement, 8))
+            let filepath = String(cString:sqlite3_column_text(statement, 9))
+            
+            documentGegevens.append(documentID)
+            documentGegevens.append(titel)
+            documentGegevens.append(beschrijving)
+            documentGegevens.append("\(onderzoek)")
+            documentGegevens.append(specialisme)
+            documentGegevens.append(artsnaam)
+            documentGegevens.append("\(mapID)")
+            documentGegevens.append(fotouri)
+            documentGegevens.append(datum)
+            documentGegevens.append(filepath)
         }
         
         if sqlite3_finalize(statement) != SQLITE_OK {

@@ -101,7 +101,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         
-        dbController.insertDocument(titel: docTitel!, beschrijving: docBeschrijving!, onderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, artsnaam: docArtsNaam!, uriFoto: docUriFoto, datum: docDatum!, filepath: docFilePath)
+        dbController.insertDocument2(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: docUriFoto, deDatum: docDatum!, deFilepath: docFilePath)
         
         //emptying the textfields
         descField.text=""
