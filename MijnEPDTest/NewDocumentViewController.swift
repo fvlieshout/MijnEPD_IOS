@@ -32,6 +32,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     let dbController = DatabaseConnector()
     var specialismen: [String] = []
     var onderzoek:Int?
+    var toast = ToastMessage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,19 +102,26 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         
-        dbController.insertDocument2(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: docUriFoto, deDatum: docDatum!, deFilepath: docFilePath)
-        
-        //emptying the textfields
-        descField.text=""
-        dateField.text=""
-        locationField.text=""
-        ArtsField.text=""
-        
-        
-        //displaying a success message
-        print("mijnEPDdocument is succesvol opgeslagen")
-        opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme, mapnaam: "Nieuwe documenten")
-        self.performSegue(withIdentifier: "testSegue", sender: self)
+        do {
+            try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: docUriFoto, deDatum: docDatum!, deFilepath: docFilePath)
+            //emptying the textfields
+            descField.text=""
+            dateField.text=""
+            locationField.text=""
+            ArtsField.text=""
+            
+            
+            //displaying a success message
+            print("mijnEPDdocument is succesvol opgeslagen")
+            opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme, mapnaam: "Nieuwe documenten")
+            self.performSegue(withIdentifier: "testSegue", sender: self)
+        } catch MyError.documentBestaatAlInMapBijAanmaken() {
+            toast.displayToast(message: "Er bestaat in de map 'Nieuwe documenten' van dit specialisme al een document met deze titel. Kies een andere titel", duration: 4, viewController: self)
+        } catch {
+            print("Unexpected error: \(error).")
+            let message = "Unexpected error"
+            toast.displayToast(message: message, duration: 3, viewController: self)
+        }
     }
     
 //    @IBAction func radioAction(_ sender: DLRadioButton) {

@@ -77,13 +77,6 @@ class ListOfFoldersViewController: UIViewController {
         return tempArray
     }
     
-    // TODO: zorgen dat als er op een map wordt geklikt, hij naar het volgende scherm gaat
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        let specialismTemp = specialisms[indexPath.row]
-    //        let specialismString = specialismTemp.title
-    //        self.performSegue(withIdentifier: "naarMappen", sender: self)
-    //    }
-    
     /**
      Wordt uitgevoerd wanneer er op de plusknop rechtsboven wordt geklikt en toont het pop-up menu waarbij een mapnaam opgegeven kan worden
      - Parameter sender: de afzender van de klik

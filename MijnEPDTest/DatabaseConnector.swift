@@ -113,7 +113,7 @@ class DatabaseConnector {
     /**
      Return de array met de namen van alle specialismen
      - Returns: String array met de namen van alle specialismen
-    */
+     */
     func getSpecialismenArray() -> [String] {
         return specialismenArray
     }
@@ -220,6 +220,7 @@ class DatabaseConnector {
         }
     }
     
+    
     /**
      Haalt de mappen van het gekozen specialisme op uit de database en returnt deze in een String array
      - Parameter hetGekozenSpecialisme: het specialisme waar de gebruiker op heeft geklikt
@@ -255,8 +256,25 @@ class DatabaseConnector {
         return mappenArrayTemp
     }
     
-    func insertDocument2(deTitel: String, deBeschrijving: String, hetOnderzoek: Int, hetSpecialisme: String, deArtsnaam: String, deUriFoto: String, deDatum: String, deFilepath: String) {
+    /**
+     * Voegt een document toe aan de database wanneer een document wordt aangemaakt.
+     *
+     - Parameter titel:        de titel van het document
+     - Parameter beschrijving: de beschrijving bij het document
+     - Parameter onderzoek:    het type onderzoek van het document
+     - Parameter hetSpecialisme:  het specialisme van het document
+     - Parameter artsnaam:     de naam van de arts die vermeld staat op het document of betrokken is
+     - Parameter uriFoto:      de locatie van de foto
+     - Parameter datum:        de datum die wordt gegeven aan het document
+     - Parameter filepath:     de locatie of het pad van het bestand
+     */
+    func insertDocument(deTitel: String, deBeschrijving: String, hetOnderzoek: Int, hetSpecialisme: String, deArtsnaam: String, deUriFoto: String, deDatum: String, deFilepath: String) throws {
         let mapID = getMapID(mapnaam: nieuweMap, specialisme: hetSpecialisme)
+        // controleren of er al een document bestaat in die map met deze naam
+        let documentenArrayUitMap = getDocumentenArray(mapID: mapID)
+        if documentenArrayUitMap.contains(deTitel) {
+            throw MyError.documentBestaatAlInMapBijAanmaken()
+        }
         
         if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
             print("Error opening the database")
@@ -271,87 +289,8 @@ class DatabaseConnector {
         if sqlite3_close(db) != SQLITE_OK {
             print("Error closing the database")
         }
-        
-//        MEDISCH_DOCUMENT(" +
-//            "MD_ID INTEGER PRIMARY KEY, " +
-//            "TITEL TEXT, " +
-//            "BESCHRIJVING TEXT, " +
-//            "ONDERZOEK INTEGER, " +
-//            "SPECIALISME TEXT, " +
-//            "ARTSNAAM TEXT," +
-//            "MAP INTEGER, " +
-//            "URIFOTO TEXT, " +
-//            "DATUM TEXT, " +
-//            "FILEPATH TEXT, " +
-        
     }
     
-    /**
-     * Voegt een document toe aan de database wanneer een document wordt aangemaakt.
-     *
-     - Parameter titel:        de titel van het document
-     - Parameter beschrijving: de beschrijving bij het document
-     - Parameter onderzoek:    het type onderzoek van het document
-     - Parameter hetSpecialisme:  het specialisme van het document
-     - Parameter artsnaam:     de naam van de arts die vermeld staat op het document of betrokken is
-     - Parameter uriFoto:      de locatie van de foto
-     - Parameter datum:        de datum die wordt gegeven aan het document
-     - Parameter filepath:     de locatie of het pad van het bestand
-     */
-    func insertDocument(titel: String, beschrijving: String, onderzoek: Int, hetSpecialisme: String, artsnaam: String, uriFoto: String, datum: String, filepath: String) {
-        let mapID = getMapID(mapnaam: "Nieuwe documenten", specialisme: hetSpecialisme)
-        
-        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
-            print("Error opening the database")
-            return
-        }
-        
-        let insertStatementString = "INSERT INTO MEDISCH_DOCUMENT (TITEL, BESCHRIJVING, ONDERZOEK, SPECIALISME, ARTSNAAM, MAP, URIFOTO, DATUM, FILEPATH) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
-        
-        var insertStatement: OpaquePointer? = nil
-        
-        if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) != SQLITE_OK {
-            print("Error preparing statement")
-        }
-        
-        if sqlite3_bind_text(insertStatement, 1, titel, -1, nil) != SQLITE_OK {
-            print("Error binding titel")
-        }
-        if sqlite3_bind_text(insertStatement, 2, beschrijving, -1, nil) != SQLITE_OK {
-            print("Error binding beschrijving")
-        }
-        if sqlite3_bind_int(insertStatement, 3, Int32(onderzoek)) != SQLITE_OK {
-            print("Error binding onderzoek")
-        }
-        if sqlite3_bind_text(insertStatement, 4, hetSpecialisme, -1, nil) != SQLITE_OK {
-            print("Error binding specialisme")
-        }
-        if sqlite3_bind_text(insertStatement, 5, artsnaam, -1, nil) != SQLITE_OK {
-            print("Error binding artsnaam")
-        }
-        if sqlite3_bind_int(insertStatement, 6, Int32(mapID)) != SQLITE_OK {
-            print("Error binding beschrijving")
-        }
-        if sqlite3_bind_text(insertStatement, 7, uriFoto, -1, nil) != SQLITE_OK {
-            print("Error binding urifoto")
-        }
-        if sqlite3_bind_text(insertStatement, 8, datum, -1, nil) != SQLITE_OK {
-            print("Error binding datum")
-        }
-        if sqlite3_bind_text(insertStatement, 9, filepath, -1, nil) != SQLITE_OK {
-            print("Error binding filepath")
-        }
-        if sqlite3_step(insertStatement) == SQLITE_DONE {
-                print("Successfully inserted row.")
-        } else {
-                print("Could not insert row.")
-            }
-        sqlite3_finalize(insertStatement)
-        insertStatement = nil
-        if sqlite3_close(db) != SQLITE_OK {
-            print("Error closing the database")
-        }
-    }
     
     /**
      * Verwijdert het document uit de database.
@@ -362,6 +301,30 @@ class DatabaseConnector {
         
         //this.getWritableDatabase().delete("MEDISCH_DOCUMENT", "MD_ID='" + id + "'", null);
     }
+
+    func verplaatsDocument(deDocumentTitel: String, hetDocumentID: Int, hetNieuweMapID: Int) throws {
+        // controleren of er al een document bestaat in die map met deze naam
+        let documentenArrayUitMap = getDocumentenArray(mapID: hetNieuweMapID)
+        if documentenArrayUitMap.contains(deDocumentTitel) {
+            throw MyError.documentBestaatAlInMapBijVerplaatsen()
+        }
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return
+        }
+        if sqlite3_exec(db, "UPDATE MEDISCH_DOCUMENT SET MAP = \(hetNieuweMapID) WHERE MD_ID = \(hetDocumentID)", nil, nil, nil) != SQLITE_OK {
+            print("Error updating the folder")
+            return
+        }
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+    }
+    
+    //    public void verplaatsDocument(int documentID, int nieuweMapID) {
+    //    SQLiteDatabase db = getWritableDatabase();
+    //    db.execSQL("UPDATE MEDISCH_DOCUMENT SET MAP = " + nieuweMapID + " WHERE MD_ID = " + documentID);
+    //    }
     
     /**
      Haalt de documenten van de gekozen map op uit de database en returnt deze in een String array
@@ -552,6 +515,6 @@ class DatabaseConnector {
         if sqlite3_close(db) != SQLITE_OK {
             print("Error closing the database")
         }
-            return documentGegevens;
-        }
+        return documentGegevens;
+    }
 }
