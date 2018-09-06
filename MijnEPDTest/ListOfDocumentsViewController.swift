@@ -111,7 +111,10 @@ class ListOfDocumentsViewController: UIViewController, UIPickerViewDelegate, UIP
         }
     
     func verwijderDocumentDaadwerkelijk() {
-        //TODO, document verwijderen
+        let documentID = dbController.getDocumentID(docunaam: gekozenDocument, specialisme: gekozenSpecialisme, mapnaam: gekozenMap)
+        dbController.deleteDocument(hetID: documentID)
+        createDocumentEnDataArray()
+        tableViewer.reloadData()
     }
     
     

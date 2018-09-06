@@ -293,13 +293,23 @@ class DatabaseConnector {
     
     
     /**
-     * Verwijdert het document uit de database.
-     *
-     * @param id het id van het te verwijderen document
+     Verwijdert het document uit de database.
+     - Parameter hetID: het id van het te verwijderen document
      */
     func deleteDocument(hetID: Int) {
         
-        //this.getWritableDatabase().delete("MEDISCH_DOCUMENT", "MD_ID='" + id + "'", null);
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return
+        }
+        if sqlite3_exec(db, "DELETE FROM MEDISCH_DOCUMENT WHERE MD_ID = \(hetID)", nil, nil, nil) != SQLITE_OK {
+            print("Error deleting the document")
+            return
+        }
+        
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
     }
 
     func verplaatsDocument(deDocumentTitel: String, hetDocumentID: Int, hetNieuweMapID: Int) throws {

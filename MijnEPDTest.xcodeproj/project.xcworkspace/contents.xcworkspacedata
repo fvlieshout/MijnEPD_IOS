@@ -2,24 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/NewDocumentViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/TestPaginaViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/DLRadioButton.h">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/DLRadioButton.m">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/ISRadioButton.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/NewDocumentViewController.swift">
-   </FileRef>
-   <FileRef
       location = "self:MijnEPDTest.xcodeproj">
    </FileRef>
 </Workspace>
