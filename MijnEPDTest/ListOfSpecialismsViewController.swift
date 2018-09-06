@@ -26,6 +26,9 @@ class ListOfSpecialismsViewController: UIViewController {
         super.viewDidLoad()
         specialisms = dbController.getSpecialismenArrayMetPlaatjes()
     }
+    @IBAction func toonInfo(_ sender: Any) {
+        self.performSegue(withIdentifier: "toonInformatie", sender: self)
+    }
 }
 
 // De uitbreiding van de class naar UITableViewDelegate en UITableViewDataSource is in een extension geplaatst om de leesbaarheid iets te vergroten

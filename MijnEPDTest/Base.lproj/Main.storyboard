@@ -86,6 +86,11 @@
                         <viewLayoutGuide key="safeArea" id="Wg9-WM-LW2"/>
                     </view>
                     <navigationItem key="navigationItem" title="Menu" id="qAK-su-Fur">
+                        <barButtonItem key="leftBarButtonItem" image="infoIcon" id="3mc-9D-IZg">
+                            <connections>
+                                <action selector="toonInfo:" destination="5HR-mi-IpI" id="9gg-Hr-gsp"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="uRO-uL-OSL">
                             <connections>
                                 <action selector="nieuwDocumentToevoegen:" destination="5HR-mi-IpI" id="Sau-Tt-4dU"/>
@@ -96,6 +101,7 @@
                         <outlet property="tableView" destination="pxT-FP-zPK" id="ufr-2d-cqD"/>
                         <segue destination="hbZ-td-iRW" kind="show" identifier="naarMappen" id="jLg-hc-qQe"/>
                         <segue destination="yPL-iw-4J0" kind="show" identifier="nieuwDocumentSegue" id="qtV-M6-D1l"/>
+                        <segue destination="uG7-n1-8qM" kind="show" identifier="toonInformatie" id="pcL-Tw-3KQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygg-L4-xYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -354,6 +360,240 @@
             </objects>
             <point key="canvasLocation" x="2448.8000000000002" y="177.66116941529236"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="y6H-I8-LZ9">
+            <objects>
+                <viewController id="uG7-n1-8qM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rcB-LH-x7t">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1650"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jEp-Lm-gmR">
+                                <rect key="frame" x="0.0" y="20" width="375" height="1630"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBg-wA-2ps">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1650"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Handleiding" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq8-F8-a7b">
+                                                <rect key="frame" x="8" y="8" width="358.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document toevoegen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luj-B7-ykh">
+                                                <rect key="frame" x="8" y="37.5" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26o-fK-NoM">
+                                                <rect key="frame" x="8" y="58" width="359" height="81.5"/>
+                                                <string key="text">U kunt een document toevoegen door in het beginscherm op de plusknop rechtsbovenin te klikken. In het volgende scherm kunt u alle gewenste informatie invullen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Afbeelding toevoegen aan document" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QwM-Ld-Dz5">
+                                                <rect key="frame" x="8" y="148.5" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkc-Gx-cmb">
+                                                <rect key="frame" x="8" y="169.5" width="359" height="122"/>
+                                                <string key="text">In het invulscherm, kunt u een afbeelding toevoegen door op het camera-icoon rechtsbovenin te klikken. Hier kunt u kiezen om direct een afbeelding te maken met uw camera of om een afbeelding uit uw galerij te kiezen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nieuwe map aanmaken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvC-mV-Kfk">
+                                                <rect key="frame" x="8" y="300.5" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCq-1E-rS2">
+                                                <rect key="frame" x="8" y="321.5" width="359" height="142.5"/>
+                                                <string key="text">U kunt een nieuwe map aanmaken door in het beginscherm op het specialisme te klikken waarin u een nieuwe map wilt aanmaken. U komt dan in het mappenscherm van het specialisme. Hierin kunt u op de plusknop rechtsboven klikken om een nieuwe map aan te maken.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map wijzigen of verwijderen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZU-ST-l9M">
+                                                <rect key="frame" x="8" y="473" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uac-eT-npa">
+                                                <rect key="frame" x="8" y="493.5" width="359" height="122"/>
+                                                <string key="text">Om een map te wijzigen of te verwijderen, houdt u in het mappenscherm de gewenste map lang ingedrukt. Er verschijnt dan een pop-up menu waarin u ervoor kunt kiezen om de naam van de map te wijzigen of om de map te verwijderen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LET OP: wanneer u een map verwijdert, worden ook alle documenten in deze map verwijderd" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7P-bb-rqE">
+                                                <rect key="frame" x="8" y="615.5" width="359" height="61"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document verplaatsen of verwijderen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksx-R4-QUf">
+                                                <rect key="frame" x="8" y="685.5" width="359" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDX-zH-d8l">
+                                                <rect key="frame" x="8" y="706" width="359" height="162.5"/>
+                                                <string key="text">Om een document te verplaatsen naar een andere map of om een document te verwijderen, houdt u in het documentenscherm het gewenste document lang ingedrukt. Er verschijnt dan een pop-up menu waarin u ervoor kunt kiezen om het document te verplaatsen of om het document te verwijderen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document aanpassen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWa-Ri-Ymg">
+                                                <rect key="frame" x="8" y="877.5" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YK9-HD-6vI">
+                                                <rect key="frame" x="8" y="898.5" width="359" height="162.5"/>
+                                                <string key="text">Om een document te wijzigen, opent u het document en klinkt u op het potloodje rechtsboven. U komt nu in het wijzigscherm. Hierin kunt u alle documentgegevens wijzigen. U kunt hier ook het specialisme wijzigen. Als u dit doet, wordt het document in de map 'Nieuwe documenten' van het geselecteerde specialisme geplaatst.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document doormailen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1T-IB-flL">
+                                                <rect key="frame" x="8" y="1070" width="359" height="21"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVr-GV-ucV">
+                                                <rect key="frame" x="8" y="1091" width="359" height="81.5"/>
+                                                <string key="text">Voor het doormailen van een document, opent u het document en klikt u op het e-mail icoon rechtsbovenin. Vervolgens kunt u zelf het gewenst mail-adres invullen.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyp-No-hBp">
+                                                <rect key="frame" x="8" y="1172.5" width="359" height="142.5"/>
+                                                <string key="text">LET OP: e-mail is geen betrouwbaar medium om gevoelige patiënteninformatie te verzenden. Het doorsturen van uw documenten via deze e-mailfunctie is geheel op eigen risico. Houd er rekening mee dat uw documenten kunnen worden onderschept door derden.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Disclaimer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zoT-nA-8if">
+                                                <rect key="frame" x="8" y="1338" width="358.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="krz-LQ-7Ah">
+                                                <rect key="frame" x="8" y="1363.5" width="359" height="183"/>
+                                                <string key="text">Het gebruik van deze app is geheel op eigen risico. De ontwikkelaars en uitgevers van MijnEPD nemen geen verantwoordelijkheid voor de juistheid van de documenten die de gebruiker opslaat in de app. Ook voor het ongewenst uitlekken, onderscheppen of verwijderen van documenten of patiëntengegevens, hebben de ontwikkelaars en uitgevers geen verantwoordelijkheid.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ontwikkeld door Floor van Lieshout en Noël Bainathsah" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cd2-Qd-jgg">
+                                                <rect key="frame" x="8" y="1606.5" width="359" height="15"/>
+                                                <fontDescription key="fontDescription" name="Arial-ItalicMT" family="Arial" pointSize="13"/>
+                                                <color key="textColor" red="0.67792760399999996" green="0.09634260889" blue="0.11946976300000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="MDX-zH-d8l" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="0hf-I1-vAM"/>
+                                            <constraint firstAttribute="trailing" secondItem="zoT-nA-8if" secondAttribute="trailing" constant="8" id="2V7-px-37g"/>
+                                            <constraint firstAttribute="trailing" secondItem="QwM-Ld-Dz5" secondAttribute="trailing" constant="8" id="48f-Xq-aE2"/>
+                                            <constraint firstItem="G7P-bb-rqE" firstAttribute="top" secondItem="Uac-eT-npa" secondAttribute="bottom" id="5OM-Mm-dhu"/>
+                                            <constraint firstItem="krz-LQ-7Ah" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="5Pm-k9-PaY"/>
+                                            <constraint firstItem="YK9-HD-6vI" firstAttribute="top" secondItem="eWa-Ri-Ymg" secondAttribute="bottom" id="5Tp-Gd-9Yd"/>
+                                            <constraint firstItem="Luj-B7-ykh" firstAttribute="top" secondItem="Zq8-F8-a7b" secondAttribute="bottom" constant="9" id="5bW-YI-f10"/>
+                                            <constraint firstItem="G7P-bb-rqE" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="6Zr-nb-NrS"/>
+                                            <constraint firstItem="IVr-GV-ucV" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="7mb-Rc-5V1"/>
+                                            <constraint firstAttribute="trailing" secondItem="26o-fK-NoM" secondAttribute="trailing" constant="8" id="805-8x-xwT"/>
+                                            <constraint firstAttribute="trailing" secondItem="zvC-mV-Kfk" secondAttribute="trailing" constant="8" id="8OR-Q9-jKq"/>
+                                            <constraint firstAttribute="trailing" secondItem="B1T-IB-flL" secondAttribute="trailing" constant="8" id="8Y6-Qi-bb1"/>
+                                            <constraint firstItem="26o-fK-NoM" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="8cP-Nt-bj2"/>
+                                            <constraint firstItem="Uac-eT-npa" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="AID-HQ-LoH"/>
+                                            <constraint firstAttribute="trailing" secondItem="YK9-HD-6vI" secondAttribute="trailing" constant="8" id="ArG-fb-72R"/>
+                                            <constraint firstItem="Jkc-Gx-cmb" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="Aty-68-ri4"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xyp-No-hBp" secondAttribute="trailing" constant="8" id="C8r-Sb-whQ"/>
+                                            <constraint firstItem="26o-fK-NoM" firstAttribute="top" secondItem="Luj-B7-ykh" secondAttribute="bottom" id="FGn-bF-njt"/>
+                                            <constraint firstAttribute="trailing" secondItem="krz-LQ-7Ah" secondAttribute="trailing" constant="8" id="FSI-HP-CdD"/>
+                                            <constraint firstItem="QwM-Ld-Dz5" firstAttribute="top" secondItem="26o-fK-NoM" secondAttribute="bottom" constant="9" id="I77-dS-ZnI"/>
+                                            <constraint firstAttribute="trailing" secondItem="wCq-1E-rS2" secondAttribute="trailing" constant="8" id="Qmi-NY-EoZ"/>
+                                            <constraint firstItem="zoT-nA-8if" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="SsZ-0R-Lae"/>
+                                            <constraint firstItem="Zq8-F8-a7b" firstAttribute="top" secondItem="hBg-wA-2ps" secondAttribute="top" constant="8" id="TgD-8E-8ZT"/>
+                                            <constraint firstItem="eWa-Ri-Ymg" firstAttribute="top" secondItem="MDX-zH-d8l" secondAttribute="bottom" constant="9" id="Ukb-rb-82k"/>
+                                            <constraint firstAttribute="trailing" secondItem="ksx-R4-QUf" secondAttribute="trailing" constant="8" id="Uvy-bm-vow"/>
+                                            <constraint firstItem="Zq8-F8-a7b" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="WKv-G9-Dya"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zq8-F8-a7b" secondAttribute="trailing" constant="8" id="ZLl-UQ-4vP"/>
+                                            <constraint firstItem="ksx-R4-QUf" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="ZYS-dc-OHE"/>
+                                            <constraint firstItem="Uac-eT-npa" firstAttribute="top" secondItem="XZU-ST-l9M" secondAttribute="bottom" id="aKf-iL-MoX"/>
+                                            <constraint firstAttribute="trailing" secondItem="MDX-zH-d8l" secondAttribute="trailing" constant="8" id="abb-gq-55U"/>
+                                            <constraint firstItem="Xyp-No-hBp" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="aok-GR-ntG"/>
+                                            <constraint firstItem="zvC-mV-Kfk" firstAttribute="top" secondItem="Jkc-Gx-cmb" secondAttribute="bottom" constant="9" id="bWG-MN-gb6"/>
+                                            <constraint firstItem="wCq-1E-rS2" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="cg5-w1-HfN"/>
+                                            <constraint firstItem="B1T-IB-flL" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="csR-KN-cO5"/>
+                                            <constraint firstAttribute="trailing" secondItem="eWa-Ri-Ymg" secondAttribute="trailing" constant="8" id="d0I-Bb-Knr"/>
+                                            <constraint firstItem="Xyp-No-hBp" firstAttribute="top" secondItem="IVr-GV-ucV" secondAttribute="bottom" id="dMN-Cz-YPE"/>
+                                            <constraint firstItem="ksx-R4-QUf" firstAttribute="top" secondItem="G7P-bb-rqE" secondAttribute="bottom" constant="9" id="g4h-N9-t9C"/>
+                                            <constraint firstItem="cd2-Qd-jgg" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="ge3-oq-0am"/>
+                                            <constraint firstItem="B1T-IB-flL" firstAttribute="top" secondItem="YK9-HD-6vI" secondAttribute="bottom" constant="9" id="h9k-V6-l8F"/>
+                                            <constraint firstItem="IVr-GV-ucV" firstAttribute="top" secondItem="B1T-IB-flL" secondAttribute="bottom" id="kmJ-Q4-Q9m"/>
+                                            <constraint firstItem="krz-LQ-7Ah" firstAttribute="top" secondItem="zoT-nA-8if" secondAttribute="bottom" constant="5" id="lxg-f0-a7W"/>
+                                            <constraint firstItem="Jkc-Gx-cmb" firstAttribute="top" secondItem="QwM-Ld-Dz5" secondAttribute="bottom" id="nYy-Pg-9Z8"/>
+                                            <constraint firstItem="QwM-Ld-Dz5" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="p8F-xD-XMH"/>
+                                            <constraint firstAttribute="trailing" secondItem="XZU-ST-l9M" secondAttribute="trailing" constant="8" id="pr3-iq-ulr"/>
+                                            <constraint firstItem="Luj-B7-ykh" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="q8I-vI-GUv"/>
+                                            <constraint firstItem="XZU-ST-l9M" firstAttribute="top" secondItem="wCq-1E-rS2" secondAttribute="bottom" constant="9" id="qxM-x6-vwf"/>
+                                            <constraint firstAttribute="height" constant="1650" id="sRP-an-uuY"/>
+                                            <constraint firstItem="zvC-mV-Kfk" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="sW6-qP-0wr"/>
+                                            <constraint firstAttribute="trailing" secondItem="G7P-bb-rqE" secondAttribute="trailing" constant="8" id="tZc-oW-9ox"/>
+                                            <constraint firstItem="cd2-Qd-jgg" firstAttribute="top" secondItem="krz-LQ-7Ah" secondAttribute="bottom" constant="60" id="uu5-hw-DNk"/>
+                                            <constraint firstItem="zoT-nA-8if" firstAttribute="top" secondItem="Xyp-No-hBp" secondAttribute="bottom" constant="23" id="vUC-Y0-v1D"/>
+                                            <constraint firstAttribute="trailing" secondItem="IVr-GV-ucV" secondAttribute="trailing" constant="8" id="vmA-qO-bM2"/>
+                                            <constraint firstItem="XZU-ST-l9M" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="w5U-IZ-MOg"/>
+                                            <constraint firstItem="eWa-Ri-Ymg" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="wYc-v6-pcV"/>
+                                            <constraint firstItem="MDX-zH-d8l" firstAttribute="top" secondItem="ksx-R4-QUf" secondAttribute="bottom" id="xbl-2F-0RL"/>
+                                            <constraint firstAttribute="trailing" secondItem="Luj-B7-ykh" secondAttribute="trailing" constant="8" id="xcC-9P-kFs"/>
+                                            <constraint firstAttribute="trailing" secondItem="Uac-eT-npa" secondAttribute="trailing" constant="8" id="xm2-TL-hcO"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jkc-Gx-cmb" secondAttribute="trailing" constant="8" id="xx6-og-eRz"/>
+                                            <constraint firstItem="wCq-1E-rS2" firstAttribute="top" secondItem="zvC-mV-Kfk" secondAttribute="bottom" id="yMd-Vk-U9F"/>
+                                            <constraint firstItem="YK9-HD-6vI" firstAttribute="leading" secondItem="hBg-wA-2ps" secondAttribute="leading" constant="8" id="z6d-Y4-m7A"/>
+                                            <constraint firstAttribute="trailing" secondItem="cd2-Qd-jgg" secondAttribute="trailing" constant="8" id="zjf-q1-DU6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="hBg-wA-2ps" secondAttribute="bottom" id="Wv4-I4-s3T"/>
+                                    <constraint firstAttribute="trailing" secondItem="hBg-wA-2ps" secondAttribute="trailing" id="YR3-iu-8HU"/>
+                                    <constraint firstItem="hBg-wA-2ps" firstAttribute="top" secondItem="jEp-Lm-gmR" secondAttribute="top" id="hn4-O2-jCP"/>
+                                    <constraint firstItem="hBg-wA-2ps" firstAttribute="leading" secondItem="jEp-Lm-gmR" secondAttribute="leading" id="mzm-Wc-MfJ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jEp-Lm-gmR" firstAttribute="top" secondItem="rcB-LH-x7t" secondAttribute="top" constant="20" id="9bJ-XG-DiV"/>
+                            <constraint firstItem="jEp-Lm-gmR" firstAttribute="leading" secondItem="rcB-LH-x7t" secondAttribute="leading" id="N5F-Go-axX"/>
+                            <constraint firstAttribute="bottom" secondItem="jEp-Lm-gmR" secondAttribute="bottom" id="bXg-pE-DZS"/>
+                            <constraint firstItem="hBg-wA-2ps" firstAttribute="width" secondItem="rcB-LH-x7t" secondAttribute="width" id="bnA-vg-DXy"/>
+                            <constraint firstAttribute="trailing" secondItem="jEp-Lm-gmR" secondAttribute="trailing" id="y4g-GG-Pd0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Pig-L8-6jf"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="1650"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vew-5S-VBX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1703" y="1358"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2pt-Ow-e7Y">
             <objects>
@@ -542,6 +782,7 @@
                             <constraint firstItem="ynG-vA-GHS" firstAttribute="top" secondItem="rH3-6v-Bsg" secondAttribute="top" id="3nf-2U-EPt"/>
                             <constraint firstItem="ynG-vA-GHS" firstAttribute="trailing" secondItem="0MH-7g-5wd" secondAttribute="trailing" id="3o3-SP-osh"/>
                             <constraint firstItem="ynG-vA-GHS" firstAttribute="bottom" secondItem="QD5-LO-i9j" secondAttribute="bottom" id="CGM-Pe-WQI"/>
+                            <constraint firstItem="ynG-vA-GHS" firstAttribute="centerY" secondItem="rH3-6v-Bsg" secondAttribute="centerY" id="HKb-5R-CH6"/>
                             <constraint firstItem="ICz-DH-5ug" firstAttribute="leading" secondItem="QD5-LO-i9j" secondAttribute="leading" constant="200" id="IVV-h9-UmE"/>
                             <constraint firstItem="ynG-vA-GHS" firstAttribute="leading" secondItem="0MH-7g-5wd" secondAttribute="leading" id="Ilm-rt-ApH"/>
                             <constraint firstItem="ICz-DH-5ug" firstAttribute="top" secondItem="QD5-LO-i9j" secondAttribute="top" constant="247" id="KIA-Qm-mxT"/>
@@ -557,14 +798,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QD5-LO-i9j"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="bYm-Qt-Wd2">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BcR-gO-64S">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="verplaatsScherm:" destination="gKV-XB-ac9" id="gHc-7r-xta"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="bYm-Qt-Wd2"/>
                     <connections>
                         <outlet property="contextMenuView" destination="ICz-DH-5ug" id="iKI-2I-QEM"/>
                         <outlet property="navigationBar" destination="bYm-Qt-Wd2" id="DPI-GZ-kYI"/>
@@ -871,6 +1105,9 @@
             <point key="canvasLocation" x="2449" y="-507"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="infoIcon" width="20" height="20"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3FN-fF-0dy"/>
     </inferredMetricsTieBreakers>

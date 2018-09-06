@@ -28,6 +28,7 @@
 		F0834332213D8C250025F5D5 /* ISRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083432C213D8C240025F5D5 /* ISRadioButton.swift */; };
 		F0834333213D8C250025F5D5 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F083432D213D8C240025F5D5 /* DLRadioButton.m */; };
 		F0834334213D8C250025F5D5 /* NewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083432E213D8C240025F5D5 /* NewDocumentViewController.swift */; };
+		F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0870253214169E600B4E99D /* InformatieschermViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +54,6 @@
 		F04F2F0D210B0D720052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F04F2F0F210B0D730052BB27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F04F2F12210B0D730052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F04F2F14210B0D730052BB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F04F2F19210B0D730052BB27 /* MijnEPDTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MijnEPDTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F1D210B0D730052BB27 /* MijnEPDTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MijnEPDTestTests.swift; sourceTree = "<group>"; };
 		F04F2F1F210B0D730052BB27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +76,7 @@
 		F083432D213D8C240025F5D5 /* DLRadioButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/DLRadioButton.m; sourceTree = "<absolute>"; };
 		F083432E213D8C240025F5D5 /* NewDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewDocumentViewController.swift; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/NewDocumentViewController.swift; sourceTree = "<absolute>"; };
 		F0834330213D8C250025F5D5 /* DLRadioButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/DLRadioButton.h; sourceTree = "<absolute>"; };
+		F0870253214169E600B4E99D /* InformatieschermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformatieschermViewController.swift; sourceTree = "<group>"; };
 		F0EE185E213D4A1C002993A8 /* MijnEPDTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MijnEPDTest-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,10 +146,10 @@
 				F04F2F822116442E0052BB27 /* FolderClass.swift */,
 				F04F2F0F210B0D730052BB27 /* Assets.xcassets */,
 				F04F2F11210B0D730052BB27 /* LaunchScreen.storyboard */,
-				F04F2F14210B0D730052BB27 /* Info.plist */,
 				F04F2F882118914F0052BB27 /* MyError.swift */,
 				F04F2F8A211990420052BB27 /* ToastMessage.swift */,
 				F0EE185E213D4A1C002993A8 /* MijnEPDTest-Bridging-Header.h */,
+				F0870253214169E600B4E99D /* InformatieschermViewController.swift */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
@@ -311,6 +312,7 @@
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				F0834332213D8C250025F5D5 /* ISRadioButton.swift in Sources */,
+				F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
 				F04F2F892118914F0052BB27 /* MyError.swift in Sources */,
 				F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */,

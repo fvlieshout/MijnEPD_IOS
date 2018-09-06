@@ -120,6 +120,7 @@ class ListOfDocumentsViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBAction func restOfScreenTapped(_ sender: Any) {
         verplaatsDocumentView.isHidden = true
+        contextMenuView.isHidden = true
         restOfScreenView.isHidden = true
     }
     
