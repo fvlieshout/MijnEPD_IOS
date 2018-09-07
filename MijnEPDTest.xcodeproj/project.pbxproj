@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E36AF2142767C00DE908D /* DLRadioButton.m */; };
+		D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B02142767C00DE908D /* TestPaginaViewController.swift */; };
+		D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B12142767C00DE908D /* ISRadioButton.swift */; };
+		D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B22142767C00DE908D /* NewDocumentViewController.swift */; };
+		D23E36B92142A35400DE908D /* ListOfOnderzoekenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */; };
 		F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F08210B0D710052BB27 /* AppDelegate.swift */; };
 		F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0C210B0D720052BB27 /* Main.storyboard */; };
 		F04F2F10210B0D730052BB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0F210B0D730052BB27 /* Assets.xcassets */; };
@@ -24,10 +29,6 @@
 		F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8A211990420052BB27 /* ToastMessage.swift */; };
 		F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */; };
 		F04F2F91212DBEBB0052BB27 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */; };
-		F0834329213D7EC60025F5D5 /* TestPaginaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0834328213D7EC60025F5D5 /* TestPaginaViewController.swift */; };
-		F0834332213D8C250025F5D5 /* ISRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083432C213D8C240025F5D5 /* ISRadioButton.swift */; };
-		F0834333213D8C250025F5D5 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F083432D213D8C240025F5D5 /* DLRadioButton.m */; };
-		F0834334213D8C250025F5D5 /* NewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F083432E213D8C240025F5D5 /* NewDocumentViewController.swift */; };
 		F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0870253214169E600B4E99D /* InformatieschermViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D23E36AF2142767C00DE908D /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		D23E36B02142767C00DE908D /* TestPaginaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPaginaViewController.swift; sourceTree = "<group>"; };
+		D23E36B12142767C00DE908D /* ISRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISRadioButton.swift; sourceTree = "<group>"; };
+		D23E36B22142767C00DE908D /* NewDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocumentViewController.swift; sourceTree = "<group>"; };
+		D23E36B32142767C00DE908D /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfOnderzoekenViewController.swift; sourceTree = "<group>"; };
 		F04F2F05210B0D710052BB27 /* MijnEPDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MijnEPDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F08210B0D710052BB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F04F2F0D210B0D720052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,11 +78,6 @@
 		F04F2F8A211990420052BB27 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfDocumentsViewController.swift; sourceTree = "<group>"; };
 		F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
-		F0834328213D7EC60025F5D5 /* TestPaginaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestPaginaViewController.swift; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/TestPaginaViewController.swift; sourceTree = "<absolute>"; };
-		F083432C213D8C240025F5D5 /* ISRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ISRadioButton.swift; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/ISRadioButton.swift; sourceTree = "<absolute>"; };
-		F083432D213D8C240025F5D5 /* DLRadioButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/DLRadioButton.m; sourceTree = "<absolute>"; };
-		F083432E213D8C240025F5D5 /* NewDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewDocumentViewController.swift; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/NewDocumentViewController.swift; sourceTree = "<absolute>"; };
-		F0834330213D8C250025F5D5 /* DLRadioButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = /Users/denisevandiermen/Downloads/Floor/MijnEPDTest/MijnEPDTest/DLRadioButton.h; sourceTree = "<absolute>"; };
 		F0870253214169E600B4E99D /* InformatieschermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformatieschermViewController.swift; sourceTree = "<group>"; };
 		F0EE185E213D4A1C002993A8 /* MijnEPDTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MijnEPDTest-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,17 +130,18 @@
 		F04F2F07210B0D710052BB27 /* MijnEPDTest */ = {
 			isa = PBXGroup;
 			children = (
-				F0834328213D7EC60025F5D5 /* TestPaginaViewController.swift */,
-				F083432E213D8C240025F5D5 /* NewDocumentViewController.swift */,
-				F0834330213D8C250025F5D5 /* DLRadioButton.h */,
-				F083432D213D8C240025F5D5 /* DLRadioButton.m */,
-				F083432C213D8C240025F5D5 /* ISRadioButton.swift */,
+				D23E36B32142767C00DE908D /* DLRadioButton.h */,
+				D23E36AF2142767C00DE908D /* DLRadioButton.m */,
+				D23E36B12142767C00DE908D /* ISRadioButton.swift */,
+				D23E36B22142767C00DE908D /* NewDocumentViewController.swift */,
+				D23E36B02142767C00DE908D /* TestPaginaViewController.swift */,
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
 				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
 				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
 				F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */,
+				D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
 				F04F2F8021163F280052BB27 /* FolderCell.swift */,
 				F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */,
@@ -305,18 +308,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04F2F91212DBEBB0052BB27 /* DocumentCell.swift in Sources */,
-				F0834333213D8C250025F5D5 /* DLRadioButton.m in Sources */,
-				F0834334213D8C250025F5D5 /* NewDocumentViewController.swift in Sources */,
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
-				F0834332213D8C250025F5D5 /* ISRadioButton.swift in Sources */,
+				D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */,
+				D23E36B92142A35400DE908D /* ListOfOnderzoekenViewController.swift in Sources */,
 				F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
+				D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */,
+				D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */,
 				F04F2F892118914F0052BB27 /* MyError.swift in Sources */,
 				F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */,
-				F0834329213D7EC60025F5D5 /* TestPaginaViewController.swift in Sources */,
+				D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */,
 				F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
 				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,

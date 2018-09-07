@@ -9,6 +9,7 @@
 import UIKit
 
 var gekozenDocument = ""
+var row = 0
 
 class ListOfDocumentsViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -83,6 +84,8 @@ class ListOfDocumentsViewController: UIViewController, UIPickerViewDelegate, UIP
         documents = dbController.getDocumentenArray(mapID: mapID)
         data = dbController.getDataVanDocumentenArray(mapID: mapID)
     }
+    
+    
     
     @IBAction func verplaatsNaarMap(_ sender: Any) {
         restOfScreenView.backgroundColor = UIColor(red:0.0, green:0.0, blue:0.0, alpha:0.7) //maakt de achtergrond grijs zodat het pop-up menu meer opvalt

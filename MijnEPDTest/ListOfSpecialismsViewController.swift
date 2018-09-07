@@ -49,6 +49,12 @@ extension ListOfSpecialismsViewController: UITableViewDelegate, UITableViewDataS
         //beschrijft wat er moet gebeuren als er op één rij wordt geklikt
         let specialismTemp = specialisms[indexPath.row]
         gekozenSpecialisme = specialismTemp.title //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is
-        self.performSegue(withIdentifier: "naarMappen", sender: self)
+        
+        if (gekozenSpecialisme == "Labuitslagen" ) {
+            self.performSegue(withIdentifier: "naarLabuitslagen", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "naarMappen", sender: self)
+            
+        }
     }
 }

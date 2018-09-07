@@ -11,6 +11,7 @@ import SQLite3
 import UIKit
 
 var opgeslagenDocument = -1
+var docOnderzoek = 0
 
 class NewDocumentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -31,7 +32,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     let dbController = DatabaseConnector()
     var specialismen: [String] = []
-    var onderzoek:Int?
     var toast = ToastMessage()
     
     override func viewDidLoad() {
@@ -61,19 +61,20 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         return specialismen.count
     }
     
-    @IBAction func radioAction(_ sender: DLRadioButton) {
-        if sender.tag == 1 {
-            onderzoek = 1
+    @IBAction func radioButton(_ sender: DLRadioButton) {
+        if (sender.tag == 0) {
+            docOnderzoek = 0
         } else {
-            onderzoek = 0
+            docOnderzoek = 1
         }
     }
+    
+    
     
     @IBAction func opslaanInfo(_ sender: Any) {
         //getting values from textfields
         let docTitel = titelField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docBeschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docOnderzoek = 0
         let docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
         let docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docLocatie = locationField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
