@@ -61,6 +61,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         return specialismen.count
     }
     
+    
     @IBAction func radioButton(_ sender: DLRadioButton) {
         if (sender.tag == 0) {
             docOnderzoek = 0

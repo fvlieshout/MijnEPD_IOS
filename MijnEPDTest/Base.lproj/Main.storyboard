@@ -983,7 +983,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="radioButton:" destination="yPL-iw-4J0" eventType="touchUpInside" id="fGR-Hj-PoX"/>
+                                    <action selector="radioButton:" destination="yPL-iw-4J0" eventType="touchUpInside" id="Zce-aT-ABz"/>
                                     <outletCollection property="otherButtons" destination="alm-BQ-SU9" id="wqw-GR-Dax"/>
                                 </connections>
                             </button>
@@ -1003,9 +1003,6 @@
                                         <color key="value" red="0.68235294120000001" green="0.1960784314" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="radioAction:" destination="yPL-iw-4J0" eventType="touchUpInside" id="Njj-xd-VIt"/>
-                                </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="WGL-kp-19m">
                                 <rect key="frame" x="124" y="582" width="159" height="49"/>
