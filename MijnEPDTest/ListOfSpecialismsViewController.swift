@@ -52,8 +52,11 @@ extension ListOfSpecialismsViewController: UITableViewDelegate, UITableViewDataS
         
         if (gekozenSpecialisme == "Labuitslagen" ) {
             self.performSegue(withIdentifier: "naarLabuitslagen", sender: self)
-        } else {
-            self.performSegue(withIdentifier: "naarMappen", sender: self)
+        } else if (gekozenSpecialisme == "Rontgen Onderzoeken" ) {
+            self.performSegue(withIdentifier: "naarRontgen", sender: self)
+        } else if (gekozenSpecialisme == "Medicatie" ) {
+            self.performSegue(withIdentifier: "naarMedicatie", sender: self)
+        } else { self.performSegue(withIdentifier: "naarMappen", sender: self)
             
         }
     }

@@ -22,7 +22,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var imageViewer: UIImageView!
     @IBOutlet weak var descField: UITextView!
     @IBOutlet weak var dateField: UITextField!
-    @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var ArtsField: UITextField!
     @IBOutlet weak var OpslaanKnop: UIButton!
     @IBOutlet weak var labUitslag: DLRadioButton!
@@ -38,7 +37,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         specialismen = dbController.getSpecialismenArray()
         dateField.delegate = self
-        locationField.delegate = self
         ArtsField.delegate = self
         descField.delegate = self
         titelField.delegate = self
@@ -63,10 +61,19 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     
     @IBAction func radioButton(_ sender: DLRadioButton) {
+        
         if (sender.tag == 0) {
-            docOnderzoek = 0
-        } else {
-            docOnderzoek = 1
+                docOnderzoek = 0
+            } else if (sender.tag == 1) {
+                docOnderzoek = 1
+            } else if (sender.tag == 2) {
+                docOnderzoek = 2
+            } else if (sender.tag == 3) {
+                docOnderzoek = 3
+            } else if (sender.tag == 4) {
+                docOnderzoek = 4
+            } else if (sender.tag == 5) {
+                docOnderzoek = 5
         }
     }
     
@@ -78,7 +85,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         let docBeschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
         let docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docLocatie = locationField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docArtsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docUriFoto = "Urifoto"
         let docFilePath = "filepath"
@@ -94,11 +100,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         
-        if(docLocatie?.isEmpty)!{
-            locationField.layer.borderColor = UIColor.red.cgColor
-            return
-        }
-        
         if(docArtsNaam?.isEmpty)!{
             ArtsField.layer.borderColor = UIColor.red.cgColor
             return
@@ -109,7 +110,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             //emptying the textfields
             descField.text=""
             dateField.text=""
-            locationField.text=""
             ArtsField.text=""
             
             
