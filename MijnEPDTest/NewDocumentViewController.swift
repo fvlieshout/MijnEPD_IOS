@@ -12,6 +12,8 @@ import UIKit
 
 var opgeslagenDocument = -1
 var docOnderzoek = 0
+var image:UIImage? = nil
+var imagePath:String = ""
 
 class NewDocumentViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -25,6 +27,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var ArtsField: UITextField!
     @IBOutlet weak var OpslaanKnop: UIButton!
     @IBOutlet weak var labUitslag: DLRadioButton!
+    
+    private var datePicker: UIDatePicker?
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -46,6 +50,16 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         labUitslag.isMultipleSelectionEnabled = false
         
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        
+        dateField.inputView = datePicker
+        datePicker?.addTarget(self, action: #selector(NewDocumentViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewDocumentViewController.viewTapped(gestureRecognizer:)))
+        
+        view.addGestureRecognizer(tapGesture)
+        
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -57,6 +71,20 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return specialismen.count
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        
+        dateField.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
+        
+     
+    }
+    
+    @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
+        view.endEditing(true)
     }
     
     
@@ -86,8 +114,11 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         let docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
         let docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docArtsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docUriFoto = "Urifoto"
         let docFilePath = "filepath"
+    
+        let imageId = String.random()
+        
+        saveImage(imageId: imageId)
         
         //validating that values are not empty
         if(docBeschrijving?.isEmpty)!{
@@ -106,7 +137,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         }
         
         do {
-            try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: docUriFoto, deDatum: docDatum!, deFilepath: docFilePath)
+            try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: imageId, deDatum: docDatum!, deFilepath: docFilePath)
             //emptying the textfields
             descField.text=""
             dateField.text=""
@@ -126,15 +157,19 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-//    @IBAction func radioAction(_ sender: DLRadioButton) {
-//        if sender.tag == 1 {
-//            print("Het is een labuitslag")
-//        } else {
-//            print("Het is geen labuitslag")
-//        }
-//    }
+    func saveImage(imageId: String){
+        //create an instance of the FileManager
+        let fileManager = FileManager.default
+        //get the image path
+        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
+        //get the PNG data for this image
+        let data = UIImagePNGRepresentation(image!)
+        //store it in the document directory
+        fileManager.createFile(atPath: imagePath as String, contents: data, attributes: nil)
+        
+        print("Afbeelding opgeslagen met ID: " + imageId)
+    }
     
-    //Mark:- UITextViewDelegates
     //Zorgt voor een placeholder text binnen het beschrijving vak, textview ondersteund dit namelijk native niet.
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -158,7 +193,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    //Bij het drukken op de cameraknop wordt er een IOS actiosheet geopend die de opties geeft voor het kiezen van een foto uit de foto bibliotheek of de camera opend
+    //Bij het drukken op de cameraknop wordt er een IOS actiosheet geopend die de opties geeft voor het kiezen van een foto uit de foto bibliotheek of de camera opent
     
     @IBAction func openCamera(_ sender: Any) {
         
@@ -198,7 +233,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
         imageViewer.image = image
         
@@ -219,4 +254,25 @@ extension NewDocumentViewController : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+    
 }
+
+/**
+ Genereert een random imageID zodat elke afbeelding zijn eigen unieke naam heeft.
+ - Returns: Een random string van 20 characters
+ */
+extension String {
+    
+    static func random(length: Int = 20) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.count))
+            randomString += "\(base[base.index(base.startIndex, offsetBy: Int(randomValue))])"
+        }
+        return randomString
+    }
+}
+

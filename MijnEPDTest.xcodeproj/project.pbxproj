@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D213908C21496B070082D35C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D213908B21496B070082D35C /* Info.plist */; };
 		D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E36AF2142767C00DE908D /* DLRadioButton.m */; };
 		D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B02142767C00DE908D /* TestPaginaViewController.swift */; };
 		D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B12142767C00DE908D /* ISRadioButton.swift */; };
 		D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B22142767C00DE908D /* NewDocumentViewController.swift */; };
 		D23E36B92142A35400DE908D /* ListOfOnderzoekenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */; };
+		D2A490C2214AA16A00AD075A /* EditDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A490C1214AA16A00AD075A /* EditDocumentViewController.swift */; };
 		D2CB0BE72144353C001A8836 /* ListOfRontgenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB0BE62144353C001A8836 /* ListOfRontgenViewController.swift */; };
 		D2CB0BE921459740001A8836 /* ListOfMedicatieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */; };
+		D2CB0BED2145A10E001A8836 /* ViewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB0BEC2145A10E001A8836 /* ViewDocumentViewController.swift */; };
 		F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F08210B0D710052BB27 /* AppDelegate.swift */; };
 		F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0C210B0D720052BB27 /* Main.storyboard */; };
 		F04F2F10210B0D730052BB27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F04F2F0F210B0D730052BB27 /* Assets.xcassets */; };
@@ -52,14 +55,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D213908B21496B070082D35C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D23E36AF2142767C00DE908D /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		D23E36B02142767C00DE908D /* TestPaginaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPaginaViewController.swift; sourceTree = "<group>"; };
 		D23E36B12142767C00DE908D /* ISRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISRadioButton.swift; sourceTree = "<group>"; };
 		D23E36B22142767C00DE908D /* NewDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocumentViewController.swift; sourceTree = "<group>"; };
 		D23E36B32142767C00DE908D /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfOnderzoekenViewController.swift; sourceTree = "<group>"; };
+		D2A490C1214AA16A00AD075A /* EditDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentViewController.swift; sourceTree = "<group>"; };
 		D2CB0BE62144353C001A8836 /* ListOfRontgenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRontgenViewController.swift; sourceTree = "<group>"; };
 		D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfMedicatieViewController.swift; sourceTree = "<group>"; };
+		D2CB0BEC2145A10E001A8836 /* ViewDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDocumentViewController.swift; sourceTree = "<group>"; };
 		F04F2F05210B0D710052BB27 /* MijnEPDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MijnEPDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F04F2F08210B0D710052BB27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F04F2F0D210B0D720052BB27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,9 +144,11 @@
 				D23E36AF2142767C00DE908D /* DLRadioButton.m */,
 				D23E36B12142767C00DE908D /* ISRadioButton.swift */,
 				D23E36B22142767C00DE908D /* NewDocumentViewController.swift */,
+				D2CB0BEC2145A10E001A8836 /* ViewDocumentViewController.swift */,
 				D23E36B02142767C00DE908D /* TestPaginaViewController.swift */,
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
 				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
+				D2A490C1214AA16A00AD075A /* EditDocumentViewController.swift */,
 				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
@@ -159,6 +167,7 @@
 				F04F2F8A211990420052BB27 /* ToastMessage.swift */,
 				F0EE185E213D4A1C002993A8 /* MijnEPDTest-Bridging-Header.h */,
 				F0870253214169E600B4E99D /* InformatieschermViewController.swift */,
+				D213908B21496B070082D35C /* Info.plist */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
@@ -286,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D213908C21496B070082D35C /* Info.plist in Resources */,
 				F04F2F13210B0D730052BB27 /* LaunchScreen.storyboard in Resources */,
 				F04F2F10210B0D730052BB27 /* Assets.xcassets in Resources */,
 				F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */,
@@ -320,12 +330,14 @@
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */,
 				D23E36B92142A35400DE908D /* ListOfOnderzoekenViewController.swift in Sources */,
+				D2CB0BED2145A10E001A8836 /* ViewDocumentViewController.swift in Sources */,
 				F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
 				D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */,
 				D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */,
 				F04F2F892118914F0052BB27 /* MyError.swift in Sources */,
 				F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */,
+				D2A490C2214AA16A00AD075A /* EditDocumentViewController.swift in Sources */,
 				D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */,
 				F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */,
 				D2CB0BE72144353C001A8836 /* ListOfRontgenViewController.swift in Sources */,

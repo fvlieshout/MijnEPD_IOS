@@ -19,6 +19,7 @@ class TestPaginaViewController: UIViewController {
     
     let dbController = DatabaseConnector()
     var specialisme = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: opgeslagenDocument)
@@ -29,6 +30,7 @@ class TestPaginaViewController: UIViewController {
         labVeld.text = "Onderzoek: " + documentGegevens[3]
         specialismeVeld.text = "Specialisme: " + documentGegevens[4]
         mapIDVeld.text = "MapID: " + documentGegevens[6]
+        
         
         specialisme = documentGegevens[4]
         
