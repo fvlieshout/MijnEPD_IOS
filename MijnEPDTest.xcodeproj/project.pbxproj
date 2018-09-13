@@ -140,22 +140,19 @@
 		F04F2F07210B0D710052BB27 /* MijnEPDTest */ = {
 			isa = PBXGroup;
 			children = (
-				D23E36B32142767C00DE908D /* DLRadioButton.h */,
-				D23E36AF2142767C00DE908D /* DLRadioButton.m */,
-				D23E36B12142767C00DE908D /* ISRadioButton.swift */,
+				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
+				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
 				D23E36B22142767C00DE908D /* NewDocumentViewController.swift */,
 				D2CB0BEC2145A10E001A8836 /* ViewDocumentViewController.swift */,
-				D23E36B02142767C00DE908D /* TestPaginaViewController.swift */,
-				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
-				F04F2F0C210B0D720052BB27 /* Main.storyboard */,
 				D2A490C1214AA16A00AD075A /* EditDocumentViewController.swift */,
-				F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */,
+				D23E36B02142767C00DE908D /* TestPaginaViewController.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
 				F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */,
 				D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */,
 				D2CB0BE62144353C001A8836 /* ListOfRontgenViewController.swift */,
 				D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */,
+				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
 				F04F2F8021163F280052BB27 /* FolderCell.swift */,
 				F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */,
@@ -168,6 +165,9 @@
 				F0EE185E213D4A1C002993A8 /* MijnEPDTest-Bridging-Header.h */,
 				F0870253214169E600B4E99D /* InformatieschermViewController.swift */,
 				D213908B21496B070082D35C /* Info.plist */,
+				D23E36B32142767C00DE908D /* DLRadioButton.h */,
+				D23E36AF2142767C00DE908D /* DLRadioButton.m */,
+				D23E36B12142767C00DE908D /* ISRadioButton.swift */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
