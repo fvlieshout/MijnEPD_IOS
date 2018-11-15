@@ -40,6 +40,11 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         
         getImage(imageId: documentGegevens[7])
         
+        //fullscreen image
+        let pictureTap = UITapGestureRecognizer(target: self, action: #selector(ViewDocumentViewController.imageTapped(_:)))
+        imageViewer.addGestureRecognizer(pictureTap)
+        imageViewer.isUserInteractionEnabled = true
+        
         //Bepalen van het type onderzoek in tekst
         let typeOnderzoek = Int(documentGegevens[3])
         
@@ -92,6 +97,26 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         }else{
             print("Geen afbeelding gevonden")
         }
+    }
+    
+    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = UIScreen.main.bounds
+        newImageView.backgroundColor = .black
+        newImageView.contentMode = .scaleAspectFit
+        newImageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        sender.view?.removeFromSuperview()
     }
         
     @objc func naarBewerken(){
