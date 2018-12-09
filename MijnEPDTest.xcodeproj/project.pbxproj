@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D213908C21496B070082D35C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D213908B21496B070082D35C /* Info.plist */; };
 		D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E36AF2142767C00DE908D /* DLRadioButton.m */; };
 		D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B02142767C00DE908D /* TestPaginaViewController.swift */; };
 		D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B12142767C00DE908D /* ISRadioButton.swift */; };
@@ -253,7 +252,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Floor van Lieshout";
 				TargetAttributes = {
 					F04F2F04210B0D710052BB27 = {
@@ -295,7 +294,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D213908C21496B070082D35C /* Info.plist in Resources */,
 				F04F2F13210B0D730052BB27 /* LaunchScreen.storyboard in Resources */,
 				F04F2F10210B0D730052BB27 /* Assets.xcassets in Resources */,
 				F04F2F0E210B0D720052BB27 /* Main.storyboard in Resources */,
