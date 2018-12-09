@@ -118,23 +118,44 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
         let imageId = String.random()
         
-        saveImage(imageId: imageId)
-        
         //validating that values are not empty
-        if(docBeschrijving?.isEmpty)!{
+        if(docTitel ?? "").isEmpty{
+            descField.layer.borderWidth = CGFloat(Float(1.0))
+            descField.layer.cornerRadius = CGFloat(Float(5.0))
             descField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(docDatum?.isEmpty)!{
+        if(docBeschrijving ?? "").isEmpty{
+            descField.layer.borderWidth = CGFloat(Float(1.0))
+            descField.layer.cornerRadius = CGFloat(Float(5.0))
+            descField.layer.borderColor = UIColor.red.cgColor
+            return
+        }
+        
+        if(docDatum ?? "").isEmpty{
             dateField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(docArtsNaam?.isEmpty)!{
+        if(docArtsNaam ?? "").isEmpty{
+            ArtsField.layer.borderWidth = CGFloat(Float(1.0))
+            ArtsField.layer.cornerRadius = CGFloat(Float(5.0))
             ArtsField.layer.borderColor = UIColor.red.cgColor
             return
         }
+        if(imageViewer.image == nil) {
+            let alertController = UIAlertController(title: "Fout:", message:
+                "Voeg een afbeelding toe", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        saveImage(imageId: imageId)
+        
+        
         
         do {
             try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: imageId, deDatum: docDatum!, deFilepath: docFilePath)
