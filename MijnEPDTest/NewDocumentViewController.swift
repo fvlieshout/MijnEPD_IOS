@@ -120,9 +120,11 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         //validating that values are not empty
         if(docTitel ?? "").isEmpty{
-            descField.layer.borderWidth = CGFloat(Float(1.0))
-            descField.layer.cornerRadius = CGFloat(Float(5.0))
-            descField.layer.borderColor = UIColor.red.cgColor
+            let alertController = UIAlertController(title: "Fout:", message:
+                "Voeg een titel toe", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         
