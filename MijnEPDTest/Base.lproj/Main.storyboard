@@ -10,6 +10,58 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="yG2-gb-rYc">
+            <objects>
+                <viewController id="7yJ-oh-Wax" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d7h-aD-TRL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oXl-0K-O7b">
+                                <rect key="frame" x="47" y="233" width="281" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Het gebruik van deze app is geheel op eigen risico. De ontwikkelaars en uitgevers van MijnEPD nemen geen verantwoordelijkheid voor de juistheid van de documenten die de gebruiker opslaat in de app. Ook voor het ongewenst uitlekken, onderscheppen of verwijderen van documenten of patiëntengegevens, hebben de ontwikkelaars en uitgevers geen verantwoordelijkheid.</string>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-mg-pyj">
+                                <rect key="frame" x="159" y="457" width="62" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Akkoord">
+                                    <color key="titleColor" red="0.66477006670000005" green="0.2593298852" blue="0.25488615040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="5HR-mi-IpI" kind="show" id="Gyx-yB-kH2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.66477006670000005" green="0.2593298852" blue="0.25488615040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="FSe-mg-pyj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IMa-BP-uMl" secondAttribute="leading" id="5qc-93-OIB"/>
+                            <constraint firstItem="FSe-mg-pyj" firstAttribute="leading" secondItem="IMa-BP-uMl" secondAttribute="leading" constant="159" id="C8q-HR-iI3"/>
+                            <constraint firstItem="IMa-BP-uMl" firstAttribute="bottom" secondItem="FSe-mg-pyj" secondAttribute="bottom" constant="180" id="EHx-lu-1qS"/>
+                            <constraint firstItem="FSe-mg-pyj" firstAttribute="top" secondItem="oXl-0K-O7b" secondAttribute="bottom" constant="24" id="Hrf-Fs-ffr"/>
+                            <constraint firstItem="IMa-BP-uMl" firstAttribute="trailing" secondItem="FSe-mg-pyj" secondAttribute="trailing" constant="154" id="IT3-S1-W4C"/>
+                            <constraint firstItem="IMa-BP-uMl" firstAttribute="trailing" secondItem="oXl-0K-O7b" secondAttribute="trailing" constant="47" id="JvB-Ie-Uhc"/>
+                            <constraint firstItem="oXl-0K-O7b" firstAttribute="leading" secondItem="IMa-BP-uMl" secondAttribute="leading" constant="47" id="LsU-dI-WXx"/>
+                            <constraint firstItem="oXl-0K-O7b" firstAttribute="top" secondItem="IMa-BP-uMl" secondAttribute="top" constant="169" id="T26-ZP-ws3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IMa-BP-uMl"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qQI-Lc-RbD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kE-Tj-mWH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="209.14542728635683"/>
+        </scene>
         <!--Menu-->
         <scene sceneID="ejm-5f-KEp">
             <objects>
@@ -636,12 +688,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5HR-mi-IpI" kind="relationship" relationship="rootViewController" id="jq7-Qe-aVB"/>
+                        <segue destination="7yJ-oh-Wax" kind="relationship" relationship="rootViewController" id="bIU-UK-Q7P"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1P-m0-d0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="251"/>
+            <point key="canvasLocation" x="-450" y="209"/>
         </scene>
         <!--Documenten-->
         <scene sceneID="IyW-7q-tvh">
@@ -1794,8 +1846,8 @@
         <image name="infoIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="isa-PO-meb"/>
-        <segue reference="jq7-Qe-aVB"/>
+        <segue reference="3md-ng-8KO"/>
+        <segue reference="Gyx-yB-kH2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
