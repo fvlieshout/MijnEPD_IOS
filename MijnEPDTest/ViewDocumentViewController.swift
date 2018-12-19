@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import MessageUI
 
 
-class ViewDocumentViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate {
+class ViewDocumentViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     
     //outlets voor de tekstvelden en radiobutton
     @IBOutlet weak var titelField: UITextField!
@@ -81,12 +82,44 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         let delenKnop = UIButton(type: .system)
         delenKnop.setImage(#imageLiteral(resourceName: "Icon-Small"), for: .normal)
         self.view.addSubview(delenKnop)
+        delenKnop.addTarget(self, action: #selector(sendMail), for: UIControlEvents.touchUpInside)
         
         let editKnop = UIButton(type: .system)
         editKnop.setTitle("Bewerken", for: .normal)
         editKnop.addTarget(self, action: #selector(ViewDocumentViewController.naarBewerken), for: UIControlEvents.touchUpInside)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: delenKnop), UIBarButtonItem(customView: editKnop)]
     
+    }
+    
+    @objc func sendMail() {
+        let mailComposeViewController = configureMailController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            showMailError()
+        }
+        
+    }
+    
+    func configureMailController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
+        mailComposerVC.setToRecipients(["sjpinto@gmail.com"])
+        mailComposerVC.setSubject("mijnEPD help plus UW NAAM")
+        mailComposerVC.setMessageBody("Email body test", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showMailError(){
+        let sendMailErrorAlert = UIAlertController(title: "Email kan niet worden verzonden", message: "MijnEPD heeft een probleem ervaren met het verzenden van uw bericht", preferredStyle: .alert)
+        let dismiss = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        sendMailErrorAlert.addAction(dismiss)
+        self.present(sendMailErrorAlert, animated: true, completion: nil)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
     
     func getImage(imageId: String){
