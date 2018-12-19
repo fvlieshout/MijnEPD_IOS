@@ -19,16 +19,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oXl-0K-O7b">
-                                <rect key="frame" x="47" y="233" width="281" height="200"/>
+                                <rect key="frame" x="47" y="89" width="281" height="375"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="375" id="03p-10-ee1"/>
+                                </constraints>
                                 <string key="text">Het gebruik van deze app is geheel op eigen risico. De ontwikkelaars en uitgevers van MijnEPD nemen geen verantwoordelijkheid voor de juistheid van de documenten die de gebruiker opslaat in de app. Ook voor het ongewenst uitlekken, onderscheppen of verwijderen van documenten of patiëntengegevens, hebben de ontwikkelaars en uitgevers geen verantwoordelijkheid.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FSe-mg-pyj">
-                                <rect key="frame" x="159" y="457" width="62" height="30"/>
+                                <rect key="frame" x="144" y="434" width="87" height="42"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="uyo-aT-Rkd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Akkoord">
                                     <color key="titleColor" red="0.66477006670000005" green="0.2593298852" blue="0.25488615040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -45,14 +51,12 @@
                         </subviews>
                         <color key="backgroundColor" red="0.66477006670000005" green="0.2593298852" blue="0.25488615040000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="FSe-mg-pyj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IMa-BP-uMl" secondAttribute="leading" id="5qc-93-OIB"/>
-                            <constraint firstItem="FSe-mg-pyj" firstAttribute="leading" secondItem="IMa-BP-uMl" secondAttribute="leading" constant="159" id="C8q-HR-iI3"/>
-                            <constraint firstItem="IMa-BP-uMl" firstAttribute="bottom" secondItem="FSe-mg-pyj" secondAttribute="bottom" constant="180" id="EHx-lu-1qS"/>
-                            <constraint firstItem="FSe-mg-pyj" firstAttribute="top" secondItem="oXl-0K-O7b" secondAttribute="bottom" constant="24" id="Hrf-Fs-ffr"/>
-                            <constraint firstItem="IMa-BP-uMl" firstAttribute="trailing" secondItem="FSe-mg-pyj" secondAttribute="trailing" constant="154" id="IT3-S1-W4C"/>
-                            <constraint firstItem="IMa-BP-uMl" firstAttribute="trailing" secondItem="oXl-0K-O7b" secondAttribute="trailing" constant="47" id="JvB-Ie-Uhc"/>
-                            <constraint firstItem="oXl-0K-O7b" firstAttribute="leading" secondItem="IMa-BP-uMl" secondAttribute="leading" constant="47" id="LsU-dI-WXx"/>
-                            <constraint firstItem="oXl-0K-O7b" firstAttribute="top" secondItem="IMa-BP-uMl" secondAttribute="top" constant="169" id="T26-ZP-ws3"/>
+                            <constraint firstItem="FSe-mg-pyj" firstAttribute="leading" secondItem="IMa-BP-uMl" secondAttribute="leading" constant="144" id="GiV-rI-hh9"/>
+                            <constraint firstItem="IMa-BP-uMl" firstAttribute="trailing" secondItem="FSe-mg-pyj" secondAttribute="trailing" constant="144" id="NgB-Zu-cUm"/>
+                            <constraint firstItem="oXl-0K-O7b" firstAttribute="leading" secondItem="IMa-BP-uMl" secondAttribute="leading" constant="47" id="OA5-FK-a96"/>
+                            <constraint firstItem="oXl-0K-O7b" firstAttribute="top" secondItem="IMa-BP-uMl" secondAttribute="top" constant="25" id="P2M-Ec-nen"/>
+                            <constraint firstItem="FSe-mg-pyj" firstAttribute="top" secondItem="IMa-BP-uMl" secondAttribute="top" constant="370" id="g4L-H8-8vy"/>
+                            <constraint firstItem="IMa-BP-uMl" firstAttribute="trailing" secondItem="oXl-0K-O7b" secondAttribute="trailing" constant="47" id="qvB-cY-1QF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IMa-BP-uMl"/>
                     </view>
