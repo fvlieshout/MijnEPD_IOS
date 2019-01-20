@@ -455,7 +455,7 @@ class DatabaseConnector {
         }
         var dataLabuitslagenDocumentenArrayTemp: [String] = []
         var statement: OpaquePointer?
-        let sqlString = "SELECT TITEL FROM MEDISCH_DOCUMENT WHERE ONDERZOEK = 1 ORDER BY MD_ID DESC"
+        let sqlString = "SELECT DATUM FROM MEDISCH_DOCUMENT WHERE ONDERZOEK = 1 ORDER BY MD_ID DESC"
         
         if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
@@ -527,7 +527,7 @@ class DatabaseConnector {
         }
         var dataRontgenDocumentenArrayTemp: [String] = []
         var statement: OpaquePointer?
-        let sqlString = "SELECT TITEL FROM MEDISCH_DOCUMENT WHERE ONDERZOEK = 3 ORDER BY MD_ID DESC"
+        let sqlString = "SELECT DATUM FROM MEDISCH_DOCUMENT WHERE ONDERZOEK = 3 ORDER BY MD_ID DESC"
         
         if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)
@@ -599,7 +599,7 @@ class DatabaseConnector {
         }
         var dataMedicatieDocumentenArrayTemp: [String] = []
         var statement: OpaquePointer?
-        let sqlString = "SELECT TITEL FROM MEDISCH_DOCUMENT WHERE ONDERZOEK = 5 ORDER BY MD_ID DESC"
+        let sqlString = "SELECT DATUM FROM MEDISCH_DOCUMENT WHERE ONDERZOEK = 5 ORDER BY MD_ID DESC"
         
         if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)

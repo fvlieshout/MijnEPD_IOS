@@ -51,7 +51,7 @@ extension ListOfSpecialismsViewController: UITableViewDelegate, UITableViewDataS
         gekozenSpecialisme = specialismTemp.title //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is
         
         if (gekozenSpecialisme == "Labuitslagen" ) {
-            self.performSegue(withIdentifier: "naarLabuitslagen", sender: self)
+            self.performSegue(withIdentifier: "naarTest", sender: self)
         } else if (gekozenSpecialisme == "Rontgen Onderzoeken" ) {
             self.performSegue(withIdentifier: "naarRontgen", sender: self)
         } else if (gekozenSpecialisme == "Medicatie" ) {

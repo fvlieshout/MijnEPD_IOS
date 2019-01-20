@@ -24,6 +24,7 @@ class ListOfOnderzoekenViewController: UIViewController, UITableViewDelegate, UI
         navigationBar.title = "Labuitslagen"
         createLabuitslagDocumentEnDataArray()
         
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int
@@ -43,8 +44,8 @@ class ListOfOnderzoekenViewController: UIViewController, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //beschrijft wat er moet gebeuren als er op één rij wordt geklikt
         let documentTemp = labuitslagDocuments[indexPath.row]
-        gekozenDocument = documentTemp //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is
-        
+        gekozenDocument = documentTemp //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is.
+    
         self.performSegue(withIdentifier: "naarKijkDocument", sender: self)
         
     }

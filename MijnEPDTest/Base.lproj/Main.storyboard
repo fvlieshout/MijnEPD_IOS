@@ -159,11 +159,12 @@
                         <segue destination="iDf-Ge-OWm" kind="show" identifier="naarLabuitslagen" id="Wd4-fK-YJX"/>
                         <segue destination="Anf-sw-e4d" kind="show" identifier="naarRontgen" id="g5E-zb-D1R"/>
                         <segue destination="S6A-Ce-wc5" kind="show" identifier="naarMedicatie" id="FZb-QP-lJ6"/>
+                        <segue destination="TkO-c9-Tct" kind="show" identifier="naarTest" id="ffg-dg-ACz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ygg-L4-xYK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1450" y="178"/>
+            <point key="canvasLocation" x="1388" y="110"/>
         </scene>
         <!--Mappen-->
         <scene sceneID="inm-qw-G6N">
@@ -1235,12 +1236,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vm6-du-LUJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="-566"/>
+            <point key="canvasLocation" x="2334" y="-644"/>
         </scene>
-        <!--Title-->
+        <!--Labuitslagen-->
         <scene sceneID="GOC-uj-IGt">
             <objects>
-                <viewController id="iDf-Ge-OWm" customClass="ListOfOnderzoekenViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iDf-Ge-OWm" userLabel="Labuitslagen" customClass="ListOfOnderzoekenViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zZD-SY-XOh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1283,6 +1284,7 @@
                                                 <constraint firstItem="Knw-te-P1W" firstAttribute="bottom" secondItem="WCC-A2-lql" secondAttribute="bottomMargin" id="JQy-ve-Vrj"/>
                                                 <constraint firstItem="RoT-9x-MQu" firstAttribute="centerY" secondItem="WCC-A2-lql" secondAttribute="centerY" id="W8Y-ac-TtW"/>
                                                 <constraint firstItem="Knw-te-P1W" firstAttribute="leading" secondItem="RoT-9x-MQu" secondAttribute="trailing" constant="12" id="dKK-V8-UXe"/>
+                                                <constraint firstItem="JUj-PB-UEs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Knw-te-P1W" secondAttribute="trailing" constant="8" symbolic="YES" id="gIk-Ra-9BH"/>
                                                 <constraint firstItem="Knw-te-P1W" firstAttribute="centerY" secondItem="WCC-A2-lql" secondAttribute="centerY" id="zSp-17-s8B"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1326,10 +1328,10 @@
             </objects>
             <point key="canvasLocation" x="1550" y="-627"/>
         </scene>
-        <!--Title-->
+        <!--RontgenUitslagen-->
         <scene sceneID="W1D-xv-yQU">
             <objects>
-                <viewController id="Anf-sw-e4d" customClass="ListOfRontgenViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Anf-sw-e4d" userLabel="RontgenUitslagen" customClass="ListOfRontgenViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xUb-MR-MXy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1415,10 +1417,10 @@
             </objects>
             <point key="canvasLocation" x="830" y="-627"/>
         </scene>
-        <!--Title-->
+        <!--MedicatieUitslagen-->
         <scene sceneID="KDq-iF-q8U">
             <objects>
-                <viewController id="S6A-Ce-wc5" customClass="ListOfMedicatieViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S6A-Ce-wc5" userLabel="MedicatieUitslagen" customClass="ListOfMedicatieViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ihS-sU-0rQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1845,12 +1847,101 @@
             </objects>
             <point key="canvasLocation" x="4638" y="-587"/>
         </scene>
+        <!--Documenten-->
+        <scene sceneID="SQB-Os-iJy">
+            <objects>
+                <viewController id="TkO-c9-Tct" customClass="ListOfOnderzoekenViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NXw-CL-xBi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="45" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bwr-DV-geC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="603" id="v1X-Pj-qao"/>
+                                </constraints>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YQh-Bc-Yad">
+                                    <rect key="frame" x="0.0" y="73" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </button>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="documentCell" id="gL9-ts-FBw" customClass="DocumentCell" customModule="MijnEPDTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gL9-ts-FBw" id="3j9-Pf-J3h">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gpm-jp-YcL">
+                                                    <rect key="frame" x="9" y="2.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="d3M-Ro-TFU"/>
+                                                        <constraint firstAttribute="width" secondItem="Gpm-jp-YcL" secondAttribute="height" multiplier="40:40" id="vSj-0U-GmT"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBB-Kg-zYu">
+                                                    <rect key="frame" x="61" y="10.5" width="42" height="23.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.42873831080000002" green="0.41427161229999998" blue="0.44585897019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WaG-ze-Qrs">
+                                                    <rect key="frame" x="315.5" y="13.5" width="39.5" height="17.5"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
+                                                    <color key="textColor" red="0.42873831080000002" green="0.41427161229999998" blue="0.44585897019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LBB-Kg-zYu" firstAttribute="bottom" secondItem="3j9-Pf-J3h" secondAttribute="bottomMargin" id="2m5-1y-3II"/>
+                                                <constraint firstItem="LBB-Kg-zYu" firstAttribute="centerY" secondItem="3j9-Pf-J3h" secondAttribute="centerY" id="6aj-KX-QFd"/>
+                                                <constraint firstItem="LBB-Kg-zYu" firstAttribute="leading" secondItem="Gpm-jp-YcL" secondAttribute="trailing" constant="12" id="Ejz-qq-bfm"/>
+                                                <constraint firstItem="Gpm-jp-YcL" firstAttribute="leading" secondItem="3j9-Pf-J3h" secondAttribute="leadingMargin" constant="-6" id="GQ9-kv-ueO"/>
+                                                <constraint firstItem="Gpm-jp-YcL" firstAttribute="centerY" secondItem="3j9-Pf-J3h" secondAttribute="centerY" id="Yel-zB-c5o"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="WaG-ze-Qrs" secondAttribute="trailing" constant="5" id="h4P-vv-cOY"/>
+                                                <constraint firstItem="WaG-ze-Qrs" firstAttribute="centerY" secondItem="3j9-Pf-J3h" secondAttribute="centerY" id="pNW-dt-HKh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="documentDate" destination="WaG-ze-Qrs" id="SN6-oJ-CaS"/>
+                                            <outlet property="documentImage" destination="Gpm-jp-YcL" id="rLV-xi-6AQ"/>
+                                            <outlet property="documentTitle" destination="LBB-Kg-zYu" id="DGc-gG-dXB"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TkO-c9-Tct" id="eDv-MO-XCj"/>
+                                    <outlet property="delegate" destination="TkO-c9-Tct" id="AnH-Eg-lKV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bwr-DV-geC" firstAttribute="top" secondItem="2Ah-ad-yfc" secondAttribute="top" id="VEg-kK-CPm"/>
+                            <constraint firstItem="bwr-DV-geC" firstAttribute="leading" secondItem="2Ah-ad-yfc" secondAttribute="leading" id="YIq-1t-uhe"/>
+                            <constraint firstItem="bwr-DV-geC" firstAttribute="trailing" secondItem="2Ah-ad-yfc" secondAttribute="trailing" id="oD8-rS-UwV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Ah-ad-yfc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Documenten" id="nGZ-HM-Nkb"/>
+                    <connections>
+                        <outlet property="navigationBar" destination="nGZ-HM-Nkb" id="qtV-nh-orE"/>
+                        <outlet property="tableViewer" destination="bwr-DV-geC" id="iQp-ho-Aaa"/>
+                        <segue destination="T2b-sE-gdl" kind="show" identifier="naarKijkDocument" id="JE8-xD-83K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f13-Q1-YhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1550" y="-1316"/>
+        </scene>
     </scenes>
     <resources>
         <image name="infoIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3md-ng-8KO"/>
+        <segue reference="JE8-xD-83K"/>
+        <segue reference="isa-PO-meb"/>
         <segue reference="Gyx-yB-kH2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -2,7 +2,7 @@
 //  ListOfMedicatieViewController.swift
 //  MijnEPDTest
 //
-//  Created by Miró Scholten on 09-09-18.
+//  Created by Noel Bainathsah on 09-09-18.
 //  Copyright © 2018 Floor van Lieshout. All rights reserved.
 //
 
