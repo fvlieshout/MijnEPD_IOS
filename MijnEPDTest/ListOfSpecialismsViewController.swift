@@ -16,6 +16,7 @@ var gekozenSpecialisme = ""
 class ListOfSpecialismsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBAction func nieuwDocumentToevoegen(_ sender: Any) {
+        gekozenSpecialisme = ""
         self.performSegue(withIdentifier: "nieuwDocumentSegue", sender: self)
     }
     
@@ -45,17 +46,31 @@ extension ListOfSpecialismsViewController: UITableViewDelegate, UITableViewDataS
         
         return cell
     }
+
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            var theSegueDataTypeOnderzoek = ""
+            if (gekozenSpecialisme == "Labuitslagen" || gekozenSpecialisme == "Rontgenonderzoeken" || gekozenSpecialisme == "Medicatie") {
+            theSegueDataTypeOnderzoek = gekozenSpecialisme
+            let destinationVC = segue.destination as! ListOfMedicatieViewController
+            destinationVC.segueDataTypeOnderzoek = theSegueDataTypeOnderzoek
+            }
+        }
+    
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //beschrijft wat er moet gebeuren als er op één rij wordt geklikt
         let specialismTemp = specialisms[indexPath.row]
         gekozenSpecialisme = specialismTemp.title //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is
+        let destinationVC = ListOfMedicatieViewController()
+        destinationVC.segueDataTypeOnderzoek = gekozenSpecialisme
         
-        if (gekozenSpecialisme == "Labuitslagen" ) {
+        if (gekozenSpecialisme == "Labuitslagen") {
             self.performSegue(withIdentifier: "naarTest", sender: self)
-        } else if (gekozenSpecialisme == "Rontgen Onderzoeken" ) {
-            self.performSegue(withIdentifier: "naarRontgen", sender: self)
+        } else if (gekozenSpecialisme == "Rontgenonderzoeken" ) {
+            self.performSegue(withIdentifier: "naarTest", sender: self)
         } else if (gekozenSpecialisme == "Medicatie" ) {
-            self.performSegue(withIdentifier: "naarMedicatie", sender: self)
+            self.performSegue(withIdentifier: "naarTest", sender: self)
         } else { self.performSegue(withIdentifier: "naarMappen", sender: self)
             
         }

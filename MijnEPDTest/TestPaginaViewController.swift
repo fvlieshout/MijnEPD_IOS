@@ -65,7 +65,5 @@ class TestPaginaViewController: UIViewController {
 
     @IBAction func naarSpecialismen(_ sender: Any) {
         self.performSegue(withIdentifier: "naarSpecialismen", sender: self)
-        let toaster = ToastMessage()
-        toaster.displayToast(message: "Het document is opgeslagen in de map 'Nieuwe documenten' onder het specialisme " + specialisme, duration: 3, viewController: self)
     }
 }

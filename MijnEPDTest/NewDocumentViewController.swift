@@ -29,6 +29,14 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var labUitslag: DLRadioButton!
     
     private var datePicker: UIDatePicker?
+    private var docTitel: String?
+    private var docBeschrijving: String?
+    private var docSpecialisme: String?
+    private var docDatum: String?
+    private var docArtsNaam: String?
+    private var docFilePath: String?
+    
+    var imageId = String.random()
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -109,14 +117,14 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBAction func opslaanInfo(_ sender: Any) {
         //getting values from textfields
-        let docTitel = titelField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docBeschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
-        let docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docArtsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docFilePath = "filepath"
+        docTitel = titelField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        docBeschrijving = descField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
+        docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        docArtsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        docFilePath = "filepath"
     
-        let imageId = String.random()
+        imageId = String.random()
         
         //validating that values are not empty
         if(docTitel ?? "").isEmpty{
@@ -128,39 +136,53 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             return
         }
         
-        if(docBeschrijving ?? "").isEmpty{
-            descField.layer.borderWidth = CGFloat(Float(1.0))
-            descField.layer.cornerRadius = CGFloat(Float(5.0))
-            descField.layer.borderColor = UIColor.red.cgColor
-            return
-        }
-        
-        if(docDatum ?? "").isEmpty{
+        if(docDatum == "") {
+            dateField.layer.borderWidth = CGFloat(Float(1.0))
+            dateField.layer.cornerRadius = CGFloat(Float(5.0))
             dateField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(docArtsNaam ?? "").isEmpty{
-            ArtsField.layer.borderWidth = CGFloat(Float(1.0))
-            ArtsField.layer.cornerRadius = CGFloat(Float(5.0))
-            ArtsField.layer.borderColor = UIColor.red.cgColor
-            return
-        }
         if(imageViewer.image == nil) {
-            let alertController = UIAlertController(title: "Fout:", message:
-                "Voeg een afbeelding toe", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            let alertController = UIAlertController(title: "Geen afbeelding gelecteerd", message:
+                "Weet u zeker dat u geen afbeelding wilt selecteren. Afbeeldingen kunnen niet later nog worden toegevoegd.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: { (action) in alertController.dismiss(animated: true, completion: nil)
+                return
+                }))
+            alertController.addAction(UIAlertAction(title: "Ja", style: UIAlertActionStyle.default, handler: { (action) in alertController.dismiss(animated: true, completion: nil)
+                print("geklikt op ja")
+                self.restOpslaan()
+                }))
             
             self.present(alertController, animated: true, completion: nil)
-            return
+        }
+        else {
+            restOpslaan()
+        }
+    }
+    
+    func restOpslaan() -> Void {
+        if (imageViewer.image != nil)
+        {
+            self.saveImage(imageId: imageId)
+        }
+        else {
+            imageId = "noImageID"
         }
         
-        saveImage(imageId: imageId)
+        //Controleert of het onderzoek een unieke naam heeft
         
+        if (docOnderzoek == 1 || docOnderzoek == 3 || docOnderzoek == 5) {
+            if (dbController.nameExists(deDocumentTitel: docTitel!, hetDocumentID: -1)) {
+                toast.displayToast(message: "Alle labuitslagen en (röntgen)onderzoeken moeten een unieke titel hebben. Er zijn meerdere onderzoeken met dezelde titel, geef deze een unieke titel.", duration: 3, viewController: self)
+                return
+            }
+        }
         
         
         do {
-            try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: imageId, deDatum: docDatum!, deFilepath: docFilePath)
+            try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme!, deArtsnaam: docArtsNaam!, deUriFoto: imageId, deDatum: docDatum!, deFilepath: docFilePath!)
             //emptying the textfields
             descField.text=""
             dateField.text=""
@@ -169,8 +191,11 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             
             //displaying a success message
             print("mijnEPDdocument is succesvol opgeslagen")
-            opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme, mapnaam: "Nieuwe documenten")
+          
+            opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme!, mapnaam: "Nieuwe documenten")
             self.performSegue(withIdentifier: "testSegue", sender: self)
+            let toaster = ToastMessage()
+            toaster.displayToast(message: "Het document is opgeslagen in de map 'Nieuwe documenten' onder het specialisme " + docSpecialisme!, duration: 3, viewController: self)
         } catch MyError.documentBestaatAlInMapBijAanmaken() {
             toast.displayToast(message: "Er bestaat in de map 'Nieuwe documenten' van dit specialisme al een document met deze titel. Kies een andere titel", duration: 4, viewController: self)
         } catch {

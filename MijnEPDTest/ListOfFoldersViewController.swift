@@ -245,6 +245,7 @@ extension ListOfFoldersViewController: UITableViewDelegate, UITableViewDataSourc
         //beschrijft wat er moet gebeuren als er op één rij wordt geklikt
         let folderTemp = folders[indexPath.row]
         gekozenMap = folderTemp.name //hier wordt de globale variable ingesteld die dus ook in andere classes en viewControllers bereikbaar is
+        print(gekozenMap)
         self.performSegue(withIdentifier: "naarDocumenten", sender: self)
     }
 }

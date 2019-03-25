@@ -30,8 +30,17 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
     @IBOutlet weak var ArtsField: UITextField!
     @IBOutlet weak var OpslaanKnop: UIButton!
     @IBOutlet weak var labUitslag: DLRadioButton!
+    @IBOutlet weak var rontgenbutton: DLRadioButton!
+    @IBOutlet weak var medicatiebutton: DLRadioButton!
+    @IBOutlet weak var anderbutton: DLRadioButton!
+    
     
     private var datePicker: UIDatePicker?
+    private var documentID: Int?
+    private var nieuwMapID: Int?
+    private var origineleMapID: Int?
+    private var origineleSpecialisme: String?
+    private var onderzoek: Int?
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -61,16 +70,31 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         dateField.inputView = datePicker
         datePicker?.addTarget(self, action: #selector(NewDocumentViewController.dateChanged(datePicker:)), for: .valueChanged)
         
+        documentID = documentIDEdit
+        let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: documentID!)
         
-        let documentID = dbController.getDocumentID(docunaam: gekozenDocument, specialisme: gekozenSpecialisme, mapnaam: gekozenMap)
-        let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: documentID)
+        origineleMapID = dbController.getMapIDmetDocuID(hetDocuID: documentID!)
         titelField.text = documentGegevens[1]
         descField.text = documentGegevens[2]
         dateField.text = documentGegevens[8]
         ArtsField.text = documentGegevens[5]
-        
-        
+        origineleSpecialisme = documentGegevens[4]
+        pickerView.selectRow(specialismen.index(of: origineleSpecialisme!) ?? 0, inComponent: 0, animated: true)
         getImage(imageId: documentGegevens[7])
+        
+        onderzoek = Int(documentGegevens[3])
+        if (onderzoek == 1) {
+            labUitslag.isSelected = true
+        }
+        else if (onderzoek == 3) {
+            rontgenbutton.isSelected = true
+        }
+        else if (onderzoek == 5) {
+            medicatiebutton.isSelected = true
+        }
+        else {
+            anderbutton.isSelected = true
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewDocumentViewController.viewTapped(gestureRecognizer:)))
         
@@ -130,30 +154,47 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         let docSpecialisme = specialismen[pickerView.selectedRow(inComponent: 0)]
         let docDatum = dateField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let docArtsNaam = ArtsField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        let docFilePath = "filepath"
+        //let docFilePath = "filepath"
         
-        let imageId = String.random()
+        //let imageId = String.random()
         
-        saveImage(imageId: imageId)
+        //saveImage(imageId: imageId)
         
         //validating that values are not empty
-        if(docBeschrijving?.isEmpty)!{
-            descField.layer.borderColor = UIColor.red.cgColor
+        if(docTitel ?? "").isEmpty{
+            let alertController = UIAlertController(title: "Fout:", message:
+                "Voeg een titel toe", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
             return
         }
         
-        if(docDatum?.isEmpty)!{
+        if(docDatum == "") {
+            dateField.layer.borderWidth = CGFloat(Float(1.0))
+            dateField.layer.cornerRadius = CGFloat(Float(5.0))
             dateField.layer.borderColor = UIColor.red.cgColor
             return
         }
         
-        if(docArtsNaam?.isEmpty)!{
-            ArtsField.layer.borderColor = UIColor.red.cgColor
-            return
+        //Controleert of het onderzoek een unieke naam heeft
+        if (docOnderzoek == 1 || docOnderzoek == 3 || docOnderzoek == 5) {
+            if (dbController.nameExists(deDocumentTitel: docTitel!, hetDocumentID: documentID!)) {
+                toast.displayToast(message: "Alle labuitslagen en (röntgen)onderzoeken moeten een unieke titel hebben. Er zijn meerdere onderzoeken met dezelde titel, geef deze een unieke titel.", duration: 3, viewController: self)
+                return
+            }
         }
         
         do {
-            try dbController.insertDocument(deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, deUriFoto: imageId, deDatum: docDatum!, deFilepath: docFilePath)
+            if (docSpecialisme == origineleSpecialisme) {
+                nieuwMapID = origineleMapID
+                print(nieuwMapID)
+            }
+            else {
+                nieuwMapID = dbController.getMapID(mapnaam: "Nieuwe documenten", specialisme: docSpecialisme)
+            }
+            try dbController.updateDocument(hetID: documentID!, deTitel: docTitel!, deBeschrijving: docBeschrijving!, hetOnderzoek: docOnderzoek, hetSpecialisme: docSpecialisme, deArtsnaam: docArtsNaam!, hetMapID: nieuwMapID!, deDatum: docDatum!)
+            
             //emptying the textfields
             descField.text=""
             dateField.text=""
@@ -162,8 +203,11 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
             
             //displaying a success message
             print("mijnEPDdocument is succesvol opgeslagen")
-            opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme, mapnaam: "Nieuwe documenten")
+            opgeslagenDocument = documentID!
             self.performSegue(withIdentifier: "testSegue", sender: self)
+            let toaster = ToastMessage()
+            toaster.displayToast(message: "De wijzigingen zijn succesvol opgeslagen", duration: 3, viewController: self)
+
         } catch MyError.documentBestaatAlInMapBijAanmaken() {
             toast.displayToast(message: "Er bestaat in de map 'Nieuwe documenten' van dit specialisme al een document met deze titel. Kies een andere titel", duration: 4, viewController: self)
         } catch {
@@ -173,18 +217,18 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    func saveImage(imageId: String){
-        //create an instance of the FileManager
-        let fileManager = FileManager.default
-        //get the image path
-        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
-        //get the PNG data for this image
-        let data = UIImagePNGRepresentation(image!)
-        //store it in the document directory
-        fileManager.createFile(atPath: imagePath as String, contents: data, attributes: nil)
-        
-        print("Afbeelding opgeslagen met ID: " + imageId)
-    }
+//    func saveImage(imageId: String){
+//        //create an instance of the FileManager
+//        let fileManager = FileManager.default
+//        //get the image path
+//        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
+//        //get the PNG data for this image
+//        let data = UIImagePNGRepresentation(image!)
+//        //store it in the document directory
+//        fileManager.createFile(atPath: imagePath as String, contents: data, attributes: nil)
+//
+//        print("Afbeelding opgeslagen met ID: " + imageId)
+//    }
     
     func getImage(imageId: String){
         let fileManager = FileManager.default

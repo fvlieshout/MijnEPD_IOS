@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F7F0AEC2247B65A009B0229 /* ListOfDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */; };
 		D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E36AF2142767C00DE908D /* DLRadioButton.m */; };
 		D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B02142767C00DE908D /* TestPaginaViewController.swift */; };
 		D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B12142767C00DE908D /* ISRadioButton.swift */; };
 		D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B22142767C00DE908D /* NewDocumentViewController.swift */; };
-		D23E36B92142A35400DE908D /* ListOfOnderzoekenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */; };
 		D2A490C2214AA16A00AD075A /* EditDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A490C1214AA16A00AD075A /* EditDocumentViewController.swift */; };
-		D2CB0BE72144353C001A8836 /* ListOfRontgenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB0BE62144353C001A8836 /* ListOfRontgenViewController.swift */; };
 		D2CB0BE921459740001A8836 /* ListOfMedicatieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */; };
 		D2CB0BED2145A10E001A8836 /* ViewDocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB0BEC2145A10E001A8836 /* ViewDocumentViewController.swift */; };
 		F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F08210B0D710052BB27 /* AppDelegate.swift */; };
@@ -31,7 +30,6 @@
 		F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */; };
 		F04F2F892118914F0052BB27 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F882118914F0052BB27 /* MyError.swift */; };
 		F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8A211990420052BB27 /* ToastMessage.swift */; };
-		F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */; };
 		F04F2F91212DBEBB0052BB27 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */; };
 		F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0870253214169E600B4E99D /* InformatieschermViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,15 +52,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfDocumentsViewController.swift; sourceTree = "<group>"; };
 		D213908B21496B070082D35C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D23E36AF2142767C00DE908D /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		D23E36B02142767C00DE908D /* TestPaginaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPaginaViewController.swift; sourceTree = "<group>"; };
 		D23E36B12142767C00DE908D /* ISRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISRadioButton.swift; sourceTree = "<group>"; };
 		D23E36B22142767C00DE908D /* NewDocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewDocumentViewController.swift; sourceTree = "<group>"; };
 		D23E36B32142767C00DE908D /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
-		D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfOnderzoekenViewController.swift; sourceTree = "<group>"; };
 		D2A490C1214AA16A00AD075A /* EditDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditDocumentViewController.swift; sourceTree = "<group>"; };
-		D2CB0BE62144353C001A8836 /* ListOfRontgenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfRontgenViewController.swift; sourceTree = "<group>"; };
 		D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfMedicatieViewController.swift; sourceTree = "<group>"; };
 		D2CB0BEC2145A10E001A8836 /* ViewDocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDocumentViewController.swift; sourceTree = "<group>"; };
 		F04F2F05210B0D710052BB27 /* MijnEPDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MijnEPDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +82,6 @@
 		F04F2F86211703CA0052BB27 /* DatabaseConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseConnector.swift; sourceTree = "<group>"; };
 		F04F2F882118914F0052BB27 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		F04F2F8A211990420052BB27 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
-		F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfDocumentsViewController.swift; sourceTree = "<group>"; };
 		F04F2F90212DBEBB0052BB27 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
 		F0870253214169E600B4E99D /* InformatieschermViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformatieschermViewController.swift; sourceTree = "<group>"; };
 		F0EE185E213D4A1C002993A8 /* MijnEPDTest-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MijnEPDTest-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -147,9 +143,7 @@
 				D23E36B02142767C00DE908D /* TestPaginaViewController.swift */,
 				F04F2F7A211609380052BB27 /* ListOfSpecialismsViewController.swift */,
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
-				F04F2F8E212DBAF70052BB27 /* ListOfDocumentsViewController.swift */,
-				D23E36B82142A35400DE908D /* ListOfOnderzoekenViewController.swift */,
-				D2CB0BE62144353C001A8836 /* ListOfRontgenViewController.swift */,
+				8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */,
 				D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */,
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
@@ -321,24 +315,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F7F0AEC2247B65A009B0229 /* ListOfDocumentsViewController.swift in Sources */,
 				F04F2F91212DBEBB0052BB27 /* DocumentCell.swift in Sources */,
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */,
-				D23E36B92142A35400DE908D /* ListOfOnderzoekenViewController.swift in Sources */,
 				D2CB0BED2145A10E001A8836 /* ViewDocumentViewController.swift in Sources */,
 				F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
 				D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */,
 				D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */,
 				F04F2F892118914F0052BB27 /* MyError.swift in Sources */,
-				F04F2F8F212DBAF70052BB27 /* ListOfDocumentsViewController.swift in Sources */,
 				D2A490C2214AA16A00AD075A /* EditDocumentViewController.swift in Sources */,
 				D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */,
 				F04F2F87211703CA0052BB27 /* DatabaseConnector.swift in Sources */,
-				D2CB0BE72144353C001A8836 /* ListOfRontgenViewController.swift in Sources */,
 				F04F2F7D21161A800052BB27 /* SpecialismCell.swift in Sources */,
 				F04F2F8121163F280052BB27 /* FolderCell.swift in Sources */,
 				F04F2F852116461C0052BB27 /* ListOfFoldersViewController.swift in Sources */,

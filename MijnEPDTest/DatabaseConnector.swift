@@ -124,7 +124,7 @@ class DatabaseConnector {
     func getSpecialismenArrayMetPlaatjes() -> [Specialism] {
         var specPlusOnderzoek = specialismenArray
         specPlusOnderzoek.insert("Medicatie", at: 0)
-        specPlusOnderzoek.insert("Rontgen Onderzoeken", at: 0)
+        specPlusOnderzoek.insert("Rontgenonderzoeken", at: 0)
         specPlusOnderzoek.insert("Labuitslagen", at: 0)
         var plaatjesArray:[UIImage] = [#imageLiteral(resourceName: "lab-icon"),#imageLiteral(resourceName: "114"),#imageLiteral(resourceName: "Medication@2x"),#imageLiteral(resourceName: "anesthesiologie"),#imageLiteral(resourceName: "cardiologie"),#imageLiteral(resourceName: "dermatologie"),#imageLiteral(resourceName: "gynaecologie"),#imageLiteral(resourceName: "huisartsgeneeskunde"),#imageLiteral(resourceName: "interne_geneeskunde"),#imageLiteral(resourceName: "keel_neus_oorheelkunde"),#imageLiteral(resourceName: "kindergeneeskunde"),#imageLiteral(resourceName: "klinische_genetica"),#imageLiteral(resourceName: "longgeneeskunde"),#imageLiteral(resourceName: "mdl"),#imageLiteral(resourceName: "neurologie"),#imageLiteral(resourceName: "oogheelkunde"),#imageLiteral(resourceName: "psychiatrie")] //array met de plaatjes van alle specialismen in de juiste volgorde
         var specialismenMetPlaatjesArray: [Specialism] = []
@@ -270,8 +270,7 @@ class DatabaseConnector {
     func insertDocument(deTitel: String, deBeschrijving: String, hetOnderzoek: Int, hetSpecialisme: String, deArtsnaam: String, deUriFoto: String, deDatum: String, deFilepath: String) throws {
         let mapID = getMapID(mapnaam: nieuweMap, specialisme: hetSpecialisme)
         // controleren of er al een document bestaat in die map met deze naam
-        let documentenArrayUitMap = getDocumentenArray(mapID: mapID)
-        if documentenArrayUitMap.contains(deTitel) {
+        if nameExistsInMap(deDocumentTitel: deTitel, hetDocumentID: -100, hetMapID: mapID) {
             throw MyError.documentBestaatAlInMapBijAanmaken()
         }
         
@@ -310,6 +309,23 @@ class DatabaseConnector {
             print("Error closing the database")
         }
     }
+    
+    func updateDocument(hetID: Int, deTitel: String, deBeschrijving: String, hetOnderzoek: Int, hetSpecialisme: String, deArtsnaam: String, hetMapID: Int, deDatum: String) throws {
+        if nameExistsInMap(deDocumentTitel: deTitel, hetDocumentID: hetID, hetMapID: hetMapID) {
+            throw MyError.documentBestaatAlInMapBijAanmaken()
+        }
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return
+        }
+        if sqlite3_exec(db, "UPDATE MEDISCH_DOCUMENT SET TITEL = '\(deTitel)', BESCHRIJVING = '\(deBeschrijving)', ONDERZOEK = '\(hetOnderzoek)', SPECIALISME = '\(hetSpecialisme)', ARTSNAAM = '\(deArtsnaam)', MAP = \(hetMapID), DATUM = '\(deDatum)' WHERE MD_ID = \(hetID)", nil, nil, nil) != SQLITE_OK {
+            print("Error updating document")
+            return
+        }
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+    }
 
     func verplaatsDocument(deDocumentTitel: String, hetDocumentID: Int, hetNieuweMapID: Int) throws {
         // controleren of er al een document bestaat in die map met deze naam
@@ -328,6 +344,104 @@ class DatabaseConnector {
         if sqlite3_close(db) != SQLITE_OK {
             print("Error closing the database")
         }
+    }
+    
+    func nameExists(deDocumentTitel: String, hetDocumentID: Int) -> Bool {
+        
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return false
+        }
+        
+        var namenArrayTemp: [String] = []
+        var statement: OpaquePointer? = nil
+        let sqlString = "SELECT TITEL FROM MEDISCH_DOCUMENT WHERE TITEL = '\(deDocumentTitel)' AND NOT MD_ID = \(hetDocumentID)"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            let queryResultCol1 = sqlite3_column_text(statement, 0)
+            let documentNaam = String(cString: queryResultCol1!)
+            namenArrayTemp.append(documentNaam)
+        }
+        
+        if namenArrayTemp.contains(deDocumentTitel) {
+        
+            if sqlite3_finalize(statement) != SQLITE_OK {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("error finalizing prepared statement: \(errmsg)")
+            }
+            statement = nil
+            if sqlite3_close(db) != SQLITE_OK {
+                print("Error closing the database")
+            }
+            
+            return true
+        } else {
+            if sqlite3_finalize(statement) != SQLITE_OK {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("error finalizing prepared statement: \(errmsg)")
+            }
+            statement = nil
+            if sqlite3_close(db) != SQLITE_OK {
+                print("Error closing the database")
+            }
+            
+            return false
+        }
+        
+   }
+    
+    func nameExistsInMap(deDocumentTitel: String, hetDocumentID: Int, hetMapID: Int) -> Bool {
+        
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return false
+        }
+        
+        var namenArrayTemp: [String] = []
+        var statement: OpaquePointer? = nil
+        let sqlString = "SELECT TITEL FROM MEDISCH_DOCUMENT WHERE TITEL = '\(deDocumentTitel)' AND MAP = \(hetMapID) AND NOT MD_ID = \(hetDocumentID)"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            let queryResultCol1 = sqlite3_column_text(statement, 0)
+            let documentNaam = String(cString: queryResultCol1!)
+            namenArrayTemp.append(documentNaam)
+        }
+        
+        if namenArrayTemp.contains(deDocumentTitel) {
+            
+            if sqlite3_finalize(statement) != SQLITE_OK {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("error finalizing prepared statement: \(errmsg)")
+            }
+            statement = nil
+            if sqlite3_close(db) != SQLITE_OK {
+                print("Error closing the database")
+            }
+            
+            return true
+        } else {
+            if sqlite3_finalize(statement) != SQLITE_OK {
+                let errmsg = String(cString: sqlite3_errmsg(db)!)
+                print("error finalizing prepared statement: \(errmsg)")
+            }
+            statement = nil
+            if sqlite3_close(db) != SQLITE_OK {
+                print("Error closing the database")
+            }
+            
+            return false
+        }
+        
     }
     
     //    public void verplaatsDocument(int documentID, int nieuweMapID) {
@@ -662,6 +776,37 @@ class DatabaseConnector {
         return mapID;
     }
     
+    func getMapIDmetDocuID(hetDocuID: Int) -> Int {
+        var mapID = -1
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return mapID
+        }
+        
+        var statement: OpaquePointer?
+        let sqlString = "SELECT MAP FROM MEDISCH_DOCUMENT WHERE MD_ID = \(hetDocuID)"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            mapID = Int(sqlite3_column_int(statement, 0))
+        }
+        
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }
+        statement = nil
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+        
+        return mapID;
+    }
+    
     func getDocumentID(docunaam: String, specialisme: String, mapnaam: String) -> Int {
         var docuID = 1000
         
@@ -673,6 +818,35 @@ class DatabaseConnector {
         }
         var statement: OpaquePointer?
         let sqlString = "SELECT MD_ID FROM MEDISCH_DOCUMENT WHERE TITEL = '\(docunaam)' AND SPECIALISME = '\(specialisme)' AND MAP = \(mapID)"
+        
+        if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error preparing select: \(errmsg)")
+        }
+        
+        while sqlite3_step(statement) == SQLITE_ROW {
+            docuID = Int(sqlite3_column_int(statement, 0))
+        }
+        
+        if sqlite3_finalize(statement) != SQLITE_OK {
+            let errmsg = String(cString: sqlite3_errmsg(db)!)
+            print("error finalizing prepared statement: \(errmsg)")
+        }
+        statement = nil
+        if sqlite3_close(db) != SQLITE_OK {
+            print("Error closing the database")
+        }
+        return docuID;
+    }
+    
+    func getDocumentIDOnderzoek(docunaam: String) -> Int {
+        var docuID = -1
+        if (sqlite3_open(databasePath, &db) != SQLITE_OK) {
+            print("Error opening the database")
+            return docuID
+        }
+        var statement: OpaquePointer?
+        let sqlString = "SELECT MD_ID FROM MEDISCH_DOCUMENT WHERE TITEL = '\(docunaam)'"
         
         if sqlite3_prepare_v2(db, sqlString, -1, &statement, nil) != SQLITE_OK {
             let errmsg = String(cString: sqlite3_errmsg(db)!)

@@ -9,6 +9,8 @@
 import Foundation
 import MessageUI
 
+var onderzoek = false
+var documentIDEdit = -1
 
 class ViewDocumentViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     
@@ -25,21 +27,33 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     
     let dbController = DatabaseConnector()
     var specialisme = ""
+    var segueData: String?
+    var documentID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBarItems()
-        
-        let documentID = dbController.getDocumentID(docunaam: gekozenDocument, specialisme: gekozenSpecialisme, mapnaam: gekozenMap)
-        let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: documentID)
+        if (segueData == "Onderzoek") {
+            onderzoek = true
+            documentID = dbController.getDocumentIDOnderzoek(docunaam: gekozenDocument)
+        }
+        else {
+            onderzoek = false
+        documentID = dbController.getDocumentID(docunaam: gekozenDocument, specialisme: gekozenSpecialisme, mapnaam: gekozenMap)
+        }
+        let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: documentID!)
         titelField.text = documentGegevens[1]
         descField.text = documentGegevens[2]
         dateField.text = documentGegevens[8]
         artsField.text = documentGegevens[5]
         specialismeField.text = documentGegevens[4]
-        
-        
         getImage(imageId: documentGegevens[7])
+        
+        titelField.isUserInteractionEnabled = false
+        descField.isUserInteractionEnabled = false
+        dateField.isUserInteractionEnabled = false
+        artsField.isUserInteractionEnabled = false
+        specialismeField.isUserInteractionEnabled = false
         
         //fullscreen image
         let pictureTap = UITapGestureRecognizer(target: self, action: #selector(ViewDocumentViewController.imageTapped(_:)))
@@ -52,7 +66,7 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         if ( typeOnderzoek == 1) {
             onderzoekField.text = "Labuitslag"
         } else if (typeOnderzoek == 3) {
-            onderzoekField.text = "Röntgen foto"
+            onderzoekField.text = "Röntgenfoto"
         } else if (typeOnderzoek == 5) {
             onderzoekField.text = "Medicatie"
         }
@@ -123,12 +137,17 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     }
     
     func getImage(imageId: String){
+        if (imageId == "noImageID") {
+            imageViewer.image = #imageLiteral(resourceName: "document")
+        }
+        else {
         let fileManager = FileManager.default
         let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
         if fileManager.fileExists(atPath: imagePath){
             imageViewer.image = UIImage(contentsOfFile: imagePath)
         }else{
             print("Geen afbeelding gevonden")
+        }
         }
     }
     
@@ -153,6 +172,7 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     }
         
     @objc func naarBewerken(){
+        documentIDEdit = documentID!
         performSegue(withIdentifier: "naarBewerken", sender: UIButton.self)
         
     }
