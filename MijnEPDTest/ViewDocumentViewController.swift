@@ -132,13 +132,13 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
-    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult, error: Error?) {
+    private func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }
     
     func getImage(imageId: String){
         if (imageId == "noImageID") {
-            imageViewer.image = #imageLiteral(resourceName: "document")
+            imageViewer.image = #imageLiteral(resourceName: "iosNote")
         }
         else {
         let fileManager = FileManager.default
