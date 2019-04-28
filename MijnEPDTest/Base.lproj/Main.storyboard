@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5uf-yX-zyC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5uf-yX-zyC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1424,17 +1424,17 @@
         <scene sceneID="JmQ-lO-WDa">
             <objects>
                 <viewController id="m7y-kO-bRA" customClass="EditDocumentViewController" customModule="MijnEPDTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WVv-f4-RXL">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="WVv-f4-RXL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbh-3w-xyK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbh-3w-xyK">
                                 <rect key="frame" x="0.0" y="20" width="375" height="270"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="Umh-ek-S0T"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-ts-yXV">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-ts-yXV">
                                 <rect key="frame" x="147" y="307" width="81" height="73"/>
                                 <state key="normal" title="DisplayAlert">
                                     <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1443,7 +1443,7 @@
                                     <action selector="DisplayAlert:" destination="m7y-kO-bRA" eventType="touchUpInside" id="YgO-4X-2Lr"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c44-RZ-kyy">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c44-RZ-kyy">
                                 <rect key="frame" x="15" y="383" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="9Ev-3L-KVA"/>
@@ -1453,7 +1453,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Behandelend arts" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgT-fc-b8N">
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Behandelend arts" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgT-fc-b8N">
                                 <rect key="frame" x="15" y="421" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8fN-fW-cHQ"/>
@@ -1463,7 +1463,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yt6-lI-yfZ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yt6-lI-yfZ">
                                 <rect key="frame" x="15" y="298" width="345" height="77"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1473,13 +1473,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specialisme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttc-bu-4ZS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Specialisme:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ttc-bu-4ZS">
                                 <rect key="frame" x="15" y="605" width="82" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0i-rS-nZc">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0i-rS-nZc">
                                 <rect key="frame" x="309" y="627" width="57" height="30"/>
                                 <state key="normal" title="Opslaan">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1488,7 +1488,7 @@
                                     <action selector="opslaanInfo:" destination="m7y-kO-bRA" eventType="touchUpInside" id="OTr-W2-vNA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-iH-Sdh" customClass="DLRadioButton">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-iH-Sdh" customClass="DLRadioButton">
                                 <rect key="frame" x="100" y="466" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fMW-hn-Jrh"/>
@@ -1513,7 +1513,7 @@
                                     <outletCollection property="otherButtons" destination="0gp-fI-hnz" id="FDN-99-hOR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-68-SJL" customClass="DLRadioButton">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUs-68-SJL" customClass="DLRadioButton">
                                 <rect key="frame" x="100" y="494" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="68J-wc-Hkt"/>
@@ -1535,7 +1535,7 @@
                                     <action selector="radioButton:" destination="m7y-kO-bRA" eventType="touchUpInside" id="3me-tc-Zuc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igl-sg-hP8" customClass="DLRadioButton">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igl-sg-hP8" customClass="DLRadioButton">
                                 <rect key="frame" x="100" y="528" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Inx-XC-jD3"/>
@@ -1557,31 +1557,31 @@
                                     <action selector="radioButton:" destination="m7y-kO-bRA" eventType="touchUpInside" id="40t-gl-cIw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Röntgen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6G-eX-8gJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Röntgen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6G-eX-8gJ">
                                 <rect key="frame" x="15" y="498" width="54.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medicatie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJz-ey-Lxr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Medicatie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJz-ey-Lxr">
                                 <rect key="frame" x="15" y="530" width="63.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labuitslag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-HS-kbb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Labuitslag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltf-HS-kbb">
                                 <rect key="frame" x="15" y="466" width="67" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3F-I7-8hB">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Anders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3F-I7-8hB">
                                 <rect key="frame" x="15" y="562" width="46" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gp-fI-hnz" customClass="DLRadioButton">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gp-fI-hnz" customClass="DLRadioButton">
                                 <rect key="frame" x="100" y="559" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0Uh-Ah-mCG"/>
@@ -1603,7 +1603,7 @@
                                     <action selector="radioButton:" destination="m7y-kO-bRA" eventType="touchUpInside" id="y62-Dj-xjM"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="ySt-bM-v3h">
+                            <pickerView contentMode="scaleToFill" horizontalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySt-bM-v3h">
                                 <rect key="frame" x="105" y="588" width="192" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="1xc-Rv-SXt"/>
@@ -1643,7 +1643,7 @@
                             <constraint firstItem="v3F-I7-8hB" firstAttribute="leading" secondItem="ED6-gl-v0l" secondAttribute="leading" constant="15" id="UHw-GK-bJx"/>
                             <constraint firstItem="U6G-eX-8gJ" firstAttribute="leading" secondItem="ED6-gl-v0l" secondAttribute="leading" constant="15" id="WbW-ha-9pK"/>
                             <constraint firstItem="0gp-fI-hnz" firstAttribute="leading" secondItem="v3F-I7-8hB" secondAttribute="trailing" constant="39" id="a0E-pn-GVG"/>
-                            <constraint firstItem="NUs-68-SJL" firstAttribute="top" secondItem="g2X-iH-Sdh" secondAttribute="bottom" constant="8" id="aVQ-zi-3uz"/>
+                            <constraint firstItem="NUs-68-SJL" firstAttribute="top" secondItem="g2X-iH-Sdh" secondAttribute="bottom" constant="12" id="aVQ-zi-3uz"/>
                             <constraint firstItem="IIh-ts-yXV" firstAttribute="leading" secondItem="ED6-gl-v0l" secondAttribute="leading" constant="147" id="bGA-5L-2Hq"/>
                             <constraint firstItem="ED6-gl-v0l" firstAttribute="bottom" secondItem="Ttc-bu-4ZS" secondAttribute="bottom" constant="45" id="fgv-4y-vhI"/>
                             <constraint firstItem="ySt-bM-v3h" firstAttribute="leading" secondItem="Ttc-bu-4ZS" secondAttribute="trailing" constant="8" id="fgz-Pm-Ex8"/>
@@ -1654,14 +1654,14 @@
                             <constraint firstItem="dbh-3w-xyK" firstAttribute="leading" secondItem="WVv-f4-RXL" secondAttribute="leading" id="jlE-nu-lMq"/>
                             <constraint firstItem="O0i-rS-nZc" firstAttribute="centerX" secondItem="WVv-f4-RXL" secondAttribute="centerX" constant="150" id="khM-ZE-evO"/>
                             <constraint firstItem="Yt6-lI-yfZ" firstAttribute="trailing" secondItem="c44-RZ-kyy" secondAttribute="trailing" id="lDv-xr-Wpt"/>
-                            <constraint firstItem="igl-sg-hP8" firstAttribute="top" secondItem="NUs-68-SJL" secondAttribute="bottom" constant="14" id="lGF-i5-iEU"/>
+                            <constraint firstItem="igl-sg-hP8" firstAttribute="top" secondItem="NUs-68-SJL" secondAttribute="bottom" constant="12" id="lGF-i5-iEU"/>
                             <constraint firstItem="hJz-ey-Lxr" firstAttribute="top" secondItem="U6G-eX-8gJ" secondAttribute="bottom" constant="15" id="qH0-eq-xv6"/>
                             <constraint firstItem="c44-RZ-kyy" firstAttribute="top" secondItem="Yt6-lI-yfZ" secondAttribute="bottom" constant="8" symbolic="YES" id="rhr-1y-cNM"/>
                             <constraint firstItem="ED6-gl-v0l" firstAttribute="trailing" secondItem="g2X-iH-Sdh" secondAttribute="trailing" constant="255" id="t4q-Bh-gws"/>
                             <constraint firstItem="igl-sg-hP8" firstAttribute="leading" secondItem="hJz-ey-Lxr" secondAttribute="trailing" constant="21.5" id="tY5-Lh-FXb"/>
                             <constraint firstItem="g2X-iH-Sdh" firstAttribute="top" secondItem="LgT-fc-b8N" secondAttribute="bottom" constant="15" id="tZG-GY-3B6"/>
                             <constraint firstAttribute="bottom" secondItem="O0i-rS-nZc" secondAttribute="bottom" constant="10" id="thZ-AM-aqs"/>
-                            <constraint firstItem="0gp-fI-hnz" firstAttribute="top" secondItem="igl-sg-hP8" secondAttribute="bottom" constant="11" id="yLM-Te-llY"/>
+                            <constraint firstItem="0gp-fI-hnz" firstAttribute="top" secondItem="igl-sg-hP8" secondAttribute="bottom" constant="13" id="yLM-Te-llY"/>
                             <constraint firstItem="dbh-3w-xyK" firstAttribute="top" secondItem="ED6-gl-v0l" secondAttribute="top" id="z5u-xa-wJZ"/>
                             <constraint firstItem="LgT-fc-b8N" firstAttribute="leading" secondItem="ED6-gl-v0l" secondAttribute="leading" constant="15" id="zE2-Hb-uPu"/>
                         </constraints>
@@ -1676,11 +1676,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="69p-74-iq7">
-                            <connections>
-                                <action selector="openCamera:" destination="m7y-kO-bRA" id="Mh3-Yc-gpO"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="ArtsField" destination="LgT-fc-b8N" id="WkU-dx-Ale"/>
@@ -1791,11 +1786,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="infoIcon" width="30" height="30"/>
+        <image name="infoIcon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="BCa-YC-CQ0"/>
-        <segue reference="isa-PO-meb"/>
+        <segue reference="3md-ng-8KO"/>
         <segue reference="3FN-fF-0dy"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

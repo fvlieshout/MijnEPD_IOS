@@ -41,6 +41,7 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
     private var origineleMapID: Int?
     private var origineleSpecialisme: String?
     private var onderzoek: Int?
+    private var ingesteldeDatum: Date?
     
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -66,9 +67,8 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
+        datePicker?.locale = nederlands
         
-        dateField.inputView = datePicker
-        datePicker?.addTarget(self, action: #selector(NewDocumentViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         documentID = documentIDEdit
         let documentGegevens = dbController.getDocumentgegevens(hetDocumentID: documentID!)
@@ -96,6 +96,8 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
             anderbutton.isSelected = true
         }
         
+        //method om datepicker met 'Klaar' en 'Cancel' knoppen te tonen
+        self.showDatePicker()
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewDocumentViewController.viewTapped(gestureRecognizer:)))
         
         view.addGestureRecognizer(tapGesture)
@@ -111,16 +113,6 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return specialismen.count
-    }
-    
-    @objc func dateChanged(datePicker: UIDatePicker){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        
-        dateField.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true)
-        
-        
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -188,7 +180,7 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         do {
             if (docSpecialisme == origineleSpecialisme) {
                 nieuwMapID = origineleMapID
-                print(nieuwMapID)
+                print(nieuwMapID!)
             }
             else {
                 nieuwMapID = dbController.getMapID(mapnaam: "Nieuwe documenten", specialisme: docSpecialisme)
@@ -240,7 +232,7 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    //Zorgt voor een placeholder text binnen het beschrijving vak, textview ondersteund dit namelijk native niet.
+    //Zorgt voor een placeholder text binnen het beschrijving vak, textview ondersteunt dit namelijk native niet.
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if descField.text == "Beschrijving" {
@@ -263,58 +255,49 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         }
     }
     
-    //Bij het drukken op de cameraknop wordt er een IOS actiosheet geopend die de opties geeft voor het kiezen van een foto uit de foto bibliotheek of de camera opent
-    
-    @IBAction func openCamera(_ sender: Any) {
+    func showDatePicker(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy" //Your date format
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00") //Current time zone
+        //according to date format your date string
+        print(dateField.text!)
+        guard let pickerDatum = dateFormatter.date(from: dateField.text!) else {
+            fatalError()
+        }
+        ingesteldeDatum = pickerDatum
+        datePicker?.setDate(ingesteldeDatum!, animated: true)
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
         
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
+        //done button & cancel button
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelDatePicker))
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
         
-        let actionSheet = UIAlertController(title: "Photo source", message: "Choose source", preferredStyle: .actionSheet)
-        
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action: UIAlertAction) in
-            
-            if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                imagePickerController.sourceType = .camera
-                self.present(imagePickerController, animated: true, completion: nil)
-            } else {
-                let alertController = UIAlertController(title: "mijnEPD", message:
-                    "Camera is niet beschikbaar", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                
-                self.present(alertController, animated: true, completion: nil)
-            }
-            
-            
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Foto Bibliotheek", style: .default, handler: { (action: UIAlertAction) in
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController, animated: true, completion: nil)
-        }))
-        
-        actionSheet.addAction(UIAlertAction(title: "Annuleer", style: .cancel, handler: nil))
-        
-        self.present(actionSheet, animated: true, completion: nil)
+        // add toolbar to textField
+        dateField.inputAccessoryView = toolbar
+        // add datepicker to textField
+        dateField.inputView = datePicker
         
     }
     
-    
-    
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        imageViewer.image = image
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-    }
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: nil)
+    @objc func donedatePicker(){
+        //For date formate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        dateField.text = formatter.string(from: datePicker!.date)
+        ingesteldeDatum = datePicker!.date
+        //dismiss date picker dialog
+        self.view.endEditing(true)
     }
     
-    
+    @objc func cancelDatePicker(){
+        //cancel button dismiss datepicker dialog
+        self.view.endEditing(true)
+        datePicker?.setDate(ingesteldeDatum!, animated: true)
+    }
 }
 
 //Zorgt ervoor dat de return knop in het keyboard naar behoren werkt

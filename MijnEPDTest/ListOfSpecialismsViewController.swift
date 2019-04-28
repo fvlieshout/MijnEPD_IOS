@@ -11,6 +11,7 @@
 import UIKit
 
 // Door deze variabele buiten de class te plaatsen, kan hij ook in andere ViewControllers benaderd worden
+var nederlands = Locale(identifier: "nl")
 var gekozenSpecialisme = ""
 
 class ListOfSpecialismsViewController: UIViewController {
@@ -26,8 +27,13 @@ class ListOfSpecialismsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         specialisms = dbController.getSpecialismenArrayMetPlaatjes()
+        
+        //onderstaande code zorgt ervoor dat de cursor in de hele app een zwarte kleur heeft
+        UITextField.appearance().tintColor = UIColor.black
+        UITextView.appearance().tintColor = UIColor.black
     }
     @IBAction func toonInfo(_ sender: Any) {
+        gekozenSpecialisme = ""
         self.performSegue(withIdentifier: "toonInformatie", sender: self)
     }
 }

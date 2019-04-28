@@ -44,6 +44,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     let dbController = DatabaseConnector()
     var specialismen: [String] = []
     var toast = ToastMessage()
+    var ingesteldeDatum = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +61,10 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
+        datePicker?.locale = nederlands
+        //method om datepicker met 'Klaar' en 'Cancel' knoppen te tonen
+        self.showDatePicker()
         
-        dateField.inputView = datePicker
-        datePicker?.addTarget(self, action: #selector(NewDocumentViewController.dateChanged(datePicker:)), for: .valueChanged)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(NewDocumentViewController.viewTapped(gestureRecognizer:)))
         
@@ -79,16 +81,6 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return specialismen.count
-    }
-    
-    @objc func dateChanged(datePicker: UIDatePicker){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
-        
-        dateField.text = dateFormatter.string(from: datePicker.date)
-        view.endEditing(true)
-        
-     
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -292,7 +284,41 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         picker.dismiss(animated: true, completion: nil)
     }
     
+    func showDatePicker(){
+        datePicker?.setDate(ingesteldeDatum, animated: true)
+        
+        //ToolBar
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        //done button & cancel button
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donedatePicker))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(cancelDatePicker))
+        toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+        
+        // add toolbar to textField
+        dateField.inputAccessoryView = toolbar
+        // add datepicker to textField
+        dateField.inputView = datePicker
+        
+    }
     
+    @objc func donedatePicker(){
+        //For date formate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        dateField.text = formatter.string(from: datePicker!.date)
+        ingesteldeDatum = datePicker!.date
+        //dismiss date picker dialog
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
+        //cancel button dismiss datepicker dialog
+        self.view.endEditing(true)
+        datePicker?.setDate(ingesteldeDatum, animated: true)
+    }
 }
 
 //Zorgt ervoor dat de return knop in het keyboard naar behoren werkt
