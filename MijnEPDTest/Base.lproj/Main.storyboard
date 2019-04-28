@@ -1789,6 +1789,7 @@
         <image name="infoIcon" width="20" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="NCM-JB-MNM"/>
         <segue reference="BCa-YC-CQ0"/>
         <segue reference="3md-ng-8KO"/>
         <segue reference="3FN-fF-0dy"/>

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		76AE8CCF2275E78000909D9D /* DatePickerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE8CCE2275E78000909D9D /* DatePickerHandler.swift */; };
+		76AE8CD12276044000909D9D /* ImageZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE8CD02276044000909D9D /* ImageZoomView.swift */; };
+		76AE8CD32276054200909D9D /* FullscreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76AE8CD22276054200909D9D /* FullscreenViewController.swift */; };
 		8F7F0AEC2247B65A009B0229 /* ListOfDocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */; };
 		D23E36B42142767D00DE908D /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D23E36AF2142767C00DE908D /* DLRadioButton.m */; };
 		D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23E36B02142767C00DE908D /* TestPaginaViewController.swift */; };
@@ -54,6 +56,8 @@
 
 /* Begin PBXFileReference section */
 		76AE8CCE2275E78000909D9D /* DatePickerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHandler.swift; sourceTree = "<group>"; };
+		76AE8CD02276044000909D9D /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
+		76AE8CD22276054200909D9D /* FullscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenViewController.swift; sourceTree = "<group>"; };
 		8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfDocumentsViewController.swift; sourceTree = "<group>"; };
 		D213908B21496B070082D35C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D23E36AF2142767C00DE908D /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 				F04F2F842116461C0052BB27 /* ListOfFoldersViewController.swift */,
 				8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */,
 				D2CB0BE821459740001A8836 /* ListOfMedicatieViewController.swift */,
+				76AE8CD22276054200909D9D /* FullscreenViewController.swift */,
 				F04F2F08210B0D710052BB27 /* AppDelegate.swift */,
 				F04F2F7C21161A7F0052BB27 /* SpecialismCell.swift */,
 				F04F2F8021163F280052BB27 /* FolderCell.swift */,
@@ -164,6 +169,7 @@
 				D23E36AF2142767C00DE908D /* DLRadioButton.m */,
 				D23E36B12142767C00DE908D /* ISRadioButton.swift */,
 				76AE8CCE2275E78000909D9D /* DatePickerHandler.swift */,
+				76AE8CD02276044000909D9D /* ImageZoomView.swift */,
 			);
 			path = MijnEPDTest;
 			sourceTree = "<group>";
@@ -323,12 +329,14 @@
 				F04F2F8B211990420052BB27 /* ToastMessage.swift in Sources */,
 				F04F2F832116442E0052BB27 /* FolderClass.swift in Sources */,
 				F04F2F7B211609380052BB27 /* ListOfSpecialismsViewController.swift in Sources */,
+				76AE8CD32276054200909D9D /* FullscreenViewController.swift in Sources */,
 				F04F2F7F21161C9B0052BB27 /* Specialism.swift in Sources */,
 				76AE8CCF2275E78000909D9D /* DatePickerHandler.swift in Sources */,
 				D23E36B62142767D00DE908D /* ISRadioButton.swift in Sources */,
 				D2CB0BED2145A10E001A8836 /* ViewDocumentViewController.swift in Sources */,
 				F0870254214169E600B4E99D /* InformatieschermViewController.swift in Sources */,
 				F04F2F09210B0D710052BB27 /* AppDelegate.swift in Sources */,
+				76AE8CD12276044000909D9D /* ImageZoomView.swift in Sources */,
 				D23E36B52142767D00DE908D /* TestPaginaViewController.swift in Sources */,
 				D23E36B72142767D00DE908D /* NewDocumentViewController.swift in Sources */,
 				F04F2F892118914F0052BB27 /* MyError.swift in Sources */,
