@@ -122,7 +122,10 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         mailComposerVC.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
         mailComposerVC.setToRecipients(["sjpinto@gmail.com"])
         mailComposerVC.setSubject("mijnEPD help plus UW NAAM")
-        mailComposerVC.setMessageBody("Email body test", isHTML: false)
+        mailComposerVC.setMessageBody("", isHTML: false)
+        let imageData: NSData = UIImagePNGRepresentation(imageViewer.image!)! as NSData
+        mailComposerVC.addAttachmentData(imageData as Data, mimeType: "image/png", fileName: "imageName.png")
+        self.present(mailComposerVC, animated: true, completion: nil)
         
         return mailComposerVC
     }
@@ -134,9 +137,11 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
-    private func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult, error: Error?) {
+    private func mailComposeController(controller: MFMailComposeViewController,
+                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismiss(animated: true, completion: nil)
     }
+    
     
     func getImage(imageId: String){
         if (imageId == "noImageID") {
