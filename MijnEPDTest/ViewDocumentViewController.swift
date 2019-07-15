@@ -69,6 +69,8 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
             onderzoekField.text = "Röntgenfoto"
         } else if (typeOnderzoek == 5) {
             onderzoekField.text = "Medicatie"
+        } else {
+            onderzoekField.text = "Anders"
         }
         
         //        Volgorde van de velden

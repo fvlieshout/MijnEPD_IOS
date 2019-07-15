@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5uf-yX-zyC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5uf-yX-zyC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1429,13 +1429,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbh-3w-xyK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="270"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="266"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="270" id="Umh-ek-S0T"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIh-ts-yXV">
-                                <rect key="frame" x="147" y="307" width="81" height="73"/>
+                                <rect key="frame" x="147" y="303" width="81" height="73"/>
                                 <state key="normal" title="DisplayAlert">
                                     <color key="titleColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -1444,7 +1444,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Datum" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c44-RZ-kyy">
-                                <rect key="frame" x="15" y="383" width="345" height="30"/>
+                                <rect key="frame" x="15" y="379" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="9Ev-3L-KVA"/>
                                     <constraint firstAttribute="height" constant="30" id="gbW-CN-Hhx"/>
@@ -1454,7 +1454,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Behandelend arts" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LgT-fc-b8N">
-                                <rect key="frame" x="15" y="421" width="345" height="30"/>
+                                <rect key="frame" x="15" y="417" width="345" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="8fN-fW-cHQ"/>
                                     <constraint firstAttribute="width" constant="345" id="CJU-m3-kHK"/>
@@ -1464,7 +1464,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Yt6-lI-yfZ">
-                                <rect key="frame" x="15" y="298" width="345" height="77"/>
+                                <rect key="frame" x="15" y="294" width="345" height="77"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="77" id="riV-rI-S8R"/>
@@ -1489,7 +1489,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-iH-Sdh" customClass="DLRadioButton">
-                                <rect key="frame" x="100" y="466" width="20" height="20"/>
+                                <rect key="frame" x="100" y="462" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="fMW-hn-Jrh"/>
                                     <constraint firstAttribute="width" constant="20" id="zgP-MV-jpF"/>
@@ -1536,7 +1536,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igl-sg-hP8" customClass="DLRadioButton">
-                                <rect key="frame" x="100" y="528" width="20" height="20"/>
+                                <rect key="frame" x="100" y="526" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Inx-XC-jD3"/>
                                     <constraint firstAttribute="width" constant="20" id="XFF-tM-WoJ"/>
@@ -1786,7 +1786,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="infoIcon" width="20" height="20"/>
+        <image name="infoIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="NCM-JB-MNM"/>
