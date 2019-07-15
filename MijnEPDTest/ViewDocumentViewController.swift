@@ -96,7 +96,7 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     private func setupNavigationBarItems(){
         
         let delenKnop = UIButton(type: .system)
-        delenKnop.setImage(#imageLiteral(resourceName: "Icon-Small"), for: .normal)
+        delenKnop.setImage(#imageLiteral(resourceName: "ShareNew"), for: .normal)
         self.view.addSubview(delenKnop)
         delenKnop.addTarget(self, action: #selector(sendMail), for: UIControlEvents.touchUpInside)
         
@@ -123,7 +123,7 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         mailComposerVC.setToRecipients(["sjpinto@gmail.com"])
         mailComposerVC.setSubject("mijnEPD help plus UW NAAM")
         mailComposerVC.setMessageBody("", isHTML: false)
-        let imageData: NSData = UIImagePNGRepresentation(imageViewer.image!)! as NSData
+        let imageData = UIImagePNGRepresentation(imageViewer.image!)! as NSData
         mailComposerVC.addAttachmentData(imageData as Data, mimeType: "image/png", fileName: "imageName.png")
         self.present(mailComposerVC, animated: true, completion: nil)
         
