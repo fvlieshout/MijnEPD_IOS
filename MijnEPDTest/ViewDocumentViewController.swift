@@ -2,7 +2,7 @@
 //  ViewDocumentViewController.swift
 //  MijnEPDTest
 //
-//  Created by Miró Scholten on 09-09-18.
+//  Created by Noel Bainathsah on 09-09-18.
 //  Copyright © 2018 Floor van Lieshout. All rights reserved.
 //
 
@@ -146,6 +146,7 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     func getImage(imageId: String){
         if (imageId == "noImageID") {
             imageViewer.image = #imageLiteral(resourceName: "iosNote")
+            imageViewer.contentMode = .scaleAspectFit
         }
         else {
         let fileManager = FileManager.default
