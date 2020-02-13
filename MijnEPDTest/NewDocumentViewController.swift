@@ -2,7 +2,7 @@
 //  NewDocumentViewController.swift
 //  MijnEPDTest
 //
-//  Created by Miró Scholten on 14-08-18.
+//  Created by Noel Bainathsah on 14-08-18.
 //  Copyright © 2018 Floor van Lieshout. All rights reserved.
 //
 

@@ -11,6 +11,7 @@ import MessageUI
 
 var onderzoek = false
 var documentIDEdit = -1
+var imageFSID = ""
 
 class ViewDocumentViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, MFMailComposeViewControllerDelegate {
     
@@ -24,6 +25,7 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var specialismeField: UITextField!
     @IBOutlet weak var editKnop: UIBarButtonItem!
     @IBOutlet weak var delenKnop: UIBarButtonItem!
+    @IBOutlet weak var imageScrollView: ImageScrollView!
     
     let dbController = DatabaseConnector()
     var specialisme = ""
@@ -55,10 +57,10 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         artsField.isUserInteractionEnabled = false
         specialismeField.isUserInteractionEnabled = false
         
-        //fullscreen image
-        let pictureTap = UITapGestureRecognizer(target: self, action: #selector(ViewDocumentViewController.imageTapped(_:)))
-        imageViewer.addGestureRecognizer(pictureTap)
+        //naarFullscreen
         imageViewer.isUserInteractionEnabled = true
+        imageViewer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.naarFullscreen)))
+        
         
         //Bepalen van het type onderzoek in tekst
         let typeOnderzoek = Int(documentGegevens[3])
@@ -153,37 +155,46 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
         if fileManager.fileExists(atPath: imagePath){
             imageViewer.image = UIImage(contentsOfFile: imagePath)
+            imageFSID = imageId
+            
         }else{
             print("Geen afbeelding gevonden")
         }
         }
     }
     
-    @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = UIScreen.main.bounds
-        newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
-        newImageView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
-    }
     
-    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
-        sender.view?.removeFromSuperview()
-    }
+    
+// @IBAction func imageTapped(_ sender: UITapGestureRecognizer) {
+//        let imageView = sender.view as! UIImageView
+//        let newImageView = UIImageView(image: imageView.image)
+//        newImageView.frame = UIScreen.main.bounds
+//        newImageView.backgroundColor = .black
+//        newImageView.contentMode = .scaleAspectFit
+//        newImageView.isUserInteractionEnabled = true
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
+//        newImageView.addGestureRecognizer(tap)
+//        self.view.addSubview(newImageView)
+//        self.navigationController?.isNavigationBarHidden = true
+//        self.tabBarController?.tabBar.isHidden = true
+//    }
+//
+//    @objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
+//        self.navigationController?.isNavigationBarHidden = false
+//        self.tabBarController?.tabBar.isHidden = false
+//        sender.view?.removeFromSuperview()
+//    }
         
     @objc func naarBewerken(){
         documentIDEdit = documentID!
         performSegue(withIdentifier: "naarBewerken", sender: UIButton.self)
         
     }
+    
+    @objc func naarFullscreen(){
+           performSegue(withIdentifier: "naarFullscreen", sender: UIButton.self)
+           
+       }
         
         
         
