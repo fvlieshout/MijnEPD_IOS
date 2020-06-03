@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:MijnEPDTest.xcodeproj">
+      location = "self:/Users/nsbainathsah/Documents/MijnEPD_IOS/MijnEPD.xcodeproj">
    </FileRef>
 </Workspace>

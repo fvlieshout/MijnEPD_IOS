@@ -2,7 +2,7 @@
 //  FullscreenViewController.swift
 //  MijnEPDTest
 //
-//  Created by Thijs Frederik van Haaps on 28/04/2019.
+//  Created by Noël Bainathsah on 28/04/2019.
 //  Copyright © 2019 Floor van Lieshout. All rights reserved.
 //
 

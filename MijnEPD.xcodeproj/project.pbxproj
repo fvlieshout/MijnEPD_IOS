@@ -280,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F04F2F00210B0D710052BB27 /* Build configuration list for PBXProject "MijnEPDTest" */;
+			buildConfigurationList = F04F2F00210B0D710052BB27 /* Build configuration list for PBXProject "MijnEPD" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -544,7 +544,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -564,7 +564,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -653,7 +653,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F04F2F00210B0D710052BB27 /* Build configuration list for PBXProject "MijnEPDTest" */ = {
+		F04F2F00210B0D710052BB27 /* Build configuration list for PBXProject "MijnEPD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F04F2F2B210B0D730052BB27 /* Debug */,
