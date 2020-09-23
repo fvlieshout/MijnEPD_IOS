@@ -100,36 +100,13 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         let delenKnop = UIButton(type: .system)
         delenKnop.setImage(#imageLiteral(resourceName: "ShareNew"), for: .normal)
         self.view.addSubview(delenKnop)
-        delenKnop.addTarget(self, action: #selector(sendMail), for: UIControlEvents.touchUpInside)
+        delenKnop.addTarget(self, action: #selector(showComposer), for: UIControlEvents.touchUpInside)
         
         let editKnop = UIButton(type: .system)
         editKnop.setTitle("Bewerken", for: .normal)
         editKnop.addTarget(self, action: #selector(ViewDocumentViewController.naarBewerken), for: UIControlEvents.touchUpInside)
         navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: delenKnop), UIBarButtonItem(customView: editKnop)]
     
-    }
-    
-    @objc func sendMail() {
-        let mailComposeViewController = configureMailController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            showMailError()
-        }
-        
-    }
-    
-    func configureMailController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
-        mailComposerVC.setToRecipients(["sjpinto@gmail.com"])
-        mailComposerVC.setSubject("mijnEPD help plus UW NAAM")
-        mailComposerVC.setMessageBody("", isHTML: false)
-        let imageData = UIImagePNGRepresentation(imageViewer.image!)! as NSData
-        mailComposerVC.addAttachmentData(imageData as Data, mimeType: "image/png", fileName: "imageName.png")
-        self.present(mailComposerVC, animated: true, completion: nil)
-        
-        return mailComposerVC
     }
     
     func showMailError(){
@@ -139,10 +116,29 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
-    private func mailComposeController(controller: MFMailComposeViewController,
-                               didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismiss(animated: true, completion: nil)
+    
+    @objc func showComposer() {
+        
+        guard MFMailComposeViewController.canSendMail() else {
+                    //Show alert informing the user
+                    showMailError()
+        return
     }
+    
+        let composer = MFMailComposeViewController()
+                composer.mailComposeDelegate = self
+        
+        composer.setToRecipients(["sjpinto@gmail.com"])
+        composer.setSubject("mijnEPD help plus UW NAAM")
+        composer.setMessageBody("", isHTML: false)
+        
+        let imageData = UIImagePNGRepresentation(imageViewer.image!)! as NSData
+        composer.addAttachmentData(imageData as Data, mimeType: "image/png", fileName: "imageName.png")
+        
+        present(composer, animated: true)
+        
+    }
+    
     
     
     func getImage(imageId: String){
@@ -195,13 +191,11 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
            performSegue(withIdentifier: "naarFullscreen", sender: UIButton.self)
            
        }
-        
-        
+    
+
         
         
     }
-    
+
 
     
-    
-
