@@ -196,7 +196,7 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
             //displaying a success message
             print("mijnEPDdocument is succesvol opgeslagen")
             opgeslagenDocument = documentID!
-            self.performSegue(withIdentifier: "testSegue", sender: self)
+            self.performSegue(withIdentifier: "naarMenu", sender: self)
             let toaster = ToastMessage()
             toaster.displayToast(message: "De wijzigingen zijn succesvol opgeslagen", duration: 3, viewController: self)
 
@@ -262,7 +262,7 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         //according to date format your date string
         print(dateField.text!)
         guard let pickerDatum = dateFormatter.date(from: dateField.text!) else {
-            fatalError()
+            return
         }
         ingesteldeDatum = pickerDatum
         datePicker?.setDate(ingesteldeDatum!, animated: true)

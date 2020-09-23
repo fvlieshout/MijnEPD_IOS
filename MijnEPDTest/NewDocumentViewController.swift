@@ -185,7 +185,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
             print("mijnEPDdocument is succesvol opgeslagen")
           
             opgeslagenDocument = dbController.getDocumentID(docunaam: docTitel!, specialisme: docSpecialisme!, mapnaam: "Nieuwe documenten")
-            self.performSegue(withIdentifier: "testSegue", sender: self)
+            self.performSegue(withIdentifier: "naarMenu", sender: self)
             let toaster = ToastMessage()
             toaster.displayToast(message: "Het document is opgeslagen in de map 'Nieuwe documenten' onder het specialisme " + docSpecialisme!, duration: 3, viewController: self)
         } catch MyError.documentBestaatAlInMapBijAanmaken() {
