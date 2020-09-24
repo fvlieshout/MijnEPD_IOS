@@ -13,7 +13,7 @@ var onderzoek = false
 var documentIDEdit = -1
 var imageFSID = ""
 
-class ViewDocumentViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate, MFMailComposeViewControllerDelegate {
+class ViewDocumentViewController: UIViewController, UINavigationControllerDelegate, UITextViewDelegate {
     
     //outlets voor de tekstvelden en radiobutton
     @IBOutlet weak var titelField: UITextField!
@@ -192,10 +192,35 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
            
        }
     
-
-        
-        
-    }
-
-
     
+        
+        
+}
+
+extension ViewDocumentViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        if let _ = error {
+            //Show error alert
+            controller.dismiss(animated: true)
+            return
+        }
+        
+        switch result {
+        case .cancelled:
+            print("Cancelled")
+        case .failed:
+            print("Failed to send")
+        case .saved:
+            print("Saved")
+        case .sent:
+            print("Email Sent")
+        @unknown default:
+            break
+        }
+        
+        controller.dismiss(animated: true)
+    }
+    
+}
