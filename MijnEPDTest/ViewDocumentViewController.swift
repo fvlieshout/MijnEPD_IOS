@@ -97,10 +97,11 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     
     private func setupNavigationBarItems(){
         
+        
         let delenKnop = UIButton(type: .system)
         delenKnop.setImage(#imageLiteral(resourceName: "ShareNew"), for: .normal)
         self.view.addSubview(delenKnop)
-        delenKnop.addTarget(self, action: #selector(showComposer), for: UIControlEvents.touchUpInside)
+        delenKnop.addTarget(self, action: #selector(showAlert), for: UIControlEvents.touchUpInside)
         
         let editKnop = UIButton(type: .system)
         editKnop.setTitle("Bewerken", for: .normal)
@@ -109,15 +110,27 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
     
     }
     
-    func showMailError(){
+    @objc func showMailError(){
         let sendMailErrorAlert = UIAlertController(title: "Email kan niet worden verzonden", message: "MijnEPD heeft een probleem ervaren met het verzenden van uw bericht", preferredStyle: .alert)
         let dismiss = UIAlertAction(title: "Ok", style: .default, handler: nil)
         sendMailErrorAlert.addAction(dismiss)
         self.present(sendMailErrorAlert, animated: true, completion: nil)
     }
     
+    @objc func showAlert() {
+        let alertController = UIAlertController(title: "Waarschuwing", message:
+            "Het gebruik van email voor het versturen van medische gegeven wordt afgeraden, mijnEPD neemt geen verantwoordelijkheid in de hantering van uw medische data", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Annuleren", style: .default))
+        alertController.addAction(UIAlertAction(title: "Versturen", style: .default, handler: { (action) in self.showComposer()
+            
+        }))
+            
+
+        self.present(alertController, animated: true, completion: nil)
+    }
     
-    @objc func showComposer() {
+    
+    func showComposer() {
         
         guard MFMailComposeViewController.canSendMail() else {
                     //Show alert informing the user

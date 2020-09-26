@@ -541,7 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SarahJoanPinto.MijnEPDTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SarahJoanPinto.MijnEPD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -562,7 +562,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = SarahJoanPinto.MijnEPDTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SarahJoanPinto.MijnEPD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
