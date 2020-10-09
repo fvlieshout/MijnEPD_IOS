@@ -291,6 +291,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         
+        
+        
         //done button & cancel button
         let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donedatePicker))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
@@ -301,6 +303,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         dateField.inputAccessoryView = toolbar
         // add datepicker to textField
         dateField.inputView = datePicker
+        
         
     }
     

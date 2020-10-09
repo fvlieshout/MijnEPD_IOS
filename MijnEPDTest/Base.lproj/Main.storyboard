@@ -1133,10 +1133,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="rLf-qD-H9s">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titel" textAlignment="center" minimumFontSize="17" id="hqx-OA-pzA">
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Titel" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" clearButtonMode="always" id="hqx-OA-pzA">
                             <rect key="frame" x="121" y="5" width="133" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="backgroundColor" red="0.71943968530000002" green="0.21995612980000001" blue="0.23527500030000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.71943968530000002" green="0.21995612980000001" blue="0.23527500030000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="eGn-Hl-zbN">
@@ -1708,7 +1711,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JE8-xD-83K"/>
+        <segue reference="qtV-M6-D1l"/>
+        <segue reference="BCa-YC-CQ0"/>
         <segue reference="8dL-4C-bPN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

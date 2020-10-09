@@ -62,6 +62,7 @@
 		76AE8CCE2275E78000909D9D /* DatePickerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerHandler.swift; sourceTree = "<group>"; };
 		76AE8CD02276044000909D9D /* ImageZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageZoomView.swift; sourceTree = "<group>"; };
 		76AE8CD22276054200909D9D /* FullscreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenViewController.swift; sourceTree = "<group>"; };
+		8F176A962520D7C0004E3CF6 /* simulator_screenshot_209B5B8B-1971-471C-BB73-360DCA4D24EF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "simulator_screenshot_209B5B8B-1971-471C-BB73-360DCA4D24EF.png"; path = "../../../../var/folders/j0/v5kyrmnx3rq6flqy219xgdxc0000gn/T/simulator_screenshot_209B5B8B-1971-471C-BB73-360DCA4D24EF.png"; sourceTree = "<group>"; };
 		8F7F0AEB2247B65A009B0229 /* ListOfDocumentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfDocumentsViewController.swift; sourceTree = "<group>"; };
 		8F7FB32523DC7A1900DC6736 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollView.swift; sourceTree = "<group>"; };
 		8FB0269B23F5A3AB00379675 /* FullscreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenImageViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F176A952520D7C0004E3CF6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F176A962520D7C0004E3CF6 /* simulator_screenshot_209B5B8B-1971-471C-BB73-360DCA4D24EF.png */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F04F2EFC210B0D710052BB27 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +140,7 @@
 				F04F2F1C210B0D730052BB27 /* MijnEPDTestTests */,
 				F04F2F27210B0D730052BB27 /* MijnEPDTestUITests */,
 				F04F2F06210B0D710052BB27 /* Products */,
+				8F176A952520D7C0004E3CF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -534,15 +544,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CLTG788LP9;
+				DEVELOPMENT_TEAM = V74R634CC9;
 				INFOPLIST_FILE = MijnEPDTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SarahJoanPinto.MijnEPD;
+				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SaraJoanPinto.MijnEPD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -555,15 +569,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CLTG788LP9;
+				DEVELOPMENT_TEAM = V74R634CC9;
 				INFOPLIST_FILE = MijnEPDTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SarahJoanPinto.MijnEPD;
+				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SaraJoanPinto.MijnEPD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MijnEPDTest/MijnEPDTest-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
