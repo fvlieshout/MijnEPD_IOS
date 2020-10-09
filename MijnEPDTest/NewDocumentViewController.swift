@@ -26,6 +26,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var dateField: UITextField!
     @IBOutlet weak var ArtsField: UITextField!
     @IBOutlet weak var OpslaanKnop: UIButton!
+    @IBOutlet weak var specialisme: UITextField!
     @IBOutlet weak var labUitslag: DLRadioButton!
     
     private var datePicker: UIDatePicker?
@@ -39,12 +40,12 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     var imageId = String.random()
     
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var pickerView: UIPickerView!
     
     let dbController = DatabaseConnector()
     var specialismen: [String] = []
     var toast = ToastMessage()
     var ingesteldeDatum = Date()
+    var pickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         ArtsField.delegate = self
         descField.delegate = self
         titelField.delegate = self
+        pickerView.delegate = self
+        pickerView.dataSource = self
         
         descField.text = "Beschrijving"
         descField.textColor = UIColor.lightGray
@@ -70,7 +73,34 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         view.addGestureRecognizer(tapGesture)
         
+        specialisme.inputView = pickerView
+        
+        pickerView.backgroundColor = .white
+        pickerView.showsSelectionIndicator = true
+
+        
+        //Voegt een toolbar toe aan de pickerview om cancel en klaarknoppen te plaatsen.
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 0/255, green: 0/255, blue: 255/255, alpha: 1)
+        toolBar.sizeToFit()
+
+
+        let pickerDoneButton = UIBarButtonItem(title: "Klaar", style: UIBarButtonItemStyle.plain, target: self, action: #selector(donePicker(_:)))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        let cancelButton = UIBarButtonItem(title: "Annuleren", style: UIBarButtonItemStyle.plain, target: self, action: #selector(annuleerPicker(_:)))
+
+        toolBar.setItems([cancelButton, spaceButton, pickerDoneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+
+        specialisme.inputAccessoryView = toolBar
+        
+        
+        
     }
+    
+    //Specialisme pickerview setup
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -81,6 +111,10 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return specialismen.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        specialisme.text = specialismen[row]
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -104,6 +138,18 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
                 docOnderzoek = 5
         }
     }
+    
+    @objc func donePicker(_ sender: UIBarButtonItem){
+        specialisme.resignFirstResponder()
+    }
+    
+    @objc func annuleerPicker(_ sender: UIBarButtonItem){
+        specialisme.text = ""
+        specialisme.resignFirstResponder()
+    }
+   
+    
+    
     
     
     

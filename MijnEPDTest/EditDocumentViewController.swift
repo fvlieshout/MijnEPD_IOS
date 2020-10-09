@@ -102,6 +102,8 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         
         view.addGestureRecognizer(tapGesture)
         
+        
+        
     }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
