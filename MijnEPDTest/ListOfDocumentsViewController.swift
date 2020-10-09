@@ -45,6 +45,14 @@ class ListOfDocumentsViewController: UIViewController, UIPickerViewDelegate, UIP
         tableViewer.addGestureRecognizer(longPress)
     }
     
+    //Knop voor het toevoegen van een nieuw document
+    
+    @IBAction func nieuwDocumentToevoegen(_ sender: Any) {
+        gekozenSpecialisme = ""
+        self.performSegue(withIdentifier: "nieuwDocumentSegue", sender: self)
+    }
+    
+    
     /**
      Functie die wordt aangeroepen als een gebruiker lang op een map drukt
      - Parameter sender: de afzender van de longpress
@@ -186,4 +194,8 @@ extension ListOfDocumentsViewController: UITableViewDelegate, UITableViewDataSou
         self.performSegue(withIdentifier: "naarKijkDocument", sender: self)
             
         }
+    
+    
+    
+    
     }
