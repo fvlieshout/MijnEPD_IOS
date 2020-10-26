@@ -37,6 +37,8 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     private var docArtsNaam: String?
     private var docFilePath: String?
     
+    private var gekozenSpecialisme: String?
+    
     var imageId = String.random()
     
     @IBOutlet weak var label: UILabel!
@@ -46,6 +48,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     var toast = ToastMessage()
     var ingesteldeDatum = Date()
     var pickerView = UIPickerView()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +80,9 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         
         pickerView.backgroundColor = .white
         pickerView.showsSelectionIndicator = true
+        
+        //added an empty value to the beginning of the specialism array to prevent the pickerview value chosen being empty but still being on the anesthesiology row.
+        specialismen.insert("", at: 0)
 
         
         //Voegt een toolbar toe aan de pickerview om cancel en klaarknoppen te plaatsen.
@@ -114,7 +120,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        specialisme.text = specialismen[row]
+        gekozenSpecialisme = specialismen[row]
     }
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
@@ -140,6 +146,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @objc func donePicker(_ sender: UIBarButtonItem){
+        specialisme.text = gekozenSpecialisme
         specialisme.resignFirstResponder()
     }
     

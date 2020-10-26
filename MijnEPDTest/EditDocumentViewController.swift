@@ -61,7 +61,6 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         titelField.delegate = self
         
         descField.text = "Beschrijving"
-        descField.textColor = UIColor.lightGray
         
         labUitslag.isMultipleSelectionEnabled = false
         
@@ -228,6 +227,7 @@ class EditDocumentViewController: UIViewController, UIImagePickerControllerDeleg
         let fileManager = FileManager.default
         let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
         if fileManager.fileExists(atPath: imagePath){
+            imageViewer.transform = imageViewer.transform.rotated(by: .pi / 2)
             imageViewer.image = UIImage(contentsOfFile: imagePath)
         }else{
             print("Geen afbeelding gevonden")

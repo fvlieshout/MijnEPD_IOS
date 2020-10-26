@@ -158,12 +158,14 @@ class ViewDocumentViewController: UIViewController, UINavigationControllerDelega
         if (imageId == "noImageID") {
             imageViewer.image = #imageLiteral(resourceName: "iosNote")
             imageViewer.contentMode = .scaleAspectFit
+
         }
         else {
         let fileManager = FileManager.default
         let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(imageId)
         if fileManager.fileExists(atPath: imagePath){
             imageViewer.image = UIImage(contentsOfFile: imagePath)
+            imageViewer.transform = imageViewer.transform.rotated(by: .pi / 2)// 90˚
             imageFSID = imageId
             
         }else{
