@@ -191,7 +191,7 @@ class NewDocumentViewController: UIViewController, UIImagePickerControllerDelega
         if(imageViewer.image == nil) {
             
             let alertController = UIAlertController(title: "Geen afbeelding gelecteerd", message:
-                "Weet u zeker dat u geen afbeelding wilt selecteren. Afbeeldingen kunnen niet later nog worden toegevoegd.", preferredStyle: UIAlertControllerStyle.alert)
+                "Weet u zeker dat u geen afbeelding wilt selecteren. Afbeeldingen kunnen niet later nog worden toegevoegd. In dit geval zal het document als notitie worden opgeslagen", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: { (action) in alertController.dismiss(animated: true, completion: nil)
                 return
                 }))
